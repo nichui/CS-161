@@ -8,6 +8,8 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.1",
     "antd": "^4.12.3",
+    "axios": "^0.21.1",
+    "babel-plugin-import": "^1.13.3",
     "firebase": "^8.2.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -17,6 +19,7 @@
     "react-toastify": "^7.0.3",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
+    "slugify": "^1.4.6",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
