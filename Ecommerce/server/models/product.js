@@ -46,9 +46,15 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+<<<<<<< HEAD
     images: {
         type: Array
     },
+=======
+    /*images: {
+        type: Array
+    },*/
+>>>>>>> main
     shipping: {
         type: String,
         enum: ["Yes", "No"],
