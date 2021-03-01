@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         trim: true,
         required: true,
-        maxlength: 32,
+        maxlength: 50,
         text : true,
     },
     slug: {
@@ -46,15 +46,9 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-<<<<<<< HEAD
     images: {
         type: Array
     },
-=======
-    /*images: {
-        type: Array
-    },*/
->>>>>>> main
     shipping: {
         type: String,
         enum: ["Yes", "No"],
