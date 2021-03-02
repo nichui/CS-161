@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductCreate from "../../pages/admin/product/ProductCreate";
-import {Select} from 'antd'
-const {Option} = Select;
+import { Select } from 'antd';
+const { Option } = Select;
 
 
 const ProductCreateForm = ({
@@ -146,24 +146,26 @@ const ProductCreateForm = ({
 
         {/*{categories.length}*/}
 
-        {showSub && (<div>
+        {showSub && (
+            <div>
             <label>Sub Categories</label>
             <Select
                 mode = "multiple"
                 style={{width: '100%'}}
                 placeholder= "Please Select"
                 value={subs}
-
-
                 onChange={(value) => setValues({...values, subs: value})}
             >
 
-                {subOptions.length && subOptions.map((s) =>
+                {subOptions.length &&
+                subOptions.map((s) => (
                     <Option key={s._id} value={s._id}>
                         {s.name}
-                    </Option>)}
+                    </Option>
+                ))}
             </Select>
-        </div>)}
+        </div>
+        )}
         <br/>
 
         <button className="btn btn-outline-info">
