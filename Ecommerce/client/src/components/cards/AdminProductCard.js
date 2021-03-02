@@ -10,7 +10,8 @@ const AdminProductCard = ({product, handleRemove}) => {
     // destructure
     const {title, description, images, slug} = product;
     return (
-        <Card cover={
+        <Card
+            cover={
             <img
                 src={images && images.length ? images[0].url : Default}
                 style={{height: "150px", objectFit: "cover"}}
