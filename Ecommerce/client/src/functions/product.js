@@ -43,3 +43,15 @@ export const getProducts = async (sort, order, page) =>
 export const getProductsCount = async () =>
     // send request to backend to get categories
     await axios.get(`${process.env.REACT_APP_API}/products/total` );
+
+export const productStar = async (productId, star, authtoken) =>
+    // send request to backend to get categories
+    await axios.put(`${process.env.REACT_APP_API}/product/star/${productId}`, {star},{
+        headers : {
+            authtoken,
+        },
+    });
+
+export const getRelated = async (productId) =>
+    // send request to backend to get categories
+    await axios.get(`${process.env.REACT_APP_API}/product/related/${productId}`);
