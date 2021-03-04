@@ -23,16 +23,11 @@ const ProductListItems = ({product}) => {
             {category && <li className="list-group-item">
                 Category{" "}
                 <Link to={`/category/${category.slug}`} className="label label-default label-pill pull-xs-right">
-                    $ {category.name}
+                    {category.name}
                 </Link>
             </li>}
 
-            <li className="list-group-item">
-                Price
-                <span className="label label-default label-pill pull-xs-right">
-                    $ {price}
-                </span>
-            </li>
+
 
             {subs && (
                 <li className="list-group-item">

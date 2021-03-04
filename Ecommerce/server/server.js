@@ -13,8 +13,10 @@ require('dotenv').config();
 // app
 const app = express()
 
+const dbUrl = process.env.DB_URL || process.env.DATABASE;
+
 // db
-mongoose.connect(process.env.DATABASE, {
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: true

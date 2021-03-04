@@ -1,6 +1,7 @@
 const Category = require('../models/category');
 const slugify = require('slugify');
-const Sub = require("../models/sub")
+const Sub = require("../models/sub");
+const Product = require('../models/product');
 // We use slug instead of ID, so parameter for slug would be : slug: slugify(name)
 // Take a look at Category in models file to see schema
 exports.create = async (req, res) => {
@@ -21,7 +22,15 @@ exports.list = async (req, res) => {
 
 exports.read = async (req, res) => {
     let category = await Category.findOne({slug: req.params.slug}).exec();
-    res.json(category);
+    /*res.json(category);*/
+    const products = await Product.find({category})
+        .populate('category')
+        /*.populate('postedBy', '_id name')*/ //for multiple admins
+        .exec();
+    await res.json({
+        category,
+        products
+    })
 };
 
 exports.update = async (req, res) => {
