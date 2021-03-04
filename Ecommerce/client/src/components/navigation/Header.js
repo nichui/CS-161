@@ -1,11 +1,20 @@
 import React, {useState} from 'react'
 import {Menu} from 'antd';
-import { HomeOutlined, SettingOutlined, UserOutlined, UserAddOutlined, LogoutOutlined } from '@ant-design/icons';
+import {
+    HomeOutlined,
+    SettingOutlined,
+    UserOutlined,
+    UserAddOutlined,
+    LogoutOutlined,
+    ShopOutlined,
+    ShoppingOutlined
+} from '@ant-design/icons';
 import Home from "../../pages/Home";
 import {Link} from 'react-router-dom';
 import firebase from 'firebase';
 import {useDispatch, useSelector} from "react-redux";
 import { useHistory } from "react-router-dom";
+import Search from "../forms/Search";
 
 
 const { SubMenu, Item } = Menu; // Menu.SubMenu
@@ -36,6 +45,10 @@ const Header = () => {
             {/* Icons for Navigation components*/}
             <Item key="home" icon={<HomeOutlined />}>
                 <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
+            </Item>
+
+            <Item key="shop" icon={<ShoppingOutlined />}>
+                <Link to="/shop">Shop</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
 
             {!user && (
@@ -72,6 +85,10 @@ const Header = () => {
 
                 </SubMenu>
             )}
+
+            <span className="float-right p-1">
+                <Search />
+            </span>
 
         </Menu>
     )

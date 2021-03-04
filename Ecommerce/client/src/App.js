@@ -27,29 +27,36 @@ import ProductCreate from "./pages/admin/product/ProductCreate";
 import AllProducts from "./pages/admin/product/AllProducts";
 import ProductUpdate from "./pages/admin/product/ProductUpdate";
 import Product from "./pages/Product";
+import CategoryHome from "./pages/category/CategoryHome";
+import SubHome from "./pages/sub/SubHome";
+import Shop from "./pages/Shop";
+
 
 
 import {auth} from './firebase';
 import {useDispatch} from 'react-redux';
 import {createOrUpdateUser, currentUser} from "./functions/auth";
 
+/*/!*import mongoose*!/
+const mongoose = require("mongoose");
+/!*import dotenv*!/
+const dotenv = require("dotenv");
+dotenv.config();*/
+
+/*/!*database connection*!/
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true})
+    .then(() => console.log("DB Connected"));
+
+mongoose.connection.on("error", err => {
+    console.log(`DB connection error: ${err.message}`);
+});*/
+
 
 const App = () => {
     const dispatch = useDispatch();
-    /*
-    /!*import mongoose*!/
-    const mongoose = require("mongoose");
-    /!*import dotenv*!/
-    const dotenv = require("dotenv");
-    dotenv.config();
 
-    /!*database connection*!/
-    mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true})
-        .then(() => console.log("DB Connected"));
 
-    mongoose.connection.on("error", err => {
-        console.log(`DB connection error: ${err.message}`);
-    });*/
+
 
     // to check firebase auth state
     useEffect(() => {
@@ -100,6 +107,11 @@ const App = () => {
                 <AdminRoute exact path="/admin/products" component={AllProducts} />
                 <AdminRoute exact path="/admin/product/:slug" component={ProductUpdate} />
                 <Route exact path="/product/:slug" component={Product} />
+                <Route exact path="/category/:slug" component={CategoryHome} />
+                <Route exact path="/sub/:slug" component={SubHome} />
+                <Route exact path="/shop" component={Shop} />
+
+
 
 
             </Switch>

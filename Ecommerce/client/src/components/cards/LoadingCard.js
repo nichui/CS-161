@@ -3,11 +3,11 @@ import {Card, Skeleton} from "antd";
 
 const LoadingCard = ({count}) => {
     const cards = () => {
-        let totalCards = []
+        let totalCards = [];
 
         for(let i = 0; i < count; i++){
             totalCards.push(
-                <Card className="col-md-4">
+                <Card key={i} className="col-md-4">
                     <Skeleton active>
 
                     </Skeleton>
