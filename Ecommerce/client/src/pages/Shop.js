@@ -37,9 +37,9 @@ const Shop = () => {
 
     let dispatch = useDispatch();
 
-    let {search} = useSelector((state) => ({...state}));
+    let {search} = useSelector((state) => ({ ...state }));
 
-    const {text} = search;
+    const { text } = search;
 
     useEffect(() => {
         loadAllProducts();
@@ -70,7 +70,7 @@ const Shop = () => {
     useEffect(() => {
         const delayed = setTimeout(() => {
             fetchProducts({query: text});
-        }, 300)
+        }, 300);
         return () => clearTimeout(delayed)
 
 
@@ -222,7 +222,7 @@ const Shop = () => {
         fetchProducts({sub});
 
 
-    }
+    };
 
 
 
@@ -230,6 +230,7 @@ const Shop = () => {
     const showBrands = () =>
         brands.map((b) => (
             <Radio
+                key= {b}
                 value={b}
                 name={b}
                 checked={b === brand}
@@ -259,6 +260,7 @@ const Shop = () => {
     const showSeasons = () =>
         seasons.map((s) => (
             <Radio
+                key={s}
                 value={s}
                 name={s}
                 checked={s === season}
@@ -341,7 +343,8 @@ const Shop = () => {
                                 <Slider
                                     className="ml-4 mr-4"
                                     tipFormatter={(v) => `$${v}`}
-                                    range value={price}
+                                    range
+                                    value={price}
                                     onChange={handleSlider}
                                     max="4999"
                                 />
@@ -393,6 +396,8 @@ const Shop = () => {
                                 {showSubs()}
                             </div>
                         </SubMenu>
+
+                        {/*BRANDS*/}
 
                         <SubMenu
                             key="5"
