@@ -11,6 +11,7 @@
     "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.3",
     "firebase": "^8.2.7",
+    "lodash": "^4.17.21",
     "mongoose": "^5.11.18",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
