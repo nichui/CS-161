@@ -12,13 +12,11 @@ const productSchema = new mongoose.Schema({
     slug: {
         type: String,
         unique: true,
-
         lowercase: true,
         index : true,
     },
     description: {
         type: String,
-
         required: true,
         maxlength: 2000,
         text : true,
@@ -26,7 +24,6 @@ const productSchema = new mongoose.Schema({
 
     price: {
         type: Number,
-
         required: true,
         trim: true,
         maxlength: 32,
