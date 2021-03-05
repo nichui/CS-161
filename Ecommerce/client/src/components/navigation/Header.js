@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Menu} from 'antd';
+import {Menu, Badge} from 'antd';
 import {
     HomeOutlined,
     SettingOutlined,
@@ -7,7 +7,8 @@ import {
     UserAddOutlined,
     LogoutOutlined,
     ShopOutlined,
-    ShoppingOutlined
+    ShoppingOutlined,
+    ShoppingCartOutlined
 } from '@ant-design/icons';
 import Home from "../../pages/Home";
 import {Link} from 'react-router-dom';
@@ -22,7 +23,7 @@ const { SubMenu, Item } = Menu; // Menu.SubMenu
 const Header = () => {
     const [current, setCurrent] = useState("home");
     let dispatch = useDispatch();
-    let {user} = useSelector((state) => ({...state})); /*redux state*/
+    let {user, cart} = useSelector((state) => ({...state})); /*redux state*/
     // access user from state
     let history = useHistory();
 
@@ -51,8 +52,16 @@ const Header = () => {
                 <Link to="/shop">Shop</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
 
+            <Item key="cart" icon={<ShoppingOutlined />}>
+                <Link to="/cart">
+                    <Badge count={cart.length} offset={[9, 0]}>
+                        Cart
+                    </Badge>
+                </Link> {/*Link to = "" equals to href ="" (go to another page)*/}
+            </Item>
+
             {!user && (
-                <Item key="register" icon={<UserAddOutlined />} className="float-right">
+                <Item key="register" icon={<ShoppingCartOutlined />} className="float-right">
                     <Link to="/register">Register</Link>
                 </Item>
             )}
