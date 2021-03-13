@@ -6,13 +6,12 @@ import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import ForgotPassword from "./pages/authentication/ForgotPassword";
 
-
-
 import Login from './pages/authentication/Login';
 import Register from './pages/authentication/Register';
 import Home from './pages/Home';
 import Header from './components/navigation/Header';
-import RegisterComplete from './pages/authentication/RegisterComplete';
+import RegisterUser from './pages/authentication/RegisterUser';
+import RegisterVendor from './pages/authentication/RegisterVendor';
 import History from './pages/user/History';
 import UserRoute from './components/routes/UserRoutes';
 import Password from './pages/user/Password';
@@ -58,9 +57,6 @@ mongoose.connection.on("error", err => {
 const App = () => {
     const dispatch = useDispatch();
 
-
-
-
     // to check firebase auth state
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -97,7 +93,8 @@ const App = () => {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
-                <Route exact path="/register/complete" component={RegisterComplete} />
+                <Route exact path="/register/user" component={RegisterUser} />
+                <Route exact path="/register/vendor" component={RegisterVendor} />
                 <Route exact path="/forgot/password" component={ForgotPassword} />
                 <UserRoute exact path="/user/history" component={History} />
                 <UserRoute exact path="/user/password" component={Password} />
@@ -118,13 +115,8 @@ const App = () => {
                 <UserRoute exact path="/checkout" component={Checkout} />
 
 
-
-
             </Switch>
         </>
-
-
-
 
     );
 }

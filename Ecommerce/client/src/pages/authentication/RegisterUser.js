@@ -4,9 +4,7 @@ import { toast } from 'react-toastify';
 import {useDispatch} from "react-redux";
 import { createOrUpdateUser } from "../../functions/auth";
 
-
-
-const RegisterComplete = ({ history }) => {
+const RegisterUser = ({ history }) => {
     const [email, setEmail] = useState('');
     const[password, setPassword] = useState('');
 
@@ -48,7 +46,7 @@ const RegisterComplete = ({ history }) => {
                 // redux store
                 console.log('user', user, 'idTokenResult', idTokenResult);
 
-                createOrUpdateUser(idTokenResult.token).then(
+                createOrUpdateUser({role: "subscriber"}, idTokenResult.token).then(
                     (res) => {
                         dispatch({
                             type: "LOGGED_IN_USER",
@@ -109,4 +107,4 @@ const RegisterComplete = ({ history }) => {
     );
 };
 
-export default RegisterComplete;
+export default RegisterUser;
