@@ -9,13 +9,13 @@ import {
     ShopOutlined,
     ShoppingOutlined,
     ShoppingCartOutlined
-} from '@ant-design/icons';
-import Home from "../../pages/Home";
+} from '@ant-design/icons'; 
 import {Link} from 'react-router-dom';
 import firebase from 'firebase';
 import {useDispatch, useSelector} from "react-redux";
 import { useHistory } from "react-router-dom";
 import Search from "../forms/Search";
+import './header.css';
 
 
 const { SubMenu, Item } = Menu; // Menu.SubMenu
@@ -44,11 +44,11 @@ const Header = () => {
     return(
         <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
             {/* Icons for Navigation components*/}
-            <Item key="home" icon={<HomeOutlined />}>
-                <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
+            <Item key="home" icon={<HomeOutlined style={{ fontSize: '16px', color: '#3d8a44' }}/>}>
+                <Link style={{ fontSize: '16px', color: '#3d8a44' }} to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
 
-            <Item key="shop" icon={<ShoppingOutlined />}>
+            <Item key="shop" icon={<ShoppingOutlined style={{ fontSize: '16px', color: '#3d8a44' }}/>}>
                 <Link to="/shop">Shop</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
 
