@@ -5,9 +5,6 @@ import {Switch, Route} from 'react-router-dom';
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import ForgotPassword from "./pages/authentication/ForgotPassword";
-
-
-
 import Login from './pages/authentication/Login';
 import Register from './pages/authentication/Register';
 import Home from './pages/Home';
@@ -33,6 +30,8 @@ import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import SideDrawer from "./components/drawer/SideDrawer";
 import Checkout from "./pages/Checkout";
+import CreateCouponPage from "./pages/admin/coupon/CreateCouponPage";
+import Payment from "./pages/Payment";
 
 
 import {auth} from './firebase';
@@ -66,11 +65,10 @@ const App = () => {
         const unsubscribe = auth.onAuthStateChanged(async (user) => {
             if(user){
                 const idTokenResult = await user.getIdTokenResult()
-                console.log("user", user);
+                //console.log("user", user);
 
                 currentUser(idTokenResult.token)
-                    .then(
-                    (res) => {
+                    .then((res) => {
                         dispatch({
                             type: "LOGGED_IN_USER",
                             payload: {
@@ -81,8 +79,8 @@ const App = () => {
                                 _id: res.data._id,
                             },
                         });
-                    }
-                ).catch(err => console.log(err));
+                    })
+                    .catch((err) => console.log(err));
             }
         });
         // cleanup
@@ -116,6 +114,8 @@ const App = () => {
                 <Route exact path="/shop" component={Shop} />
                 <Route exact path="/cart" component={Cart} />
                 <UserRoute exact path="/checkout" component={Checkout} />
+                <AdminRoute exact path="/admin/coupon" component={CreateCouponPage} />
+                <UserRoute exact path="/payment" component={Payment} />
 
 
 
