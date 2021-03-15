@@ -3,10 +3,10 @@ import { auth } from "../../firebase";
 import { toast } from 'react-toastify';
 import { useSelector } from "react-redux";
 
-
 const Register = ({history}) => {
     const [email, setEmail] = useState('');
     const {user} = useSelector(state => ({...state}));
+    const { REACT_APP_REGISTER_VENDOR_REDIRECT_URL } = process.env;
 
     useEffect(() => {
         if(user && user.token){
@@ -18,7 +18,7 @@ const Register = ({history}) => {
         e.preventDefault();
         //console.log('ENV ---->', process.env.REACT_APP_REGISTER_REDIRECT_URL)
         const config = {
-            url: process.env.REACT_APP_REGISTER_REDIRECT_URL,
+            url: REACT_APP_REGISTER_VENDOR_REDIRECT_URL,
             handleCodeInApp: true
         }
         try{
@@ -30,7 +30,27 @@ const Register = ({history}) => {
             toast.error('Invalid Email Form. Please try again!!!');
         }
 
+        // Save user email is local storage
+        window.localStorage.setItem('emailForRegistration', email)
+        // clear state
+        setEmail("");
+    };
 
+    const handleClick = async (e) => {
+        e.preventDefault();
+        //console.log('ENV ---->', process.env.REACT_APP_REGISTER_REDIRECT_URL)
+        const config = {
+            url: process.env.REACT_APP_REGISTER_USER_REDIRECT_URL,
+            handleCodeInApp: true
+        }
+        try{
+            await auth.sendSignInLinkToEmail(email, config)
+            toast.success(`Email is sent to ${email}. Click the link to complete your registration.`
+            );
+        }
+        catch (error) {
+            toast.error('Invalid Email Form. Please try again!!!');
+        }
 
         // Save user email is local storage
         window.localStorage.setItem('emailForRegistration', email)
@@ -47,9 +67,14 @@ const Register = ({history}) => {
                autoFocus
         />
         <br/>
+        <div>
         <button type="submit" className="btn btn-raised">
-            Register
+            Register as vendor
         </button>
+        <button type="button" className="btn btn-raised" onClick={handleClick}>
+            Register as user
+        </button>
+        </div>
     </form>
 
 

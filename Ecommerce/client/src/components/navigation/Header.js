@@ -66,6 +66,7 @@ const Header = () => {
                 </Item>
             )}
 
+
             {/* className = "float-right" to move to right side of Navbar (remember to add Bootstrap first) */}
             {!user && (
                 <Item key="login" icon={<UserOutlined />} className="float-right">
