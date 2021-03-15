@@ -11,7 +11,7 @@ import {useSelector, useDispatch} from "react-redux";
 const {Meta} = Card;
 
 
-const ProductCard = ({product}) => {
+const ProductCard = ({ product }) => {
     const [tooltip, setTooltip] = useState('Click to add');
     //destructure
     const {images, title, description, slug, price} = product;
