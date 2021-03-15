@@ -90,10 +90,14 @@ const StripeCheckout = ({ history }) => {
 
     return (
         <>
-            <p className={succeeded ? 'result-message' : 'result-message hidden'}>
-                Payment Successful. {" "}
-                <Link to="/user/history">See it in your purchase history.</Link>
-            </p>
+            {
+                !succeeded && <div>
+                    {coupon && totalAfterDiscount !== undefined ? (
+                        <p className="alert alert-success">{`Total after discount: ${totalAfterDiscount}`}</p>
+                    ) : (<p className="alert-danger">No coupon applied</p>)}
+                </div>
+            }
+
 
             <div className="text-center pb-5">
                 <Card
@@ -106,6 +110,18 @@ const StripeCheckout = ({ history }) => {
                                 marginBottom: '-50px',
                             }}
                         />}
+                    actions={[
+                        <>
+                            <DollarOutlined className="text-info"/>
+                            <br/>
+                            Total : $ {cartTotal}
+                        </>,
+                        <>
+                            <CheckOutlined className="text-info"/>
+                            <br/>
+                            Total payable : $ {(payable / 100).toFixed(2)}
+                        </>,
+                    ]}
                 />
 
 
@@ -128,6 +144,11 @@ const StripeCheckout = ({ history }) => {
                 </button>
                 <br/>
                 {error && (<div className="card-error" role="alert">{error}</div>)}
+                <br/>
+                <p className={succeeded ? 'result-message' : 'result-message hidden'}>
+                    Payment Successful. {" "}
+                    <Link to="/user/history">See it in your purchase history.</Link>
+                </p>
             </form>
 
         </>
