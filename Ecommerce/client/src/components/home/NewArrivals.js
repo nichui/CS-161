@@ -7,6 +7,7 @@ import {Pagination} from "antd";
 
 
 const NewArrivals = () => {
+    const [state, setState] = useState({});
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(false);
     const [productsCount, setProductsCount] = useState(0);
@@ -14,10 +15,16 @@ const NewArrivals = () => {
 
     useEffect(() => {
         loadAllProducts();
+        return () => {
+            setState({});
+        };
     }, [page]);
 
     useEffect(() => {
         getProductsCount().then(res => setProductsCount(res.data));
+        /*return () => {
+            setState({});
+        };*/
     }, []);
 
     const loadAllProducts = () => {

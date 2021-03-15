@@ -52,7 +52,7 @@ const Header = () => {
                 <Link to="/shop">Shop</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
 
-            <Item key="cart" icon={<ShoppingOutlined />}>
+            <Item key="cart" icon={<ShoppingCartOutlined />}>
                 <Link to="/cart">
                     <Badge count={cart.length} offset={[9, 0]}>
                         Cart
