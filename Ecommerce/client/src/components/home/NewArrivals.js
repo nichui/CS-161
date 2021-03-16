@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-/*import './App.css';*/
 import ProductCard from "../cards/ProductCard";
 import LoadingCard from "../cards/LoadingCard";
 import {getProducts, getProductsCount} from "../../functions/product";
