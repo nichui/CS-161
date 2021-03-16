@@ -1,8 +1,16 @@
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
+var style = {
+  backgroundColor: "#d3edd6",
+};
+
 const Footer = () => {
+  const styleFooter = {
+    backgroundColor: "#d3edd6",
+  };
   return (
+    <div style={styleFooter}>
     <MDBFooter color="stylish-color-dark" className="page-footer font-small pt-4 mt-4">
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
@@ -58,25 +66,7 @@ const Footer = () => {
             </ul>
           </MDBCol>
           <hr className="clearfix w-100 d-md-none" />
-          <MDBCol md="2">
-            <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
-              Links
-            </h5>
-            <ul className="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-          </MDBCol>
+          
         </MDBRow>
       </MDBContainer>
       <hr />
@@ -86,7 +76,7 @@ const Footer = () => {
             <h5 className="mb-1">Register for free</h5>
           </li>
           <li className="list-inline-item">
-            <a href="#!" className="btn btn-danger btn-rounded">
+            <a href="/register" className="btn btn-danger btn-rounded">
               Sign up!
             </a>
           </li>
@@ -127,7 +117,10 @@ const Footer = () => {
           Cool Beans @CS161 Spring 2021
         </MDBContainer>
       </div>
+      
     </MDBFooter>
+    </div>
+    
   );
 }
 
