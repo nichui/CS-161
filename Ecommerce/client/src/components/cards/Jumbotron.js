@@ -7,14 +7,12 @@ var style = {
 };
 
 const Jumbotron = ({text}) => (
-    <div style={style}>
     <Typewriter
         options={{
         strings: text,
         autoStart: true,
         loop: true,
     }} />
-    </div>
 );
 
 export default Jumbotron;
