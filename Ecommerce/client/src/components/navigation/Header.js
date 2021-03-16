@@ -55,22 +55,6 @@ const Header = () => {
         <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
             <div style={style}>
             {/* Icons for Navigation components*/}
-            <Item key="home" icon={<HomeOutlined />}>
-                <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
-            </Item>
-
-            <Item key="shop" icon={<ShoppingOutlined />}>
-                <Link to="/shop">Shop</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
-            </Item>
-
-            <Item key="cart" icon={<ShoppingCartOutlined />}>
-                <Link to="/cart">
-                    <Badge count={cart.length} offset={[9, 0]}>
-                        Cart
-                    </Badge>
-                </Link> {/*Link to = "" equals to href ="" (go to another page)*/}
-            </Item>
-
             {!user && (
                 <Item key="register" icon={<UserAddOutlined />} className="float-right">
                     <Link to="/register" className="float-right">Register</Link>
