@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {getSubs} from "../../functions/sub";
 
 const SubList = () => {
+    const [state, setState] = useState({});
     const [subs, setSubs] = useState([])
     const [loading, setLoading] = useState(false)
 
@@ -12,6 +13,9 @@ const SubList = () => {
             setSubs(res.data);
             setLoading(false);
         });
+        return () => {
+            setState({});
+        };
     }, []);
 
     const showSubs = () => subs.map((s) => (<div
