@@ -23,7 +23,7 @@ const SingleProduct = ({product, onStarClick, star}) => {
     const [tooltip, setTooltip] = useState('Click to add');
     const {user, cart} = useSelector((state) => ({...state}));
     const dispatch = useDispatch()
-    const {title, images, description, _id} = product;
+    const {title, address, city, state, zipcode, images, description, email, phone, _id} = product;
 
     const handleAddToCart = () => {
 
@@ -83,8 +83,8 @@ const SingleProduct = ({product, onStarClick, star}) => {
                     <TabPane tab="Description" key="1">
                         {description && description}
                     </TabPane>
-                    <TabPane tab="More" key="2">
-                        Call us on xxx-xxx-xxxx to learn more about this product.
+                    <TabPane tab="Contact Info" key="2">
+                        Contact us on {email} or {phone} to learn more about this product.
                     </TabPane>
                 </Tabs>
             </div>
@@ -97,6 +97,11 @@ const SingleProduct = ({product, onStarClick, star}) => {
                     {title}
                 </h1>
 
+                <h6 className="p-2">
+                    {address} <br />
+                    {city} {state} {zipcode}
+                </h6>
+                
                 {product && product.ratings && product.ratings.length > 0
                     ? showAverage(product)
                     : <div className="text-center pt-1 pb-3">No rating yet</div>}

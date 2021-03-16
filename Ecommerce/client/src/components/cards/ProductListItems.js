@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom'
 
 const ProductListItems = ({product}) => {
     const {
+        start_date,
+        end_date,
         price,
         category,
         subs,
@@ -11,8 +13,16 @@ const ProductListItems = ({product}) => {
         brand,
         quantity,
         sold, } = product;
+    
     return (
         <ul className="list-group">
+            <li className="list-group-item">
+                Timeline:  {" "}
+                <span className="label label-default label-pill pull-xs-right">
+                {start_date} to {end_date}
+            </span>
+            </li>
+
             <li className="list-group-item">
                 Price {" "}
                 <span className="label label-default label-pill pull-xs-right">
