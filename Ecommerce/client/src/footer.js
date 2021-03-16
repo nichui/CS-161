@@ -10,7 +10,6 @@ const Footer = () => {
     backgroundColor: "#d3edd6",
   };
   return (
-    <div style={styleFooter}>
     <MDBFooter color="stylish-color-dark" className="page-footer font-small pt-4 mt-4">
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
@@ -119,7 +118,6 @@ const Footer = () => {
       </div>
       
     </MDBFooter>
-    </div>
     
   );
 }

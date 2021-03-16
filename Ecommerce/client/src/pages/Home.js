@@ -15,7 +15,6 @@ const Home = () => {
     };
 
     return (
-        <div style={style}>
         <>
     <div className="jumbotron text-danger h1 font-weight-bold text-center">
         <Jumbotron
@@ -51,7 +50,6 @@ const Home = () => {
         <br/>
         <br/>
         </>
-        </div>
 )};
 
 

@@ -10,7 +10,6 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import rootReducer from "./reducers";
-import Footer from "./footer"
 
 
 //store
@@ -23,7 +22,6 @@ ReactDOM.render(
         <BrowserRouter>
             <App />
         </BrowserRouter>
-        <Footer />
     </Provider>,
 
   /*</React.StrictMode>,*/
