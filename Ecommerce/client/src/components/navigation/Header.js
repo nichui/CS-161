@@ -25,10 +25,6 @@ const Header = () => {
         fontFamily: "Verdana",
         
     };
-
-    const styleNav = {
-        paddingRight: "30px",
-    };
     
     const [current, setCurrent] = useState("home");
     let dispatch = useDispatch();
@@ -66,12 +62,14 @@ const Header = () => {
                     <Link to="/login">Login</Link>
                 </Item>
             )}
-            <Item key="home" className="float-left" icon={<HomeOutlined/>}>
+            <Item key="home" className="float-left" icon={<HomeOutlined style={{ fontSize: '16px', color: '#3d8a44' }}/>}>
                 <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
-            <Item key="shop" className="float-left" icon={<ShoppingOutlined/>}>
+
+            <Item key="shop" className="float-left" icon={<ShoppingOutlined style={{ fontSize: '16px', color: '#3d8a44' }}/>}>
                 <Link to="/shop">Shop</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
+
             <Item key="cart" icon={<ShoppingOutlined />}>
                 <Link to="/cart">
                     <Badge count={cart.length} offset={[9, 0]}>
