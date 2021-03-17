@@ -51,9 +51,9 @@ const Header = () => {
         history.push('/login');
     };
     return(
-        
+        <div style={style}>
         <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-            <div style={style}>
+            
             {/* Icons for Navigation components*/}
             {!user && (
                 <Item key="register" icon={<UserAddOutlined />} className="float-right">
@@ -67,17 +67,13 @@ const Header = () => {
                     <Link to="/login">Login</Link>
                 </Item>
             )}
-            <div style={styleNav}>
             <Item key="home" className="float-left" icon={<HomeOutlined/>}>
                 <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
-            </div>
-            <div style={styleNav}>
+            
             <Item key="shop" className="float-left" icon={<ShoppingOutlined/>}>
                 <Link to="/shop">Shop</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
-            </div>
-            <div style={styleNav}>
             <Item key="cart" icon={<ShoppingOutlined />}>
                 <Link to="/cart">
                     <Badge count={cart.length} offset={[9, 0]}>
@@ -85,7 +81,6 @@ const Header = () => {
                     </Badge>
                 </Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
-            </div>
 
 
 
@@ -116,8 +111,8 @@ const Header = () => {
             <span className="float-right p-1">
                 <Search />
             </span>
-            </div>
         </Menu>
+        </div>
     )
 }
 
