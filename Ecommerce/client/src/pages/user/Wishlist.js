@@ -2,6 +2,7 @@ import React from 'react';
 import UserNav from '../../components/navigation/UserNav';
 
 
+
 const Wishlist = () => (
     <div className="container-fluid">
         <div className="row">
