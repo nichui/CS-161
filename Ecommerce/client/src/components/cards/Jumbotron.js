@@ -2,7 +2,7 @@ import React from 'react'
 import Typewriter from 'typewriter-effect'
 
 var style = {
-    fontFamily: "Verdana",
+    fontFamily: "Papyrus",
     color: "#3d8a44",
 };
 

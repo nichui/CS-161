@@ -11,10 +11,10 @@ import SubList from "../components/sub/SubList";
 const Home = () => {
     const style = {
         backgroundColor: "#d0dbd1",
-        backgroundImage: "url('./shark.jpg')",
     };
 
     return (
+        <div style={style}>
         <>
     <div className="jumbotron text-danger h1 font-weight-bold text-center">
         <Jumbotron
@@ -50,6 +50,7 @@ const Home = () => {
         <br/>
         <br/>
         </>
+        </div>
 )};
 
 

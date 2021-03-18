@@ -1,10 +1,6 @@
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
-var style = {
-  backgroundColor: "#d3edd6",
-};
-
 const Footer = () => {
   const styleFooter = {
     backgroundColor: "#d3edd6",
