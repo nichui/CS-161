@@ -86,17 +86,17 @@ const RegisterUser = ({ history }) => {
             />
             
             <input type="email"
-                   className = "form-control"
-                   value = {email}
-                   disabled
+                className = "form-control"
+                value = {email}
+                disabled
             />
 
             <input type="password"
-                   className = "form-control"
-                   value = {password}
-                   onChange={e => setPassword(e.target.value)}
-                   placeholder="Password"
-                   autoFocus
+                className = "form-control"
+                value = {password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Password"
+                autoFocus
             />
             <br/>
 
