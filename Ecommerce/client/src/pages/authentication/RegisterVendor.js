@@ -52,7 +52,7 @@ const RegisterVendor = ({ history }) => {
             const result = await auth.signInWithEmailLink(email, window.location.href);
             //console.log("RESULT", result);
             if (result.user.emailVerified) {
-                //remove user email from local storages
+                //remove user email from local storage
                 window.localStorage.removeItem("emailForRegistration");
 
                 // get user id token
