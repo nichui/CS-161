@@ -13,7 +13,7 @@ require('dotenv').config();
 // app
 const app = express()
 
-const dbUrl = process.env.MONGO_URI || process.env.DATABASE;
+const dbUrl = process.env.MONGO_URL || process.env.DATABASE;
 
 // db
 mongoose.connect(dbUrl, {
