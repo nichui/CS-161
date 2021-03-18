@@ -2,6 +2,7 @@ const User = require('../models/user')
 const Product = require('../models/product')
 const Cart = require('../models/cart');
 const Coupon = require('../models/coupon')
+const Order = require('../models/order')
 
 exports.userCart = async(req, res) => {
 
@@ -110,4 +111,72 @@ exports.applyCouponToUserCart = async (req, res) => {
         {new: true}
     ).exec();
     await res.json(totalAfterDiscount)
+};
+
+exports.createOrder = async(req,res) => {
+    const {paymentIntent} = req.body.stripeResponse;
+    const user = await User.findOne({email: req.user.email}).exec();
+    let {products} = await Cart.findOne({orderedBy: user._id}).exec();
+
+    let newOrder = await new Order({
+        products,
+        paymentIntent,
+        orderedBy: user._id
+    }).save();
+
+    // decrement quantity, increment sold
+    let bulkOption = products.map((item) => {
+        return {
+            updateOne: {
+                filter: {_id: item.product._id}, // IMPORTANT item.product
+                update: {$inc: {quantity: -item.count, sold: +item.count}},
+
+            }
+        }
+    })
+
+    let updated = await Product.bulkWrite(bulkOption, {});
+    console.log('PRODUCT QUANTITY-- AND SOLD++', updated);
+
+    console.log('NEW ORDER SAVED', newOrder);
+
+    await res.json({ ok: true });
+};
+
+exports.orders = async (req, res) => {
+    let user = await User.findOne({email: req.user.email}).exec();
+    let userOrders = await Order.find({orderedBy: user._id}).populate('products.product').exec();
+    await res.json(userOrders);
+};
+
+// addToWishlist wishlist removeFromWishList
+
+exports.addToWishlist = async (req, res) => {
+    const {productId} = req.body
+    const user = await User.findOneAndUpdate(
+        {email: req.user.email},
+        {$addToSet: {wishlist: productId}},
+
+        ).exec();
+
+    await res.json({ok: true});
+}
+
+exports.wishlist = async (req, res) => {
+    const list = await User.findOne({email: req.user.email})
+        .select('wishlist')
+        .populate('wishlist')
+        .exec();
+
+    await res.json(list);
+}
+
+exports.removeFromWishlist = async (req, res) => {
+    const {productId} = req.params;
+    const user = await User.findOneAndUpdate(
+        {email: req.user.email},
+        {$pull : { wishlist: productId}},
+        ).exec();
+
+    await res.json({ok : true});
 };
