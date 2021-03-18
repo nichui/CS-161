@@ -78,8 +78,7 @@ const App = () => {
                                 _id: res.data._id,
                             },
                         });
-                    })
-                    .catch((err) => console.log(err));
+                    }).catch((err) => console.log(err));
             }
         });
         // cleanup

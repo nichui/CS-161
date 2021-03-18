@@ -8,7 +8,7 @@ const RegisterVendor = ({ history }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    var [mailAddr, setMail] = useState('');
+    var   [mailAddr, setMail] = useState('');
     const [workAddr, setWork] = useState('');
     const [checkboxBool, setCheck] = useState('');
     //const {user} = useSelector(state => ({...state}));
@@ -88,8 +88,9 @@ const RegisterVendor = ({ history }) => {
     };
 
     const completeRegistrationForm = () =>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} autocomplete="on">
             <input type="text"
+                name="name"
                 className="form-control"
                 value={name}
                 onChange={e => setName(e.target.value)}
@@ -98,6 +99,7 @@ const RegisterVendor = ({ history }) => {
             />
 
             <input type="text"
+                name="street-address"
                 className="form-control"
                 value={workAddr}
                 onChange={e => setWork(e.target.value)}
@@ -105,13 +107,14 @@ const RegisterVendor = ({ history }) => {
             />
 
             <input type="checkbox"
-                name="same"
+                autocomplete="off"
                 value={checkboxBool}
                 onClick={e => setCheck(e.target.checked)}
                 unchecked />
                 Mailing address is same as business address
 
             <input type="text"
+                autocomplete="off"
                 className="form-control"
                 value={mailAddr}
                 onChange={e => setMail(e.target.value)}
@@ -120,13 +123,14 @@ const RegisterVendor = ({ history }) => {
             />
 
             <input type="email"
+                autocomplete="off"
                 className="form-control"
                 value={email}
                 disabled
-                //autofocus
             />
 
             <input type="password"
+                autocomplete="off"
                 className="form-control"
                 value={password}
                 onChange={e => setPassword(e.target.value)}

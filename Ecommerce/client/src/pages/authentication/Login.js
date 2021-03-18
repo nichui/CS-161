@@ -97,6 +97,7 @@ const Login = ({history}) => {
         auth.signInWithPopup(googleAuthProvider).then( async (result) => {
             const {user} = result;
             const idTokenResult = await user.getIdTokenResult();
+
             currentUser(idTokenResult.token).then(
                 (res) => {
                     dispatch({
@@ -112,6 +113,7 @@ const Login = ({history}) => {
                     roleBasedRedirect(res);
                 }
             ).catch(err => console.log(err));
+            
             //history.push("/");
         })
             .catch((err) => {
