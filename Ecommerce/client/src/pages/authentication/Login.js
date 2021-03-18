@@ -11,7 +11,9 @@ import { HomeOutlined,
     GoogleOutlined} from '@ant-design/icons';
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from 'react-router-dom';
-import {currentUser} from "../../functions/auth";
+import { createOrUpdateUser } from "../../functions/auth";
+
+
 
 
 const Login = ({history}) => {
@@ -64,7 +66,7 @@ const Login = ({history}) => {
             const {user} = result
             const idTokenResult = await user.getIdTokenResult();
 
-            currentUser(idTokenResult.token).then(
+            createOrUpdateUser(idTokenResult.token).then(
                 (res) => {
                     dispatch({
                         type: "LOGGED_IN_USER",
@@ -97,7 +99,7 @@ const Login = ({history}) => {
         auth.signInWithPopup(googleAuthProvider).then( async (result) => {
             const {user} = result;
             const idTokenResult = await user.getIdTokenResult();
-            currentUser(idTokenResult.token).then(
+            createOrUpdateUser(idTokenResult.token).then(
                 (res) => {
                     dispatch({
                         type: "LOGGED_IN_USER",

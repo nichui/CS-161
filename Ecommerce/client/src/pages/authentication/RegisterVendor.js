@@ -8,7 +8,7 @@ const RegisterVendor = ({ history }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    var [mailAddr, setMail] = useState('');
+    const [mailAddr, setMail] = useState('');
     const [workAddr, setWork] = useState('');
     const [checkboxBool, setCheck] = useState('');
     //const {user} = useSelector(state => ({...state}));
@@ -41,7 +41,6 @@ const RegisterVendor = ({ history }) => {
 
         if (checkboxBool) {
             setMail(workAddr);
-            mailAddr = workAddr;
         }
         else if (!mailAddr) {
             toast.error('Mailing address is required')
@@ -52,7 +51,7 @@ const RegisterVendor = ({ history }) => {
             const result = await auth.signInWithEmailLink(email, window.location.href);
             //console.log("RESULT", result);
             if (result.user.emailVerified) {
-                //remove user email from local storages
+                //remove user email from local storage
                 window.localStorage.removeItem("emailForRegistration");
 
                 // get user id token
@@ -62,7 +61,7 @@ const RegisterVendor = ({ history }) => {
                 // redux store
                 console.log('user', user, 'idTokenResult', idTokenResult);
 
-                createOrUpdateUser(idTokenResult.token, {name, workAddr, mailAddr, role:"admin"}).then(
+                createOrUpdateUser({name, workAddr, mailAddr, role:"admin"}, idTokenResult.token).then(
                     (res) => {
                         dispatch({
                             type: "LOGGED_IN_USER",
