@@ -16,6 +16,15 @@ const ProductCreateForm = ({
     // destructure
     const {title,
         description,
+        address,
+        city,
+        states,
+        state,
+        zipcode,
+        email,
+        phone,
+        start_date,
+        end_date,
         price,
         categories,
         category,
@@ -45,6 +54,91 @@ const ProductCreateForm = ({
 
         <div className="form-group">
             <label>
+                Destination Address
+            </label>
+            <input
+                type="text"
+                name="address"
+                className="form-control"
+                value={address}
+                onChange={handleChange}
+            />
+        </div>
+
+        <div className="form-group">
+            <label>
+                City
+            </label>
+            <input
+                type="text"
+                name="city"
+                className="form-control"
+                value={city}
+                onChange={handleChange}
+            />
+        </div>
+
+        <div className="form-group">
+            <label>
+                State
+            </label>
+            <select
+                name="state"
+                className="form-control"
+                onChange={handleChange}
+            >
+                <option> Please select </option>
+                {states.map(s =>
+                    (<option key={s} value={s}>
+                        {s}
+                    </option>
+                    ))}
+
+            </select>
+        </div>
+
+        <div className="form-group">
+            <label>
+                Zip Code
+            </label>
+            <input 
+                type="text"
+                name="zipcode"
+                className="form-control"
+                value={zipcode}
+                onChange={handleChange}
+            />
+        </div>
+
+        <div className="form-group">
+            <label>
+                Email
+            </label>
+            <input 
+                type="text"
+                name="email"
+                className="form-control"
+                value={email}
+                onChange={handleChange}
+            />
+        </div>
+
+        <div className="form-group">
+            <label>
+                Phone Number
+            </label>
+            <p>xxx-xxx-xxxx </p>
+            <input 
+                type="text"
+                name="phone"
+                className="form-control"
+                value={phone}
+                onChange={handleChange}
+            />
+        </div>
+
+        <div className="form-group">
+            <label>
                 Description
             </label>
             <input
@@ -52,6 +146,32 @@ const ProductCreateForm = ({
                 name="description"
                 className="form-control"
                 value={description}
+                onChange={handleChange}
+            />
+        </div>
+
+        <div className="form-group">
+            <label>
+                Start Date
+            </label>
+            <input 
+                type="date"
+                name="start_date"
+                className="form-control"
+                value={start_date}
+                onChange={handleChange}
+            />
+        </div>
+
+        <div className="form-group">
+            <label>
+                End Date
+            </label>
+            <input 
+                type="date"
+                name="end_date"
+                className="form-control"
+                value={end_date}
                 onChange={handleChange}
             />
         </div>

@@ -6,7 +6,8 @@ import { createOrUpdateUser } from "../../functions/auth";
 
 const RegisterUser = ({ history }) => {
     const [email, setEmail] = useState('');
-    const[password, setPassword] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
 
     //const {user} = useSelector(state => ({...state}));
 
@@ -46,7 +47,7 @@ const RegisterUser = ({ history }) => {
                 // redux store
                 console.log('user', user, 'idTokenResult', idTokenResult);
 
-                createOrUpdateUser({role: "subscriber"}, idTokenResult.token).then(
+                createOrUpdateUser(idTokenResult.token, {name, role: "subscriber"}).then(
                     (res) => {
                         dispatch({
                             type: "LOGGED_IN_USER",
@@ -71,6 +72,14 @@ const RegisterUser = ({ history }) => {
 
     const completeRegistrationForm = () =>
         <form onSubmit={handleSubmit}>
+            <input type="text"
+                className="form-control"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                placeholder="Full name"
+                autoFocus
+            />
+            
             <input type="email"
                    className = "form-control"
                    value = {email}
