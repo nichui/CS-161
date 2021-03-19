@@ -45,7 +45,7 @@ const Footer = () => {
             </h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#!">Link 1</a>
+                <a href="/category/san-jose-state-university">SJSU</a>
               </li>
               <li>
                 <a href="#!">Link 2</a>
@@ -62,20 +62,6 @@ const Footer = () => {
           
         </MDBRow>
       </MDBContainer>
-      <hr />
-      <div className="text-center py-3">
-        <ul className="list-unstyled list-inline mb-0">
-          <li className="list-inline-item">
-            <h5 className="mb-1">Register for free</h5>
-          </li>
-          <li className="list-inline-item">
-            <a href="/register" className="btn btn-danger btn-rounded">
-              Sign up!
-            </a>
-          </li>
-        </ul>
-      </div>
-      <hr />
       <div className="text-center">
         <ul className="list-unstyled list-inline">
           <li className="list-inline-item">

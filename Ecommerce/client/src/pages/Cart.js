@@ -29,18 +29,23 @@ const Cart = ({history}) => {
         history.push("/checkout");
     };
 
+    const style = {
+        backgroundColor: "#d0dbd1",
+        color: '#000000',
+    };
+
     const showCartItems = () => (
         <table className="table table-bordered">
             <thead className="thead-light">
                 <tr>
-                    <th scope="col">Image</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Brand</th>
-                    <th scope="col">Season</th>
-                    <th scope="col">Count</th>
-                    <th scope="col">Shipping</th>
-                    <th scope="col">Remove</th>
+                    <th scope="col" style={style}>Image</th>
+                    <th scope="col" style={style}>Title</th>
+                    <th scope="col" style={style}>Price</th>
+                    <th scope="col" style={style}>Brand</th>
+                    <th scope="col" style={style}> Season</th>
+                    <th scope="col" style={style}>Count</th>
+                    <th scope="col" style={style}>Shipping</th>
+                    <th scope="col" style={style}>Remove</th>
                 </tr>
             </thead>
 
@@ -50,7 +55,10 @@ const Cart = ({history}) => {
         </table>
     )
 
-
+    const buttonStyle = {
+        color: '#008000',
+        padding: '5px',
+    };
 
 
 
@@ -97,11 +105,11 @@ const Cart = ({history}) => {
                                 Proceed to Checkout
                             </button>
                         ) : (
-                            <button className="btn btn-sm btn-primary mt-2">
+                            <button className="btn btn-sm btn-primary mt-2" style={{ border: '3px solid' }}>
                                 <Link to={{
                                         pathname: "/login",
                                         state: { from: "cart"},
-                                    }}
+                                    }} style={buttonStyle}
                                 >
                                     Login to Checkout
                                 </Link>
