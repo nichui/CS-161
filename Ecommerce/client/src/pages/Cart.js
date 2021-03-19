@@ -100,6 +100,7 @@ const Cart = ({history}) => {
                             <button
                                 onClick={saveOrderToDb}
                                 className="btn btn-sm btn-primary mt-2"
+                                style={{ border: '3px solid' }}
                                 disabled = {!cart.length}
                             >
                                 Proceed to Checkout
