@@ -1,10 +1,6 @@
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
-var style = {
-  backgroundColor: "#d3edd6",
-};
-
 const Footer = () => {
   const styleFooter = {
     backgroundColor: "#d3edd6",
@@ -17,12 +13,10 @@ const Footer = () => {
             <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
               Got A Spot
             </h5>
-            <p>
               Got A Spot is a website where users can find new places to travel to and see exactly how 
               busy things will be! With our integrated systems to allow users to reserve their place 
               and see all the safety policies involved with visitation, everyone can feel safe traveling 
               and enjoying their time at various locations.
-            </p>
           </MDBCol>
           <hr className="clearfix w-100 d-md-none" />
           <MDBCol md="2">
