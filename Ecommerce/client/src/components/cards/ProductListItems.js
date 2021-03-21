@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
-
+import {Modal, Button, Calendar} from 'antd'
 const ProductListItems = ({product}) => {
     const {
         price,
@@ -11,6 +11,26 @@ const ProductListItems = ({product}) => {
         brand,
         quantity,
         sold, } = product;
+    
+    // set states for reservation modal
+    const [isModalLoading, setModalLoading] = useState(false);
+    const [isModalVisible, setModalVisible] = useState(false);
+    const showModal = () => {
+        setModalVisible('true');
+    }
+    // load for 3sec after submitting modal   
+    const handleOk = () => {
+        setModalLoading(true);
+        setTimeout(() => {
+            setModalLoading(false);
+            setModalVisible(false)
+        },3000);
+    }
+    // cancel modal
+    const handleCancel = () => {
+        setModalVisible(false);
+    }
+    
     return (
         <ul className="list-group">
             <li className="list-group-item">
@@ -67,13 +87,38 @@ const ProductListItems = ({product}) => {
             </span>
             </li>
 
-            <li className="list-group-item">
+            {/* <li className="list-group-item">
                 Available{" "}
                 <span className="label label-default label-pill pull-xs-right">
                 {quantity}
             </span>
+            </li> */}
+            <li className="list-group-item">
+                <div></div>
+                <Button type="primary" block size='large' onClick={showModal}>
+                    <div></div>
+                    Reserve Your Spot
+                </Button>
             </li>
-
+            <Modal
+                visible={isModalVisible}
+                title="Schedule a Time"
+                onOk={handleOk}
+                onCancel={handleCancel}
+                footer={[
+                    <Button key="back" onClick={handleCancel}>
+                    Return
+                    </Button>,
+                    <Button key="submit" type="primary" loading={isModalLoading} onClick={handleOk}>
+                    Submit
+                    </Button>,
+                ]}
+                >
+                  <div className="site-calendar-demo-card">
+                    <Calendar fullscreen={false} />
+                 </div>
+            </Modal> 
+                
             <li className="list-group-item">
                 Sold{" "}
                 <span className="label label-default label-pill pull-xs-right">

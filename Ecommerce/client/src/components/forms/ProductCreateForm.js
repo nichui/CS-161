@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ProductCreate from "../../pages/admin/product/ProductCreate";
-import { Select } from 'antd';
+import { Select} from 'antd';
+
 const { Option } = Select;
 
 
@@ -26,7 +27,9 @@ const ProductCreateForm = ({
         seasons,
         brands,
         season,
-        brand} = values;
+        brand,
+    } = values;
+
     return (
 
     <form onSubmit={handleSubmit}>
@@ -141,7 +144,6 @@ const ProductCreateForm = ({
                 </option>))}
             </select>
         </div>
-
         {/*{subOptions ? subOptions.length : 'no subs yet'}*/}
 
         {/*{categories.length}*/}

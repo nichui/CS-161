@@ -31,8 +31,6 @@ const ProductCreate = () => {
     const [subOptions, setSubOptions] = useState([]);
     const [showSub, setShowSub] = useState(false);
     const [loading, setLoading] = useState(false);
-
-
     //redux
     const {user} = useSelector((state) => ({...state}));
 
@@ -43,9 +41,6 @@ const ProductCreate = () => {
     const loadCategories = () => getCategories().then(c =>
         setValues({...values, categories: c.data})
     );
-
-
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -86,6 +81,44 @@ const ProductCreate = () => {
         setShowSub(true);
     };
 
+    // const handleTimeChange = (time, name) => {
+    //     console.log('Time changes');
+    //     const scheduleIndex = getScheduleIndex(schedules, name);
+    //     const newSchedule = {
+    //         name: name,
+    //         time: time
+    //     }
+    //     if (scheduleIndex === -1){
+    //         setSchedules([...schedules, newSchedule]);
+    //         setValues({...values, availability: schedules});
+    //         return;
+    //     }
+    //     const newArr = [... schedules];
+    //     newArr[scheduleIndex] = newSchedule;
+    //     setSchedules(newArr);
+
+    //     setValues({...values, availability: schedules});
+    // }
+    // const getScheduleIndex =(arr, scheduleName) => {
+    //     return arr.findIndex(x => x.name === scheduleName)
+    // }
+
+    // const handleAdd = () => {
+    //     const newSchedule = {
+    //         name: 'schedule-' + schedules.length,
+    //         time: ''
+    //     }
+    //     const scheduleIndex = getScheduleIndex(schedules, newSchedule.name);
+    //     if (scheduleIndex === -1){
+    //         setSchedules([...schedules, newSchedule])
+    //         setValues({...values, availability: schedules});
+    //         return;
+    //     }
+    //     console.log("this schedule named " + newSchedule.name + " already exists")
+    // }
+    // useEffect(() => {
+    //     console.log(values)
+    // },[])
     return(
         <div className="container-fluid">
             <div className="row">
@@ -116,7 +149,6 @@ const ProductCreate = () => {
                         values={values}
                         handleCategoryChange={handleCategoryChange}
                         subOptions={subOptions}
-
                         showSub={showSub}
                     />
                 </div>

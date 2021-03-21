@@ -58,14 +58,12 @@ const productSchema = new mongoose.Schema({
         type: String,
         enum: ['Hiking', 'Visiting', 'Traveling', 'Entertaining', 'Relaxing'],
     },
-
     ratings: [
         {
             star: Number,
             postedBy: {type: ObjectId, ref:"User"},
         }
     ]
-
 }, {timestamps: true}
 );
 

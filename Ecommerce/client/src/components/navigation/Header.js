@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Menu, Badge} from 'antd';
+import Icons from '../icons/Icons'
 import {
     HomeOutlined,
     SettingOutlined,
@@ -43,10 +44,17 @@ const Header = () => {
     };
     return(
         <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-            {/* Icons for Navigation components*/}
-            <Item key="home" icon={<HomeOutlined />}>
-                <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
+             {/* Icons for Navigation components*/}
+            <Item key="home">
+                <Link className="app-title" to="/">
+                    <img className="app-logo" src={Icons.Beans} />
+                    Got a Spot
+                </Link>
             </Item>
+            
+            {/* <Item key="home" icon={<HomeOutlined />}>
+                <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
+            {/*</Item> */}
 
             <Item key="shop" icon={<ShoppingOutlined />}>
                 <Link to="/shop">Shop</Link> {/*Link to = "" equals to href ="" (go to another page)*/}

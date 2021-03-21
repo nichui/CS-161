@@ -20,6 +20,7 @@ const { create,
 
 //routes
 router.post('/product', authCheck, adminCheck, create);
+
 router.get('/products/total', productsCount)
 
 router.get('/products/:count', listAll); // products/100
