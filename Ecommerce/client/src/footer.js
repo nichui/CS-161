@@ -26,13 +26,13 @@ const Footer = () => {
             </h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#">About</a>
+                <a href="#">About Us</a>
               </li>
               <li>
                 <a href="/FAQ">FAQ</a>
               </li>
               <li>
-                <a href="#!">Link 4</a>
+                <a href="/register">Register</a>
               </li>
             </ul>
           </MDBCol>

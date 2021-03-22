@@ -75,6 +75,9 @@ const SingleProduct = ({product, onStarClick, star}) => {
         });
     };
 
+    const style = {
+        color: "#008000",
+    };
 
 
 
@@ -110,8 +113,8 @@ const SingleProduct = ({product, onStarClick, star}) => {
 
 
 
-            <div className="clo-md-5">
-                <h1 className="bg-info p-3">
+            <div className="clo-md-5" style={{ position: "relative", left: "100px" }}>
+                <h1 className="p-3" style={{ backgroundColor: "#d0dbd1" }}>
                     {title}
                 </h1>
 
@@ -120,19 +123,19 @@ const SingleProduct = ({product, onStarClick, star}) => {
                     : <div className="text-center pt-1 pb-3">No rating yet</div>}
 
 
-                <Card
+                <Card style={{ width: "400px" }}
                     actions = {[
                         /*<>
                             <ShoppingCartOutlined className="text-success" /><br/>
                             Add to Cart
                         </>*/
                         <Tooltip title={tooltip}>
-                            <a onClick={handleAddToCart}>
-                                <ShoppingCartOutlined className="text-danger"/> <br/> Add to Cart
+                            <a onClick={handleAddToCart} style={{ color: "#000000" }}>
+                                <ShoppingCartOutlined style={style}/> <br/> Add to Cart
                             </a>
                         </Tooltip>,
-                        <a onClick={handleAddToWishlist}>
-                            <HeartOutlined className="text-info" /><br/>
+                        <a onClick={handleAddToWishlist} style={{ color: "#000000" }}>
+                            <HeartOutlined className="text-danger" /><br/>
                             Add to Wishlist
                         </a>,
                         <RatingModal>
@@ -148,7 +151,7 @@ const SingleProduct = ({product, onStarClick, star}) => {
                         </RatingModal>
                     ]}
                 >
-                    <ProductListItems product={product} />
+                    <ProductListItems product={product}/>
                 </Card>
             </div>
         </>

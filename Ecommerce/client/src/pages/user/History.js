@@ -25,7 +25,7 @@ const History = () => {
     })
 
     const showOrderInTable = (order) =>
-        <table className="table table-bordered">
+        <table className="table table-bordered" style={{ color: "#d0dbd1" }}>
             <thead className="thead-light">
                 <tr>
                     <th scope="col">Title</th>

@@ -48,7 +48,7 @@ const Header = () => {
     };
     return(
         
-        <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
+        <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal" style={{ fontFamily: "Arial" }}>
             {/* Icons for Navigation components*/}
             {!user && (
                 <Item key="register" icon={<UserAddOutlined />} className="float-right">
