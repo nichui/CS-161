@@ -19,25 +19,6 @@ const Footer = () => {
               and enjoying their time at various locations.
           </MDBCol>
           <hr className="clearfix w-100 d-md-none" />
-          <MDBCol md="2">
-            <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
-              Links
-            </h5>
-            <ul className="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-          </MDBCol>
           <hr className="clearfix w-100 d-md-none" />
           <MDBCol md="2">
             <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
@@ -45,13 +26,10 @@ const Footer = () => {
             </h5>
             <ul className="list-unstyled">
               <li>
-                <a href="/category/san-jose-state-university">SJSU</a>
+                <a href="#">About</a>
               </li>
               <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
+                <a href="/FAQ">FAQ</a>
               </li>
               <li>
                 <a href="#!">Link 4</a>

@@ -34,6 +34,7 @@ import SideDrawer from "./components/drawer/SideDrawer";
 import Checkout from "./pages/Checkout";
 import CreateCouponPage from "./pages/admin/coupon/CreateCouponPage";
 import Payment from "./pages/Payment";
+import FAQ from "./pages/FAQ";
 
 
 import {auth} from './firebase';
@@ -116,6 +117,7 @@ const App = () => {
                 <UserRoute exact path="/checkout" component={Checkout} />
                 <AdminRoute exact path="/admin/coupon" component={CreateCouponPage} />
                 <UserRoute exact path="/payment" component={Payment} />
+                <Route exact path="/FAQ" component={FAQ} />
 
 
             </Switch>
