@@ -70,15 +70,12 @@ const Header = () => {
                     <Link to="/login">Login</Link>
                 </Item>
             )}
-            <Item key="home" className="float-left" icon={<HomeOutlined/>}>
-                <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
-            </Item>
-            
-            {/* <Item key="home" icon={<HomeOutlined />}>
-                <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
-            {/*</Item> */}
+            {/* <Item key="home" className="float-left" icon={<HomeOutlined/>}>
+                <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*
+            </Item> 
+            */}
 
-            <Item key="shop" className="float-left" icon={<ShoppingOutlined/>}>
+            <Item key="shop" icon={<ShoppingOutlined/>}>
                 <Link to="/shop">Shop</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
 
