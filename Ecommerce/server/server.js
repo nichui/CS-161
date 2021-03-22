@@ -13,13 +13,14 @@ require('dotenv').config();
 // app
 const app = express()
 
-const dbUrl = process.env.DB_URL || process.env.DATABASE;
+const dbUrl = process.env.MONGO_URL || process.env.DATABASE;
 
 // db
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify: true
+    useFindAndModify: false,
+    useUnifiedTopology: true,
 })
 .then(() => console.log('DB CONNECTED'))
 .catch(

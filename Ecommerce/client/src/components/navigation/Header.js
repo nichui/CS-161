@@ -10,8 +10,7 @@ import {
     ShopOutlined,
     ShoppingOutlined,
     ShoppingCartOutlined
-} from '@ant-design/icons';
-import Home from "../../pages/Home";
+} from '@ant-design/icons'; 
 import {Link} from 'react-router-dom';
 import firebase from 'firebase';
 import {useDispatch, useSelector} from "react-redux";
@@ -22,6 +21,12 @@ import Search from "../forms/Search";
 const { SubMenu, Item } = Menu; // Menu.SubMenu
 
 const Header = () => {
+    const style = {
+        backgroundColor: "#d0dbd1",
+        fontFamily: "Verdana",
+        
+    };
+    
     const [current, setCurrent] = useState("home");
     let dispatch = useDispatch();
     let {user, cart} = useSelector((state) => ({...state})); /*redux state*/
@@ -43,6 +48,7 @@ const Header = () => {
         history.push('/login');
     };
     return(
+        
         <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
              {/* Icons for Navigation components*/}
             <Item key="home">
@@ -51,12 +57,28 @@ const Header = () => {
                     Got a Spot
                 </Link>
             </Item>
+            {/* Icons for Navigation components*/}
+            {!user && (
+                <Item key="register" icon={<UserAddOutlined />} className="float-right">
+                    <Link to="/register" className="float-right">Register</Link>
+                </Item>
+            )}
+
+            {/* className = "float-right" to move to right side of Navbar (remember to add Bootstrap first) */}
+            {!user && (
+                <Item key="login" icon={<UserOutlined />} className="float-right">
+                    <Link to="/login">Login</Link>
+                </Item>
+            )}
+            <Item key="home" className="float-left" icon={<HomeOutlined/>}>
+                <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
+            </Item>
             
             {/* <Item key="home" icon={<HomeOutlined />}>
                 <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             {/*</Item> */}
 
-            <Item key="shop" icon={<ShoppingOutlined />}>
+            <Item key="shop" className="float-left" icon={<ShoppingOutlined/>}>
                 <Link to="/shop">Shop</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
 
@@ -67,19 +89,6 @@ const Header = () => {
                     </Badge>
                 </Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
-
-            {!user && (
-                <Item key="register" icon={<UserAddOutlined />} className="float-right">
-                    <Link to="/register">Register</Link>
-                </Item>
-            )}
-
-            {/* className = "float-right" to move to right side of Navbar (remember to add Bootstrap first) */}
-            {!user && (
-                <Item key="login" icon={<UserOutlined />} className="float-right">
-                    <Link to="/login">Login</Link>
-                </Item>
-            )}
 
 
 
@@ -110,7 +119,6 @@ const Header = () => {
             <span className="float-right p-1">
                 <Search />
             </span>
-
         </Menu>
     )
 }

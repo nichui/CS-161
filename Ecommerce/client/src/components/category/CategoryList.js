@@ -3,8 +3,10 @@ import {Link} from 'react-router-dom'
 import {getCategories} from "../../functions/category";
 
 const CategoryList = () => {
+
     const [categories, setCategories] = useState([])
     const [loading, setLoading] = useState(false)
+    const [state, setState] = useState({});
 
     useEffect(() => {
         setLoading(true)
@@ -12,6 +14,9 @@ const CategoryList = () => {
             setCategories(c.data);
             setLoading(false);
         });
+        return () => {
+            setState({});
+        };
     }, []);
 
     const showCategories = () => categories.map((c) => (<div

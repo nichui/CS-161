@@ -8,13 +8,14 @@ import {getCategories} from "../functions/category";
 import {getSubs} from "../functions/sub";
 import Star from "../components/forms/Star";
 import Radio from "antd/es/radio";
+import {load} from "dotenv";
 
 const {SubMenu, ItemGroup} = Menu;
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [price, setPrice] = useState([0, 4999]);
+    const [price, setPrice] = useState([0, 0]);
     const [ok, setOk] = useState(false);
     const [categories, setCategories] = useState([]);
     const [categoryIds, setCategoryIds] = useState([]);
@@ -70,6 +71,9 @@ const Shop = () => {
     useEffect(() => {
         const delayed = setTimeout(() => {
             fetchProducts({query: text});
+            if(!text){
+                loadAllProducts();
+            }
         }, 300);
         return () => clearTimeout(delayed)
 

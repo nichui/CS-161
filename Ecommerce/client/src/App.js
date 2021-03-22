@@ -6,13 +6,12 @@ import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import ForgotPassword from "./pages/authentication/ForgotPassword";
 
-
-
 import Login from './pages/authentication/Login';
 import Register from './pages/authentication/Register';
 import Home from './pages/Home';
 import Header from './components/navigation/Header';
-import RegisterComplete from './pages/authentication/RegisterComplete';
+import RegisterUser from './pages/authentication/RegisterUser';
+import RegisterVendor from './pages/authentication/RegisterVendor';
 import History from './pages/user/History';
 import UserRoute from './components/routes/UserRoutes';
 import Password from './pages/user/Password';
@@ -34,6 +33,9 @@ import Cart from "./pages/Cart";
 import SideDrawer from "./components/drawer/SideDrawer";
 import Checkout from "./pages/Checkout";
 import CalendarCreate from './pages/admin/calendar/CalendarCreate';
+import CreateCouponPage from "./pages/admin/coupon/CreateCouponPage";
+import Payment from "./pages/Payment";
+
 
 import {auth} from './firebase';
 import {useDispatch} from 'react-redux';
@@ -58,19 +60,15 @@ mongoose.connection.on("error", err => {
 const App = () => {
     const dispatch = useDispatch();
 
-
-
-
     // to check firebase auth state
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async (user) => {
             if(user){
                 const idTokenResult = await user.getIdTokenResult()
-                console.log("user", user);
+                //console.log("user", user);
 
                 currentUser(idTokenResult.token)
-                    .then(
-                    (res) => {
+                    .then((res) => {
                         dispatch({
                             type: "LOGGED_IN_USER",
                             payload: {
@@ -81,8 +79,8 @@ const App = () => {
                                 _id: res.data._id,
                             },
                         });
-                    }
-                ).catch(err => console.log(err));
+                    })
+                    .catch((err) => console.log(err));
             }
         });
         // cleanup
@@ -97,7 +95,8 @@ const App = () => {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
-                <Route exact path="/register/complete" component={RegisterComplete} />
+                <Route exact path="/register/user" component={RegisterUser} />
+                <Route exact path="/register/vendor" component={RegisterVendor} />
                 <Route exact path="/forgot/password" component={ForgotPassword} />
                 <UserRoute exact path="/user/history" component={History} />
                 <UserRoute exact path="/user/password" component={Password} />
@@ -118,15 +117,12 @@ const App = () => {
                 <Route exact path="/shop" component={Shop} />
                 <Route exact path="/cart" component={Cart} />
                 <UserRoute exact path="/checkout" component={Checkout} />
-
-
+                <AdminRoute exact path="/admin/coupon" component={CreateCouponPage} />
+                <UserRoute exact path="/payment" component={Payment} />
 
 
             </Switch>
         </>
-
-
-
 
     );
 }
