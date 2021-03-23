@@ -6,7 +6,8 @@ import { createOrUpdateUser } from "../../functions/auth";
 
 const RegisterUser = ({ history }) => {
     const [email, setEmail] = useState('');
-    const[password, setPassword] = useState('');
+    const [password, setPassword] = useState('');
+    var   [name, setName] = useState('');
 
     //const {user} = useSelector(state => ({...state}));
 
@@ -27,6 +28,11 @@ const RegisterUser = ({ history }) => {
             toast.error('Email and password is required')
             return;
         }
+        if(!name) {
+            setName(email.split('@')[0])
+            name = email.split('@')[0];
+        }
+
 
         if(password.length < 6){
             toast.error('Password must be at least 6 characters long');
@@ -46,7 +52,7 @@ const RegisterUser = ({ history }) => {
                 // redux store
                 console.log('user', user, 'idTokenResult', idTokenResult);
 
-                createOrUpdateUser({role: "subscriber"}, idTokenResult.token).then(
+                createOrUpdateUser(idTokenResult.token, {name, role: "subscriber"}).then(
                     (res) => {
                         dispatch({
                             type: "LOGGED_IN_USER",
@@ -71,18 +77,26 @@ const RegisterUser = ({ history }) => {
 
     const completeRegistrationForm = () =>
         <form onSubmit={handleSubmit}>
+            <input type="text"
+                className="form-control"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                placeholder="Full name"
+                autoFocus
+            />
+            
             <input type="email"
-                   className = "form-control"
-                   value = {email}
-                   disabled
+                className = "form-control"
+                value = {email}
+                disabled
             />
 
             <input type="password"
-                   className = "form-control"
-                   value = {password}
-                   onChange={e => setPassword(e.target.value)}
-                   placeholder="Password"
-                   autoFocus
+                className = "form-control"
+                value = {password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Password"
+                autoFocus
             />
             <br/>
 
