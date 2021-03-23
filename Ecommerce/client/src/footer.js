@@ -23,7 +23,7 @@ const Footer = () => {
             </h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#">About Us</a>
+                <a href="/about">About Us</a>
               </li>
               <li>
                 <a href="/FAQ">FAQ</a>
