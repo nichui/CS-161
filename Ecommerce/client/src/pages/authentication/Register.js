@@ -81,6 +81,7 @@ const Register = ({history}) => {
 
 
     return (
+        <div style={{ backgroundRepeat: "no-repeat", backgroundImage: "url(https://i.imgur.com/CqOUC1j.png)" }}>
         <div className="container p-5">
             <div className="row">
                 <div className="col-md-6 offset-md-3">
@@ -89,6 +90,7 @@ const Register = ({history}) => {
                     {registerForm()}
                 </div>
             </div>
+        </div>
         </div>
     );
 };

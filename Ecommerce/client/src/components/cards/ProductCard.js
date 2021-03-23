@@ -54,13 +54,18 @@ const ProductCard = ({ product }) => {
         }
     }
 
+    const textStyle = {
+        color: "#000000",
+    }
+
+    const iconStyle = {
+        color: "#008000",
+    };
+
 
     return(
     <>
-        {product && product.ratings && product.ratings.length > 0
-            ? showAverage(product)
-            : <div className="text-center pt-1 pb-3">No rating yet</div>}
-    <Card
+    <Card style={{ border: '2px solid' }}
         cover={
         <img
             src={images && images.length ? images[0].url : Default}
@@ -70,22 +75,28 @@ const ProductCard = ({ product }) => {
     }
 
         actions={[
-            <Link to={`/product/${slug}`}>
-                <EyeOutlined className="text-warning"/> <br/> View Product
+            <Link to={`/product/${slug}`} style={textStyle}>
+                <EyeOutlined style={iconStyle}/> <br/> View Product
             </Link>,
             <Tooltip title={tooltip}>
-                <a onClick={handleAddToCart} disabled={product.quantity < 1}>
-                    <ShoppingCartOutlined className="text-danger"/> <br/>
+                <a onClick={handleAddToCart} disabled={product.quantity < 1} style={textStyle}>
+                    <ShoppingCartOutlined style={iconStyle}/> <br/>
                     {product.quantity < 1 ? 'Out of stock' : 'Add to Cart'}
                 </a>
             </Tooltip>
         ]}
         >
+            
         <Meta
             title={`${title} - $${price}`}
+            
             description={`${description && description.substring(0, 50)}...`}
         />
+        {product && product.ratings && product.ratings.length > 0
+            ? showAverage(product)
+            : <div className="text-center pt-1 pb-3">No rating yet</div>}
     </Card>
+    
         </>
 )};
 

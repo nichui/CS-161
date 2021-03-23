@@ -1,7 +1,7 @@
 import React from 'react'
 import Typewriter from 'typewriter-effect'
 
-var style = {
+const style = {
     fontFamily: "Papyrus",
     color: "#3d8a44",
 };

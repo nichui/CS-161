@@ -5,7 +5,7 @@ import {Switch, Route} from 'react-router-dom';
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import ForgotPassword from "./pages/authentication/ForgotPassword";
-
+import About from "./pages/About.js";
 import Login from './pages/authentication/Login';
 import Register from './pages/authentication/Register';
 import Home from './pages/Home';
@@ -34,6 +34,7 @@ import SideDrawer from "./components/drawer/SideDrawer";
 import Checkout from "./pages/Checkout";
 import CreateCouponPage from "./pages/admin/coupon/CreateCouponPage";
 import Payment from "./pages/Payment";
+import FAQ from "./pages/FAQ";
 
 
 import {auth} from './firebase';
@@ -91,6 +92,7 @@ const App = () => {
             <ToastContainer />
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/about" component={About} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/register/user" component={RegisterUser} />
@@ -115,6 +117,7 @@ const App = () => {
                 <UserRoute exact path="/checkout" component={Checkout} />
                 <AdminRoute exact path="/admin/coupon" component={CreateCouponPage} />
                 <UserRoute exact path="/payment" component={Payment} />
+                <Route exact path="/FAQ" component={FAQ} />
 
 
             </Switch>
