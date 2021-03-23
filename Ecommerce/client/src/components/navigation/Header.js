@@ -46,33 +46,37 @@ const Header = () => {
         });
         history.push('/login');
     };
+
+    const styleText = {
+        fontSize: "16px",
+    }
     return(
         
         <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal" style={{ fontFamily: "Arial" }}>
             {/* Icons for Navigation components*/}
             {!user && (
                 <Item key="register" icon={<UserAddOutlined />} className="float-right">
-                    <Link to="/register" className="float-right">Register</Link>
+                    <Link to="/register" className="float-right" style={styleText}>Register</Link>
                 </Item>
             )}
 
             {/* className = "float-right" to move to right side of Navbar (remember to add Bootstrap first) */}
             {!user && (
-                <Item key="login" icon={<UserOutlined />} className="float-right">
+                <Item key="login" icon={<UserOutlined />} className="float-right" style={styleText}>
                     <Link to="/login">Login</Link>
                 </Item>
             )}
-            <Item key="home" className="float-left" icon={<HomeOutlined/>}>
+            <Item key="home" className="float-left" style={styleText} icon={<HomeOutlined/>}>
                 <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
 
-            <Item key="shop" className="float-left" icon={<ShoppingOutlined/>}>
+            <Item key="shop" className="float-left" style={styleText} icon={<ShoppingOutlined/>}>
                 <Link to="/shop">Shop</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
 
             <Item key="cart" icon={<ShoppingOutlined />}>
-                <Link to="/cart">
-                    <Badge count={cart.length} offset={[9, 0]}>
+                <Link to="/cart" style={styleText}>
+                    <Badge count={cart.length} offset={[12, 0]}>
                         Cart
                     </Badge>
                 </Link> {/*Link to = "" equals to href ="" (go to another page)*/}

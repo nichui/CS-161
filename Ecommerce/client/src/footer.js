@@ -2,11 +2,8 @@ import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
 const Footer = () => {
-  const styleFooter = {
-    backgroundColor: "#d3edd6",
-  };
   return (
-    <MDBFooter color="stylish-color-dark" className="page-footer font-small pt-4 mt-4">
+    <MDBFooter className="page-footer font-small pt-4 mt-4" style={{ borderTop: "1px solid", backgroundColor: "#f2f7f4" }}>
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
           <MDBCol md="6">
