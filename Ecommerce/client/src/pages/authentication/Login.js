@@ -11,9 +11,7 @@ import { HomeOutlined,
     GoogleOutlined} from '@ant-design/icons';
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from 'react-router-dom';
-import { createOrUpdateUser } from "../../functions/auth";
-
-
+import {currentUser} from "../../functions/auth";
 
 
 const Login = ({history}) => {
@@ -22,6 +20,10 @@ const Login = ({history}) => {
     const [loading, setLoading] = useState(false);
 
     const {user} = useSelector((state) => ({...state}));
+
+    const textStyle = {
+        color: "white",
+    }
 
     useEffect(() => {
         let intended = history.location.state;
@@ -66,7 +68,7 @@ const Login = ({history}) => {
             const {user} = result
             const idTokenResult = await user.getIdTokenResult();
 
-            createOrUpdateUser(idTokenResult.token).then(
+            currentUser(idTokenResult.token).then(
                 (res) => {
                     dispatch({
                         type: "LOGGED_IN_USER",
@@ -99,7 +101,8 @@ const Login = ({history}) => {
         auth.signInWithPopup(googleAuthProvider).then( async (result) => {
             const {user} = result;
             const idTokenResult = await user.getIdTokenResult();
-            createOrUpdateUser(idTokenResult.token).then(
+
+            currentUser(idTokenResult.token).then(
                 (res) => {
                     dispatch({
                         type: "LOGGED_IN_USER",
@@ -114,6 +117,7 @@ const Login = ({history}) => {
                     roleBasedRedirect(res);
                 }
             ).catch(err => console.log(err));
+            
             //history.push("/");
         })
             .catch((err) => {
@@ -122,9 +126,9 @@ const Login = ({history}) => {
             })
     };
 
-    const loginForm = () => <form onSubmit={handleSubmit}>
-        <div className="form-group">
-            <input type="email"
+    const loginForm = () => <form onSubmit={handleSubmit} >
+        <div className="form-group" >
+            <input style={textStyle} type="email"
                    className = "form-control"
                    value = {email}
                    onChange={(e) => setEmail(e.target.value)}
@@ -134,7 +138,7 @@ const Login = ({history}) => {
         </div>
 
         <div className="form-group">
-            <input type="password"
+            <input style={textStyle} type="password"
                    className = "form-control"
                    value = {password}
                    onChange={(e) => setPassword(e.target.value)}
@@ -145,6 +149,7 @@ const Login = ({history}) => {
 
         <br/>
         <Button
+        style={{ backgroundColor: "#326e38" }}
         onClick={handleSubmit}
         type="primary"
         className="mb-3"
@@ -159,19 +164,23 @@ const Login = ({history}) => {
     </form>
 
 
+    const googleButton = {
+        color: "white",
+        backgroundColor: "#1b3863",
+    };
 
 
     return (
+        <div style={{ backgroundImage: "url(https://i.imgur.com/X5RLDgP.png)" }}>
         <div className="container p-5">
             <div className="row">
                 <div className="col-md-6 offset-md-3">
-                    {loading ? <h4 className="text-danger">Loading...</h4> : <h4>Login</h4>}
+                    {loading ? <h4 className="text-danger">Loading...</h4> : <h4 style={textStyle}>Login</h4>}
 
                     {loginForm()}
 
-                    <Button
+                    <Button style={googleButton}
                         onClick={googleLogin}
-                        type="danger"
                         className="mb-3"
                         block
                         shape="round"
@@ -182,11 +191,12 @@ const Login = ({history}) => {
                         Login with Google
                     </Button>
 
-                    <Link to="/forgot/password" className="float-right text-danger">
+                    <Link to="/forgot/password" className="float-right" style={{ color: "white" }}>
                         Forgot Password ?
                     </Link>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

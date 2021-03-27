@@ -2,11 +2,8 @@ import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
 const Footer = () => {
-  const styleFooter = {
-    backgroundColor: "#d3edd6",
-  };
   return (
-    <MDBFooter color="stylish-color-dark" className="page-footer font-small pt-4 mt-4">
+    <MDBFooter className="page-footer font-small pt-4 mt-4" style={{ borderTop: "1px solid", backgroundColor: "#f2f7f4" }}>
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
           <MDBCol md="6">
@@ -19,25 +16,6 @@ const Footer = () => {
               and enjoying their time at various locations.
           </MDBCol>
           <hr className="clearfix w-100 d-md-none" />
-          <MDBCol md="2">
-            <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
-              Links
-            </h5>
-            <ul className="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-          </MDBCol>
           <hr className="clearfix w-100 d-md-none" />
           <MDBCol md="2">
             <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">
@@ -45,16 +23,13 @@ const Footer = () => {
             </h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#!">Link 1</a>
+                <a href="/about">About Us</a>
               </li>
               <li>
-                <a href="#!">Link 2</a>
+                <a href="/FAQ">FAQ</a>
               </li>
               <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
+                <a href="/register">Register</a>
               </li>
             </ul>
           </MDBCol>
@@ -62,20 +37,6 @@ const Footer = () => {
           
         </MDBRow>
       </MDBContainer>
-      <hr />
-      <div className="text-center py-3">
-        <ul className="list-unstyled list-inline mb-0">
-          <li className="list-inline-item">
-            <h5 className="mb-1">Register for free</h5>
-          </li>
-          <li className="list-inline-item">
-            <a href="/register" className="btn btn-danger btn-rounded">
-              Sign up!
-            </a>
-          </li>
-        </ul>
-      </div>
-      <hr />
       <div className="text-center">
         <ul className="list-unstyled list-inline">
           <li className="list-inline-item">

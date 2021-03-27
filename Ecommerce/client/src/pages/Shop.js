@@ -327,7 +327,9 @@ const Shop = () => {
         fetchProducts({ shipping: e.target.value});
     }
 
-
+    const categorystyle = {
+        fontWeight: 'bold',
+    };
 
     return (
         <div className="container-fluid">
@@ -335,15 +337,16 @@ const Shop = () => {
                 <div className="col-md-3 pt-2">
                     <h4>Search/Filter</h4>
                     <hr/>
+                    
                     <Menu defaultOpenKeys={['1', '2', '3' , '4', '5', '6', '7']} mode="inline">
                         {/* PRICE*/}
                         <SubMenu key="1" title={
-                            <span className="h6">
+                            <span className="h6" style={categorystyle}>
                             <DollarOutlined/> Price
                         </span>
                         }
                         >
-                            <div>
+                            <div style={{ backgroundColor: "#d0dbd1" }}>
                                 <Slider
                                     className="ml-4 mr-4"
                                     tipFormatter={(v) => `$${v}`}
@@ -360,12 +363,12 @@ const Shop = () => {
                         <SubMenu
                             key="2"
                             title={
-                                <span className="h6 text-warning">
+                                <span className="h6" style={categorystyle}>
                                     <DownSquareOutlined/> Categories
                                 </span>
                             }
                         >
-                            <div style={{ marginTop: "-10px"}}>
+                            <div style={{ marginTop: "-10px", backgroundColor: "#d0dbd1"}}>
                                 {showCategories()}
                             </div>
                         </SubMenu>
@@ -374,12 +377,12 @@ const Shop = () => {
                         <SubMenu
                             key="3"
                             title={
-                                <span className="h6 text-warning">
+                                <span className="h6" style={categorystyle}>
                                     <StarOutlined /> Rating
                                 </span>
                             }
                         >
-                            <div style={{ marginTop: "-10px"}}>
+                            <div style={{ marginTop: "-10px", backgroundColor: "#d0dbd1" }}>
                                 {showStars()}
                             </div>
                         </SubMenu>
@@ -389,12 +392,12 @@ const Shop = () => {
                         <SubMenu
                             key="4"
                             title={
-                                <span className="h6 text-warning">
+                                <span className="h6" style={categorystyle}>
                                     <DownSquareOutlined/> Sub Categories
                                 </span>
                             }
                         >
-                            <div style={{ marginTop: "-10px"}}
+                            <div style={{ marginTop: "-10px", backgroundColor: "#d0dbd1"}}
                                  className="pl-4 pr-4"
                             >
                                 {showSubs()}
@@ -406,12 +409,12 @@ const Shop = () => {
                         <SubMenu
                             key="5"
                             title={
-                                <span className="h6 text-warning">
+                                <span className="h6" style={categorystyle}>
                                     <DownSquareOutlined/> Brands
                                 </span>
                             }
                         >
-                            <div style={{ marginTop: "-10px"}}
+                            <div style={{ marginTop: "-10px", backgroundColor: "#d0dbd1"}}
                                  className="pr-5"
                             >
                                 {showBrands()}
@@ -423,12 +426,12 @@ const Shop = () => {
                         <SubMenu
                             key="6"
                             title={
-                                <span className="h6 text-warning">
+                                <span className="h6" style={categorystyle}>
                                     <DownSquareOutlined/> Seasons
                                 </span>
                             }
                         >
-                            <div style={{ marginTop: "-10px"}}
+                            <div style={{ marginTop: "-10px", backgroundColor: "#d0dbd1"}}
                                  className="pr-5"
                             >
                                 {showSeasons()}
@@ -439,12 +442,12 @@ const Shop = () => {
                         <SubMenu
                             key="7"
                             title={
-                                <span className="h6 text-warning">
+                                <span className="h6" style={categorystyle}>
                                     <DownSquareOutlined /> Shipping
                                 </span>
                             }
                         >
-                            <div style={{ marginTop: "-10px"}}
+                            <div style={{ marginTop: "-10px", backgroundColor: "#d0dbd1"}}
                                  className="pr-5"
                             >
                                 {showShipping()}
@@ -460,7 +463,7 @@ const Shop = () => {
                             Loading...
                         </h4>
                     ) : (
-                        <h4 className="text-danger">
+                        <h4>
                             Products
                         </h4>
                     )}
@@ -476,7 +479,8 @@ const Shop = () => {
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+        
     )
 };
 
