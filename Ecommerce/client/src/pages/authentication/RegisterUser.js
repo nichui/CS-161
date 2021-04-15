@@ -96,7 +96,6 @@ const RegisterUser = ({ history }) => {
                 value = {password}
                 onChange={e => setPassword(e.target.value)}
                 placeholder="Password"
-                autoFocus
             />
             <br/>
 
