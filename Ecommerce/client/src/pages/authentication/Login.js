@@ -11,9 +11,7 @@ import { HomeOutlined,
     GoogleOutlined} from '@ant-design/icons';
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from 'react-router-dom';
-import { createOrUpdateUser } from "../../functions/auth";
-
-
+import {currentUser} from "../../functions/auth";
 
 
 const Login = ({history}) => {
@@ -70,7 +68,7 @@ const Login = ({history}) => {
             const {user} = result
             const idTokenResult = await user.getIdTokenResult();
 
-            createOrUpdateUser(idTokenResult.token).then(
+            currentUser(idTokenResult.token).then(
                 (res) => {
                     dispatch({
                         type: "LOGGED_IN_USER",
@@ -103,7 +101,8 @@ const Login = ({history}) => {
         auth.signInWithPopup(googleAuthProvider).then( async (result) => {
             const {user} = result;
             const idTokenResult = await user.getIdTokenResult();
-            createOrUpdateUser(idTokenResult.token).then(
+
+            currentUser(idTokenResult.token).then(
                 (res) => {
                     dispatch({
                         type: "LOGGED_IN_USER",
@@ -118,6 +117,7 @@ const Login = ({history}) => {
                     roleBasedRedirect(res);
                 }
             ).catch(err => console.log(err));
+            
             //history.push("/");
         })
             .catch((err) => {

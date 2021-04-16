@@ -8,7 +8,7 @@ const RegisterVendor = ({ history }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [mailAddr, setMail] = useState('');
+    var   [mailAddr, setMail] = useState('');
     const [workAddr, setWork] = useState('');
     const [checkboxBool, setCheck] = useState('');
     //const {user} = useSelector(state => ({...state}));
@@ -41,6 +41,7 @@ const RegisterVendor = ({ history }) => {
 
         if (checkboxBool) {
             setMail(workAddr);
+            mailAddr = workAddr;
         }
         else if (!mailAddr) {
             toast.error('Mailing address is required')
@@ -61,7 +62,7 @@ const RegisterVendor = ({ history }) => {
                 // redux store
                 console.log('user', user, 'idTokenResult', idTokenResult);
 
-                createOrUpdateUser({name, workAddr, mailAddr, role:"admin"}, idTokenResult.token).then(
+                createOrUpdateUser(idTokenResult.token, {name, workAddr, mailAddr, role:"admin"}).then(
                     (res) => {
                         dispatch({
                             type: "LOGGED_IN_USER",
@@ -87,8 +88,9 @@ const RegisterVendor = ({ history }) => {
     };
 
     const completeRegistrationForm = () =>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} autoComplete="on">
             <input type="text"
+                name="name"
                 className="form-control"
                 value={name}
                 onChange={e => setName(e.target.value)}
@@ -97,6 +99,7 @@ const RegisterVendor = ({ history }) => {
             />
 
             <input type="text"
+                name="street-address"
                 className="form-control"
                 value={workAddr}
                 onChange={e => setWork(e.target.value)}
@@ -104,13 +107,14 @@ const RegisterVendor = ({ history }) => {
             />
 
             <input type="checkbox"
-                name="same"
+                autoComplete="off"
                 value={checkboxBool}
                 onClick={e => setCheck(e.target.checked)}
                 unchecked />
                 Mailing address is same as business address
 
             <input type="text"
+                autoComplete="off"
                 className="form-control"
                 value={mailAddr}
                 onChange={e => setMail(e.target.value)}
@@ -119,13 +123,14 @@ const RegisterVendor = ({ history }) => {
             />
 
             <input type="email"
+                autoComplete="off"
                 className="form-control"
                 value={email}
                 disabled
-                //autofocus
             />
 
             <input type="password"
+                autoComplete="off"
                 className="form-control"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
