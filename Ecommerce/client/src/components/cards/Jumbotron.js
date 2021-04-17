@@ -1,9 +1,9 @@
 import React from 'react'
 import Typewriter from 'typewriter-effect'
 
-var style = {
-    fontFamily: "Papyrus",
-    color: "#3d8a44",
+const style = {
+    fontFamily: "Arial",
+    color: "#2b637a",
 };
 
 const Jumbotron = ({text}) => (
