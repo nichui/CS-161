@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { auth } from "../../firebase";
 import { toast } from 'react-toastify';
 import { useSelector } from "react-redux";
+import {Button} from 'reactstrap';
 
 const Register = ({history}) => {
     const [email, setEmail] = useState('');
@@ -59,6 +60,8 @@ const Register = ({history}) => {
     };
 
     const registerForm = () => <form onSubmit={handleSubmit}>
+        <div style={{ margin: "90px 0px 90px 0px" }}>
+        <h4>Register</h4>
         <input type="email"
                className = "form-control"
                value = {email}
@@ -67,13 +70,14 @@ const Register = ({history}) => {
                autoFocus
         />
         <br/>
-        <div>
-        <button type="submit" className="btn btn-raised">
+            <div>
+        <Button color="primary" type="submit" className="btn btn-raised">
             Register as vendor
-        </button>
-        <button type="button" className="btn btn-raised" onClick={handleClick}>
+        </Button>
+        <Button color="info" type="button" className="btn btn-raised" onClick={handleClick}>
             Register as user
-        </button>
+        </Button>
+        </div>
         </div>
     </form>
 
@@ -81,17 +85,27 @@ const Register = ({history}) => {
 
 
     return (
-        <div style={{ backgroundRepeat: "no-repeat", backgroundImage: "url(https://i.imgur.com/CqOUC1j.png)" }}>
+        <>
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+            rel="stylesheet"
+            />
+        <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+            rel="stylesheet"
+            />
+        <div style={{ height: "100%", backgroundPosition: "center", 
+        backgroundSize: "cover", backgroundRepeat: "no-repeat", 
+        backgroundImage: "url(https://www.jacobhopkinson.com/wp-content/themes/corporately-blogging/images/bg-img.png)" }}>
         <div className="container p-5">
             <div className="row">
                 <div className="col-md-6 offset-md-3">
-                    <h4>Register</h4>
-
                     {registerForm()}
                 </div>
             </div>
         </div>
         </div>
+        </>
     );
 };
 

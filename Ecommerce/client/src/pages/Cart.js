@@ -30,7 +30,7 @@ const Cart = ({history}) => {
     };
 
     const style = {
-        backgroundColor: "#d0dbd1",
+        backgroundColor: "#d7eaf5",
         color: '#000000',
     };
 

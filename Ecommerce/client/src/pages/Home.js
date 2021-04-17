@@ -6,6 +6,7 @@ import CategoryList from "../components/category/CategoryList";
 import SubList from "../components/sub/SubList";
 
 import { Container } from "reactstrap";
+import { Card, CardBody } from 'reactstrap';
 
 const Home = () => {
 
@@ -14,8 +15,20 @@ const Home = () => {
         fontFamily: "Arial",
     }
 
+    const style = {
+      margin: "50px 0px 50px 0px",
+    }
+
     return (
         <>
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+            rel="stylesheet"
+            />
+        <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+            rel="stylesheet"
+            />
         <div className="page-header section-dark" style={{
           backgroundImage:
             "url(" + require("../images/mainBG.jpg").default + ")",
@@ -58,27 +71,38 @@ const Home = () => {
         />
     </div>
 
-            <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron" style={jbstyle}>
+    <Card>
+    <CardBody style={{ color: "#1c4963", textAlign: "center" }}>
+    <p>With Got A Spot, users can find new places to travel to and see exactly how 
+              busy things will be! With our integrated systems to allow users to reserve their place 
+              and see all the safety policies involved with visitation, everyone can feel safe traveling 
+              and enjoying their time at various locations.</p>
+    </CardBody>
+    </Card>
+
+    
+
+            <h2 className="text-center" style={style}>
                 New Places
-            </h4>
+            </h2>
 
         <NewArrivals />
 
-            <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron" style={jbstyle}>
+        <h2 className="text-center" style={style}>
                 Best Rated
-            </h4>
+                </h2>
 
             <BestSellers />
 
-            <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron" style={jbstyle}>
+            <h2 className="text-center" style={style}>
                 Categories
-            </h4>
+                </h2>
 
             <CategoryList />
 
-            <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron" style={jbstyle}>
+            <h2 className="text-center" style={style}>
                 Sub Categories
-            </h4>
+                </h2>
 
             <SubList />
 

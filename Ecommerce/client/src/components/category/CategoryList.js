@@ -21,8 +21,8 @@ const CategoryList = () => {
 
     const showCategories = () => categories.map((c) => (<div
         key = {c._id}
-        className="col btn btn-outline-primary btn-lg btn-block btn-raised m-3" style={{ backgroundColor: '#ffffff' }}>
-        <Link to={`/category/${c.slug}`} style={{ color: '#000 ' }}>{c.name}</Link>
+        className="col btn btn-outline-primary btn-block btn-raised m-3" style={{ backgroundColor: '#6ecfff' }}>
+        <Link to={`/category/${c.slug}`} style={{ fontWeight: "bold", color: '#ffffff' }}>{c.name}</Link>
 
     </div>));
 

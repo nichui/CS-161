@@ -31,9 +31,17 @@ const RatingModal = ({children}) => {
 
     return(
         <>
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+            rel="stylesheet"
+            />
+        <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+            rel="stylesheet"
+            />
             <div onClick={handleModal} style={{ color: "#000000" }}>
                 <StarOutlined style={style}/> <br/>{" "}
-                {user ? "Leave rating" : "Login to leave rating"}
+                {user ? <p>Leave rating</p> : <p>Login to leave rating</p>}
             </div>
             <Modal
                 title="Leave your rating"
@@ -41,7 +49,7 @@ const RatingModal = ({children}) => {
                 visible={modalVisible}
                 onOk={() => {
                     setModalVisible(false)
-                    toast.success('Thank for yout review. It will appear soon');
+                    toast.success('Thank you for your review. It will appear soon.');
                 }}
                 onCancel={() => setModalVisible(false)}
             >
