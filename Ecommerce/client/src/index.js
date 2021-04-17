@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import "./assets/css/paper-kit.min.css";
+import "./assets/css/paper-kit.css";
+import "./assets/demo/demo.css";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
