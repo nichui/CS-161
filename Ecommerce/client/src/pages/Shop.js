@@ -177,7 +177,7 @@ const Shop = () => {
         <div className="pr-4 pl-4 pb-2">
             <Star
                 starClick = {handleStarClick}
-            numberOfStars={5}
+                numberOfStars={5}
             />
             <Star
                 starClick = {handleStarClick}
