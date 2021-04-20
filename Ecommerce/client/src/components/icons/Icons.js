@@ -1,6 +1,8 @@
 import Beans from './beans.png'
-import { PlusOutlined} from '@ant-design/icons'
+import { PlusOutlined, MinusCircleOutlined} from '@ant-design/icons'
 export default {
     Beans,
+    PlusOutlined,
+    MinusCircleOutlined,
     PlusOutlined
 }

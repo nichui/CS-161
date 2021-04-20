@@ -23,6 +23,7 @@ exports.listAll = async (req, res) => {
         .limit(parseInt(req.params.count))
         .populate('category')
         .populate('subs')
+        .populate('calendar')
         .sort([['createAt', 'desc']])
         .exec();
     await res.json(products);
@@ -43,6 +44,7 @@ exports.read = async(req, res) => {
     const product = await Product.findOne({slug: req.params.slug})
         .populate('category')
         .populate('subs')
+        .populate('calendar')
         .exec();
     await res.json(product);
 }
@@ -98,6 +100,7 @@ exports.list = async(req, res) => {
             .skip((currentPage - 1) * perPage)
             .populate('category')
             .populate('subs')
+            .populate('calendar')
             .sort([[sort, order]])
             .limit(perPage)
             .exec();
@@ -156,6 +159,7 @@ exports.listRelated = async (req, res) => {
     }).limit(3)
         .populate('category')
         .populate('sub')
+        .populate('calendar')
         .populate('postedBy')
         .exec()
 
@@ -278,6 +282,7 @@ const handleBrand = async (req, res, brand) => {
 
     await res.json(products);
 }
+
 
 exports.searchFilters = async (req, res) => {
     const {query, price, category, stars, sub, shipping, season, brand} = req.body;

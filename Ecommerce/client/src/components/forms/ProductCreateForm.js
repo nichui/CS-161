@@ -12,7 +12,8 @@ const ProductCreateForm = ({
                                values,
                                handleCategoryChange,
                                subOptions,
-                               showSub
+                               showSub,
+                               calendarOptions
 }) =>{
     // destructure
     const {title,
@@ -28,6 +29,7 @@ const ProductCreateForm = ({
         brands,
         season,
         brand,
+        calendar,
     } = values;
 
     return (
@@ -169,6 +171,20 @@ const ProductCreateForm = ({
         </div>
         )}
         <br/>
+        <div className="form-group">
+            <label>Calendar</label>
+            <select
+                name="calendar"
+                className="form-control"
+                onChange={handleChange}
+            >
+                <option>Please select</option>
+                {calendarOptions.map(calOption =>
+                    <option key={calOption._id} value={calOption._id}>
+                        { calOption.name }
+                    </option>)}
+            </select>
+        </div>
 
         <button className="btn btn-outline-info">
             Save

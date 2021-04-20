@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import {Modal, Button, Calendar} from 'antd'
+import {Modal, Button, Calendar, Radio} from 'antd'
+import moment from 'moment'
 const ProductListItems = ({product}) => {
     const {
         price,
@@ -10,27 +11,42 @@ const ProductListItems = ({product}) => {
         season,
         brand,
         quantity,
-        sold, } = product;
+        sold,
+        calendar, } = product;
     
-    // set states for reservation modal
+    // RESERVATION: set states for reservation modal
     const [isModalLoading, setModalLoading] = useState(false);
     const [isModalVisible, setModalVisible] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedTime, setSelectedTime] = useState([]);
     const showModal = () => {
         setModalVisible('true');
     }
-    // load for 3sec after submitting modal   
+    // RESERVASTION: load for 3sec after submitting modal   
     const handleOk = () => {
+        const values = {
+            "date": selectedDate,
+            "timeSlot": selectedTime
+        }
+        console.log('receive selected date and time: ', values)
         setModalLoading(true);
+
         setTimeout(() => {
             setModalLoading(false);
             setModalVisible(false)
         },3000);
     }
-    // cancel modal
+    // RESERVATION: cancel modal
     const handleCancel = () => {
         setModalVisible(false);
     }
-    
+    const disabledDate = (current) => {
+        const dayOfWeek = moment(current).format("dddd")
+        return current.valueOf() < Date.now() || calendar.unavailableWeekDays.indexOf(dayOfWeek) > -1
+    }
+    const handleChange = (date) => {
+        setSelectedDate(date.format("MMM D YYYY"))
+    }
     return (
         <ul className="list-group">
             <li className="list-group-item">
@@ -115,8 +131,19 @@ const ProductListItems = ({product}) => {
                 ]}
                 >
                   <div className="site-calendar-demo-card">
-                    <Calendar fullscreen={false} />
+                    <Calendar 
+                        fullscreen={false}
+                        disabledDate={disabledDate}
+                        onChange={handleChange}
+                        />
                  </div>
+                              
+                    {selectedDate &&
+                        <div key={selectedDate}>
+                            <ShowTimeSlot selectedDate={selectedDate} setSelectedTime={setSelectedTime} calendar={calendar}/>
+                        </div>
+                    }
+                
             </Modal> 
                 
             <li className="list-group-item">
@@ -129,5 +156,22 @@ const ProductListItems = ({product}) => {
         </ul>
     )
 }
+function ShowTimeSlot({selectedDate, setSelectedTime, calendar}){
+    const bookedDate = calendar.bookedDates.find(d => 
+        d.date === selectedDate
+    )
 
+    if (bookedDate){
+        return (       
+            <Radio.Group buttonStyle="solid" onChange={(e) => setSelectedTime(e.target.value)}>
+                {bookedDate.timeSlots.map((x, index) => <Radio.Button value={x.timeRange}>{x.timeRange[0]} - {x.timeRange[1]} ({x.availTickets})</Radio.Button>)}
+            </Radio.Group>
+        )
+    }
+    return (
+        <Radio.Group buttonStyle="solid" onChange={(e) => setSelectedTime(e.target.value)}>
+            {calendar.timeSlots.map((x, index) => <Radio.Button value={x.timeRange}>{x.timeRange[0]} - {x.timeRange[1]} ({x.maxTicketCount} left)</Radio.Button>)}
+        </Radio.Group>
+    )
+}
 export default ProductListItems;

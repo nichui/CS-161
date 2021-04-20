@@ -38,13 +38,17 @@ const productSchema = new mongoose.Schema({
         ref: 'Sub',
         },
     ],
+    calendar: {
+        type: ObjectId,
+        ref: 'Calendar'
+    },
     quantity: Number,
     sold: {
         type: Number,
         default: 0
     },
     images: {
-        type: Array
+        type: Array,
     },
     shipping: {
         type: String,

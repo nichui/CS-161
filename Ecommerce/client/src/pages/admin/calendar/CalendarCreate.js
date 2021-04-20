@@ -1,88 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import AdminNav from '../../../components/navigation/AdminNav';
-import { Input, DatePicker, TimePicker, Checkbox, Button, InputNumber, Select } from 'antd';
 import moment from 'moment';
 import update from 'immutability-helper';
 import Icons from '../../../components/icons/Icons';
-import {getProductsByCount} from "../../../functions/product";
+import AdminNav from '../../../components/navigation/AdminNav';
+import { Form, Input, Space, DatePicker, TimePicker, Checkbox, Button, InputNumber, Select} from 'antd';
+import {createCalendar} from "../../../functions/calendar";
+import {toast} from 'react-toastify'
+import {useSelector} from "react-redux";
 
-// disable today and days before today
-const disabledDate = (current) => {
-    return current & current < moment().add(1, 'day').endOf('day');
-}
-
+const TimeRangePicker = TimePicker.RangePicker;
+const CheckboxGroup = Checkbox.Group;
 const max_avail_months = 12;
 const dateFormat = 'MM/DD/YYYY';
 const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
+// disable today and days before today
+const disabledDate = (current) => {
+    return current & current < moment().endOf('day');
+}
 // Calendar's initial values
 const initialState = {
-    title:"",
-    location: "",
-    months: 1,
-    startDate: moment().add(1, 'day').endOf('day'),
-    disabledDate: disabledDate,
+    monthsToScroll: 1,
+    startDate: '',
     unavailableWeekDays: [],
-    timeSlots:[{id: 0, from:'', until:''}],
-    ticketCount: 0,
-    maxTicketCountPerPerson: 0
+    timeSlots:[],
+    bookedDates: []
 };
 
 function CalendarCreate(){
-    const [values, setValues] = useState(initialState);
-    const [locationList, setLocationList] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    const handleChange = (e) => {
-        setValues({ ...values, [e.target.name]: e.target.value});
-    }
-    const handleDateChange = (date, dateString) => {
-        setValues({...values, startDate: date});
-        console.log(date);
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("submit calendar");
-    }
-    const handleCheckboxGroupChange = (list) => {
-        setValues({...values, unavailableWeekDays: list})
-    }
-    const addTimeSlot = () => {
-        const TimeSlotList = values.timeSlots;
-        const newTimeSlotList = TimeSlotList.concat({id: TimeSlotList.length,from: '', until: ''});
-        setValues({...values, timeSlots: newTimeSlotList});
-    }
-    const handleTimeChange = (time, timeString, id) => {
-        const timeSlotIndex = values.timeSlots.findIndex(x => x.id === id)
-        const updatedTimeSlot = update(values.timeSlots[timeSlotIndex], {from: {$set: time[0]}, to: {$set: time[1]}});
-        const newTimeSlots = update(values.timeSlots, {$splice: [[timeSlotIndex, 1, updatedTimeSlot]]});
-        setValues({...values, timeSlots: newTimeSlots});
-    }
-    const handleMonthChange = (value) => {
-        setValues({...values, months: value});
-    }
-    const handleTicketCount = (value) => {
-        setValues({...values, reservationCount: value})
-    }
-    const handleTicketCountPerPerson = (value) => {
-        setValues({...values, maxTicketCountPerPerson: value})
-    }
-    const getLocationList = () => {
-        getProductsByCount(100)
-            .then((res) => { setLocationList(res.data); setLoading(false);})
-            .catch((err) => {console.log(err); setLoading(false);});
-    }
-    const handleLocationChange = (value) => {
-        setValues({...values, location: value});
-    }
-    const handleTitleChange = (value) => {
-        setValues({...values, title: value});
-    }
-    useEffect(() => {
-        getLocationList();
-    },[])
-
+    const {user} = useSelector((state) => ({...state}));
     return (
         <div className="container-fluid">
             <div className="row">
@@ -92,22 +38,21 @@ function CalendarCreate(){
                 <div className="col-md-10">
                     <h4>Calendar Create</h4>
                     <CalendarCreateForm
-                        handleSubmit={handleSubmit}
-                        handleChange={handleChange}
-                        setValues={setValues}
-                        values={values}
-                        handleDateChange={handleDateChange}
-                        handleMonthChange={handleMonthChange}
                         weekDays={weekDays}
-                        handleCheckboxGroupChange={handleCheckboxGroupChange}
-                        handleTimeChange={handleTimeChange}
-                        addTimeSlot={addTimeSlot}
-                        handleTicketCount={handleTicketCount}
-                        handleTicketCountPerPerson={handleTicketCountPerPerson}
-                        handleLocationChange={handleLocationChange}
-                        handleTitleChange={handleTitleChange}
-                        locationList={locationList}
-                        loading={loading}
+                        user={user}
+                        // handleSubmit={handleSubmit}
+                        // handleChange={handleChange}
+                        // setValues={setValues}
+                        // values={values}
+                        // handleDateChange={handleDateChange}
+                        // handleMonthChange={handleMonthChange}
+                        // handleCheckboxGroupChange={handleCheckboxGroupChange}
+                        // handleTimeChange={handleTimeChange}
+                        // addTimeSlot={addTimeSlot}
+                        // handleTicketCount={handleTicketCount}
+                        // handleTicketCountPerPerson={handleTicketCountPerPerson}
+                        // handleLocationChange={handleLocationChange}
+                        // handleTitleChange={handleTitleChange}
                     /> 
                 </div>
             </div>
@@ -115,129 +60,131 @@ function CalendarCreate(){
     )
 }
 
-const CalendarCreateForm = ({
-        handleSubmit, 
-        handleChange, 
-        setValues, 
-        values, 
-        handleDateChange,
-        weekDays,
-        checkedList,
-        handleCheckboxGroupChange,
-        handleTimeChange,
-        handleMonthChange,
-        addTimeSlot,
-        handleTicketCount,
-        handleTicketCountPerPerson,
-        handleLocationChange,
-        handleTitleChange,
-        locationList,
-        loading
-    }) => {
-    // Calendar's values
-    const {
-        title,
-        location,
-        months,
-        startDate,
-        disabledDate,
-        unavailableWeekDays,
-        timeSlots
-    } = values;
+const CalendarCreateForm = ({weekDays, user}) => {
+    const onFinish = (fieldValues) => {
 
-    const CheckboxGroup = Checkbox.Group;
-    const TimeRangePicker = TimePicker.RangePicker;
-    // const filteredLocations = locationList.filter(x => !location.includes(x))
+        const values = {
+            ...fieldValues,
+            'startDate': fieldValues['startDate'].format('YYYY-MM-DD'),
+            'timeSlots': fieldValues['timeSlots'].map(x => {
+                if (x.timeRange.length === 2){
+                    var timeSlot = {
+                        ...x,
+                        "timeRange": [
+                            x.timeRange[0].format('HH:mm'),
+                            x.timeRange[1].format('HH:mm')
+                        ]
+                    }
+                    return timeSlot;
+                }
+            }),
+            'bookedDates': [],
+        }
+
+        console.log("received values of calendar form: ", values);
+        createCalendar(values, user.token).then(
+            (res) => {
+                window.alert(`"${res.data.name}" is created`);
+                window.location.reload();
+            }
+        ).catch((err) => {
+            console.log(err)
+            toast.error(err.response.data.err);
+        })
+    }
+    
     return(
-        <form>
-            {/* TITLE */}
-            <div className="form-group">
-                <label>Title:</label>
-                <Input 
-                    placeholder="Enter calendar title"
-                    onChange={handleTitleChange}
-                    style={{maxWidth:'300px'}}
-                />
-            </div>
-            {/* RELATED LOCATION */}
-            <div className="form-group">
-                <label>Location:</label>
-                <Select 
-                    showSearch
-                    placeholder="Select a location"
-                    onChange={handleLocationChange}
-                    style={{maxWidth:'300px'}}
-                    // style={{width: '100%'}}
-                >
-                {!loading && locationList.map((x, index) => (
-                    <Select.Option key={index} value={x.title}>{x.title}</Select.Option>
-                ))}    
-                </Select>
-            </div> 
+        <Form name="dymanic_form_nest_item"  layout="hotizontal" onFinish={onFinish}>
+            {/* NAME */}
+            <Form.Item name="name" label="Name" rules={[{ required: true, message: 'Missing calendar name' }]}>
+                <Input></Input>
+            </Form.Item>
             {/* MONTHS TO SCROLL */}
-            <div className="form-group">
-            <label>
-                Number of months to scroll:
-            </label>
-            <Select defaultValue={1} onChange={handleMonthChange}>
+            <Form.Item name="monthsToScroll" label="Number of months to scroll" rules={[{ required: true, message: 'Missing number of months to scroll' }]} >
+            <Select 
+                placeholder="Select number of months"
+                >
                 {[...Array(max_avail_months)].map((elem, index) => ( 
                     <Select.Option key={index} value={index+1}>{index+1} month(s)</Select.Option>
                 ))}
             </Select>
-            </div>
+            </Form.Item>
             {/* START DATE */}
-            <div className="form-group">
-                <label>Start Date:</label>
+            <Form.Item name="startDate" label="Start Date" rules={[{ required: true, message: 'Missing start date' }]}>
                 <DatePicker 
-                    onChange={handleDateChange} 
-                    defaultValue={startDate} 
                     disabledDate={disabledDate}
                     format={dateFormat}
                     />
-            </div>
+            </Form.Item>
             {/* AVAILABILITY */}
-            <div className="form-group">
-                <label>Availability:</label><br></br>
-                <div className="space" />
-                <span style={{fontSize:'16px'}}>Unavailable week days</span>
-                <CheckboxGroup options={weekDays} value={unavailableWeekDays} onChange={handleCheckboxGroupChange} style={{fontSize:'16px'}} />
-            </div>
+            <Form.Item name="unavailableWeekDays" label="Unavailable week days">
+                <CheckboxGroup 
+                    options={weekDays} 
+                    style={{fontSize:'16px'}} />
+            </Form.Item>
             {/* TIME SLOTS */}
-            <div className="form-group">
-                <label>Time slots:</label>
-                <div className="space" />
-                {timeSlots.map((x, index) => 
-                    <div key={index}>
-                        <TimeRangePicker 
-                            format='h:mm a'
-                            use12Hours 
-                            onChange={(time, timeString) => handleTimeChange(time, timeString, x.id)}
-                            />
-                        <div className="space" />
-                    </div>
-                )}
-               
-                <Button onClick={addTimeSlot}><Icons.PlusOutlined /> Add</Button>
-            </div>
-            {/* TICKETS */}
-            <div className="form-group">
-                <label>Number of allowed reservations per day:</label>
-                <InputNumber min={1} max={100} defaultValue={30} onChange={(value) => handleTicketCount(value)}/>
-            </div>
-            <div className="form-group">
-                <label>Number of allowed reservations per person:</label>
-                <InputNumber min={1} max={20} defaultValue={1} onChange={(value) => handleTicketCountPerPerson(value)}/>
-            </div>
-            {/* ALLOW BOOKING UNTIL A SPECIFIC TIME*/}
-            <div className="form-group">
-                <label>Allow bookings until:</label>
-                <TimePicker defaultValue={moment('00:30','h:mm a')} showNow={false} minuteStep={15} format='H:mm'/> 
-                <span style={{fontSize:'16px',marginLeft: '1rem'}}> hour(s) before a reservation starts</span>
-            </div>
+            <TimeSlotCreate />
+                    
             <button className="btn btn-outline-info">
             Save
             </button>
-        </form>
+        </Form>
     )
+}
+function TimeSlotCreate(){
+    return (
+          <Form.List 
+            name="timeSlots" 
+            label="Time Slots" 
+            rules={[
+                {
+                  validator: async (_, timeSlots) => {
+                    if (!timeSlots || timeSlots.length < 1) {
+                      return Promise.reject(new Error('At least 1 time slot has to be created'));
+                    }
+                  },
+                },
+              ]}
+            >
+
+            {(fields, { add, remove }, { errors }) => (
+              <>
+                {fields.map(({ key, name, fieldKey, ...restField }) => (
+                  <Space key={key} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
+                      <Form.Item
+                        name={[name, 'timeRange']}
+                        fieldKey={[fieldKey, 'timeRange']}
+                        rules={[{ required: true, message: 'Missing time slot' }]}
+                      >
+                           <TimeRangePicker 
+                            format='h:mm a'
+                            use12Hours 
+                            />
+                      </Form.Item>
+                    <Form.Item
+                      {...restField}
+                      label="Number of tickets"
+                      name={[name, 'maxTicketCount']}
+                      fieldKey={[fieldKey, 'maxTicketCount']}
+                      rules={[{ required: true, message: 'Missing number of tickets' }]}
+                    >
+                      <InputNumber min={1} max={100} placeholder="0" style={{width: 160}}/>
+                    </Form.Item>
+                    
+                    <Icons.MinusCircleOutlined onClick={() => remove(name)} />
+                  </Space>
+                ))}
+                <Form.Item>
+                  <Button type="dashed" onClick={() => add()} block icon={<Icons.PlusOutlined />}>
+                    Add Time Slot
+                  </Button>
+                  <Form.ErrorList errors={errors} />
+                </Form.Item>
+              </>
+            )}
+           
+          </Form.List>
+
+      );
 }
 export default CalendarCreate;

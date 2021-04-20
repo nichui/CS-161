@@ -17,6 +17,7 @@
     "firebase": "^8.2.7",
     "lodash": "^4.17.21",
     "mdbreact": "^5.0.1",
+    "moment": "^2.29.1",
     "mongoose": "^5.11.18",
     "react": "^17.0.1",
     "react-datepicker": "^3.6.0",

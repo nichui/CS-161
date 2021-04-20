@@ -37,7 +37,9 @@
 .form-group label {
     width: 300px;
 }
-
+.timeslot {
+    display: block;
+}
 @media screen and (max-width: 900px) {
     .datetime-picker{
         flex-direction: column;

@@ -6,6 +6,7 @@ import {useSelector} from "react-redux";
 import {createProduct} from "../../../functions/product";
 import ProductCreateForm from "../../../components/forms/ProductCreateForm";
 import {getCategories, getCategorySubs} from "../../../functions/category";
+import {getCalendars} from "../../../functions/calendar";
 import FileUpload from "../../../components/forms/FileUpload";
 import {LoadingOutlined} from '@ant-design/icons'
 
@@ -23,6 +24,7 @@ const initialState = {
     brands: ['Hiking', 'Visiting', 'Traveling', 'Entertaining', 'Relaxing'],
     season: '',
     brand: '',
+    calendar: '',
 }
 
 
@@ -30,16 +32,21 @@ const ProductCreate = () => {
     const [values, setValues] = useState(initialState);
     const [subOptions, setSubOptions] = useState([]);
     const [showSub, setShowSub] = useState(false);
+    const [calendarOptions, setCalendarOptions] = useState([]);
     const [loading, setLoading] = useState(false);
     //redux
     const {user} = useSelector((state) => ({...state}));
 
     useEffect(() => {
         loadCategories().then().catch();
+        loadCalendars().then().catch();
     }, []);
 
     const loadCategories = () => getCategories().then(c =>
         setValues({...values, categories: c.data})
+    );
+    const loadCalendars = () => getCalendars().then(c =>
+        setCalendarOptions(c.data)
     );
 
     const handleSubmit = (e) => {
@@ -150,6 +157,7 @@ const ProductCreate = () => {
                         handleCategoryChange={handleCategoryChange}
                         subOptions={subOptions}
                         showSub={showSub}
+                        calendarOptions={calendarOptions}
                     />
                 </div>
             </div>
