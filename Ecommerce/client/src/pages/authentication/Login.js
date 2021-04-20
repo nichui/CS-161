@@ -22,7 +22,7 @@ const Login = ({history}) => {
     const {user} = useSelector((state) => ({...state}));
 
     const textStyle = {
-        color: "white",
+        color: "black",
     }
 
     useEffect(() => {
@@ -175,7 +175,7 @@ const Login = ({history}) => {
         <div className="container p-5">
             <div className="row">
                 <div className="col-md-6 offset-md-3">
-                    {loading ? <h4 className="text-danger">Loading...</h4> : <h4 style={textStyle}>Login</h4>}
+                    {loading ? <h4 className="text-danger">Loading...</h4> : <h4 style={{ color: "white" }}>Login</h4>}
 
                     {loginForm()}
 

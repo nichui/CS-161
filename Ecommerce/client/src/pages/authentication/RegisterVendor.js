@@ -88,7 +88,7 @@ const RegisterVendor = ({ history }) => {
     };
 
     const completeRegistrationForm = () =>
-        <form onSubmit={handleSubmit} autocomplete="on">
+        <form onSubmit={handleSubmit} autoComplete="on">
             <input type="text"
                 name="name"
                 className="form-control"
@@ -107,14 +107,14 @@ const RegisterVendor = ({ history }) => {
             />
 
             <input type="checkbox"
-                autocomplete="off"
+                autoComplete="off"
                 value={checkboxBool}
                 onClick={e => setCheck(e.target.checked)}
                 unchecked />
                 Mailing address is same as business address
 
             <input type="text"
-                autocomplete="off"
+                autoComplete="off"
                 className="form-control"
                 value={mailAddr}
                 onChange={e => setMail(e.target.value)}
@@ -123,14 +123,14 @@ const RegisterVendor = ({ history }) => {
             />
 
             <input type="email"
-                autocomplete="off"
+                autoComplete="off"
                 className="form-control"
                 value={email}
                 disabled
             />
 
             <input type="password"
-                autocomplete="off"
+                autoComplete="off"
                 className="form-control"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
