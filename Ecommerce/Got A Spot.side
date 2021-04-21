@@ -24,7 +24,7 @@
       "id": "40288732-3337-4ff8-8af5-6e96f7e27440",
       "comment": "",
       "command": "click",
-      "target": "linkText=Login",
+      "target": "linkText=LOGIN",
       "targets": [
         ["linkText=Login", "linkText"],
         ["css=.ant-menu-item-active a", "css:finder"],
@@ -108,15 +108,15 @@
       "id": "32ba910d-d318-4dc2-a1ee-366fcc3a7da3",
       "comment": "",
       "command": "click",
-      "target": "linkText=Register",
+      "target": "linkText=REGISTER",
       "targets": [
-        ["linkText=Register", "linkText"],
+        ["linkText=REGISTER", "linkText"],
         ["css=.float-right:nth-child(1)", "css:finder"],
-        ["xpath=//a[contains(text(),'Register')]", "xpath:link"],
+        ["xpath=//a[contains(text(),'REGISTER')]", "xpath:link"],
         ["xpath=//div[@id='root']/ul/li[2]/span[2]/a", "xpath:idRelative"],
         ["xpath=//a[contains(@href, '/register')]", "xpath:href"],
         ["xpath=//a", "xpath:position"],
-        ["xpath=//a[contains(.,'Register')]", "xpath:innerText"]
+        ["xpath=//a[contains(.,'REGISTER')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -520,7 +520,7 @@
       "id": "f0a1eef3-987d-4720-ba28-1259dd9ac877",
       "comment": "",
       "command": "click",
-      "target": "linkText=Register",
+      "target": "linkText=REGISTER",
       "targets": [
         ["linkText=Register", "linkText"],
         ["css=.float-right:nth-child(1)", "css:finder"],
@@ -797,7 +797,7 @@
       "id": "9196a9e5-b360-4cad-b9bf-9df8f1d11a9a",
       "comment": "",
       "command": "click",
-      "target": "linkText=Login",
+      "target": "linkText=LOGIN",
       "targets": [
         ["linkText=Login", "linkText"],
         ["css=.ant-menu-item-active a", "css:finder"],
@@ -879,7 +879,15 @@
       "comment": "",
       "command": "click",
       "target": "linkText=SHOP",
-      "targets": [],
+      "targets": [
+        ["linkText=SHOP", "linkText"],
+        ["css=.ant-menu-item-active a", "css:finder"],
+        ["xpath=//a[contains(text(),'SHOP')]", "xpath:link"],
+        ["xpath=//div[@id='root']/ul/li[8]/span[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/shop')]", "xpath:href"],
+        ["xpath=//li[8]/span[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'SHOP')]", "xpath:innerText"]
+      ],
       "value": ""
     }, {
       "id": "ff9a8d56-6f08-4ac1-9cef-fac6dc97c189",
