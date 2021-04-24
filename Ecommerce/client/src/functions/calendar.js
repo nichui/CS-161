@@ -20,7 +20,7 @@ export const removeCalendar = async (slug, authtoken) =>
 
 export const updateCalendar = async (slug, calendar, authtoken) =>
     // send request to backend to get categories
-    await axios.put(`${process.env.REACT_APP_API}/category/${slug}`, calendar,{
+    await axios.put(`${process.env.REACT_APP_API}/calendar/${slug}`, calendar,{
         headers : {
             authtoken
         }});

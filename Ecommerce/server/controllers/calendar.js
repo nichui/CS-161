@@ -1,13 +1,15 @@
 const Calendar= require('../models/calendar');
 const Product = require('../models/product');
+const slugify = require('slugify');
 
 exports.create = async (req, res) => {
     try{
-        const {name, monthsToScroll, startDate, unavailableWeekDays, timeSlots, bookedDates} = req.body;
-        res.json(await new Calendar({name, monthsToScroll, startDate, unavailableWeekDays, timeSlots, bookedDates}).save());
+        req.body.slug = slugify(req.body.name);
+        const newCalendar = await new Calendar(req.body).save();
+        await res.json(newCalendar);
     } catch(err){
         //console.log(err)
-        res.status(400).send('Create calendar failed');
+        res.status(400).send('Server error. Please contact administration.');
     }
 };
 
@@ -27,6 +29,7 @@ exports.read = async(req, res) => {
     })
 }
 exports.update = async (req, res) => {
+    const { name } = req.body
     try{
         if(req.body.name){
             req.body.slug = slugify(req.body.name);

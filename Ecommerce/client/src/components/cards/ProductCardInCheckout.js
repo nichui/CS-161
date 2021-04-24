@@ -6,7 +6,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import {CheckCircleOutlined, CloseCircleOutlined, CloseOutlined} from "@ant-design/icons";
 
 
-
+const amOrPm = (time) => {
+    return parseInt(time) > 12 ? "PM" : "AM";
+}
+const simpleHourFormat = (time) => {
+    const startTime = (parseInt(time[0].split(':')[0]) + 11) % 12 + 1;
+    const endTime = (parseInt(time[1].split(':')[0]) + 11) % 12 + 1;
+    return `${startTime}:${time[0].split(':')[1]} ${amOrPm(time[0])} - ${endTime}:${time[1].split(':')[1]} ${amOrPm(time[1])}`;
+}
 
 const ProductCardInCheckout = ({p}) => {
     const seasons = ['Spring', 'Summer', 'Fall', 'Winter', 'Whole Year'];
@@ -21,7 +28,7 @@ const ProductCardInCheckout = ({p}) => {
             }
 
             cart.map((product, i) => {
-                if(product._id === p._id){
+                if(product._id === p._id && isSameReservation(product.reservation, p.reservation)){
                     cart[i].season = e.target.value;
                 }
             });
@@ -50,7 +57,7 @@ const ProductCardInCheckout = ({p}) => {
                 cart = JSON.parse(localStorage.getItem('cart'));
             }
             cart.map((product, i) => {
-                if(product._id === p._id){
+                if(product._id === p._id && isSameReservation(product.reservation, p.reservation)){
                     cart[i].count = count;
                 }
             });
@@ -62,6 +69,11 @@ const ProductCardInCheckout = ({p}) => {
             })
         }
     }
+    const isSameReservation = (res1, res2) => {
+        return res1.selectedDate === res2.selectedDate && 
+                res1.timeRange[0] === res2.timeRange[0] && 
+                res1.timeRange[1] === res2.timeRange[1]
+    }
 
     const handleRemove = () => {
         //console.log(p._id, "to Remove")
@@ -72,7 +84,7 @@ const ProductCardInCheckout = ({p}) => {
             }
             // [1,2,3,4,5]
             cart.map((product, i) => {
-                if(product._id === p._id){
+                if(product._id === p._id && isSameReservation(product.reservation, p.reservation)){
                     cart.splice(i, 1);
                 }
             });
@@ -89,7 +101,7 @@ const ProductCardInCheckout = ({p}) => {
             <tr>
                 <td>
                     <div style={{width: "100px", height: "auto"}}>
-                        {p.images.length ? (
+                        {p.images && p.images[0] ? (
                             <ModalImage
                                 small={p.images[0].url}
                                 large={p.images[0].url}
@@ -105,7 +117,8 @@ const ProductCardInCheckout = ({p}) => {
                 <td>{p.title}</td>
                 <td>$ {p.price}</td>
                 <td>{p.brand}</td>
-                <td>
+                <td>{p.reservation.selectedDate}<br></br>{simpleHourFormat(p.reservation.timeRange)}</td>
+                {/* <td>
                     <select
                         onChange={handleSeasonChange}
                         name="season"
@@ -118,7 +131,7 @@ const ProductCardInCheckout = ({p}) => {
                         </option>}
                         {seasons.filter((s) => s !== p.season).map((s) => <option key={s} value={s}>{s}</option>)}
                     </select>
-                </td>
+                </td> */}
                 <td className="text-center">
                     <input
                         type="number"

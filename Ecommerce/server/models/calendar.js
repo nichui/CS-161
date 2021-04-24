@@ -7,7 +7,6 @@ const calendarSchema = new mongoose.Schema({
         required: true,
         maxlength: 50,
         text : true,
-        unique: true,
     },
     slug: {
         type: String,
@@ -22,7 +21,7 @@ const calendarSchema = new mongoose.Schema({
         required: true
     },
     startDate: {
-        type: Date,
+        type: String,
         required: true,
     },
     unavailableWeekDays: {

@@ -183,6 +183,7 @@ const ProductUpdateForm = ({
                     name="calendar"
                     className="form-control"
                     onChange={handleChange}
+                    value={calendar._id}
                 >
                     <option>Please select</option>
                     {calendarOptions.map(calOption =>

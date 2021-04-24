@@ -16,7 +16,7 @@ const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satur
 
 // disable today and days before today
 const disabledDate = (current) => {
-    return current & current < moment().endOf('day');
+    return current && current < moment().endOf('day');
 }
 // Calendar's initial values
 const initialState = {
@@ -84,12 +84,12 @@ const CalendarCreateForm = ({weekDays, user}) => {
         console.log("received values of calendar form: ", values);
         createCalendar(values, user.token).then(
             (res) => {
-                window.alert(`"${res.data.name}" is created`);
+                toast.success(`Calendar is successfully created.`);
                 window.location.reload();
             }
         ).catch((err) => {
-            console.log(err)
-            toast.error(err.response.data.err);
+            toast.error("Server error. Please check with administration.");
+            console.log(err);
         })
     }
     

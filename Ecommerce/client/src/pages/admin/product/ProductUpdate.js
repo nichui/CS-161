@@ -151,8 +151,6 @@ const ProductUpdate = ({match, history}) => {
                         />
                     </div>
 
-
-
                     <ProductUpdateForm
                         handleSubmit={handleSubmit}
                         handleChange={handleChange}
