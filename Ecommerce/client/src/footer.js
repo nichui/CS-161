@@ -2,6 +2,12 @@ import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import { Row, Container } from "reactstrap";
 
+import Chatbot from 'react-chatbot-kit';
+
+import config from "./chatbot/config";
+import MessageParser from "./chatbot/MessageParser";
+import ActionProvider from "./chatbot/ActionProvider";
+
 const Footer = () => {
   return (
     <footer className="footer footer-black footer-white" style={{ backgroundColor: "#d0dbd1" }}>
@@ -47,8 +53,17 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
+                      
           </nav>
-          
+
+                  <div className="App">
+                      <Chatbot
+                          config={config}
+                          messageParser={MessageParser}
+                          actionProvider={ActionProvider}
+                      />
+                  </div>
+
           <div className="credits ml-auto">
             <span className="copyright">
               Team Cool Beans @CS161
