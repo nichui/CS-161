@@ -105,7 +105,7 @@ const Checkout = ({history}) => {
         products.map( (p,i) => (
                 <div key={i}>
                     <p>
-                        {p.product.title} ({p.season}) x {p.count} ={" "}
+                        {p.product.title} {"("}{p.reservation.selectedDate.split(',')[0]}{")"} x {p.count} = {" "}
                         {p.product.price * p.count}
                     </p>
                 </div>

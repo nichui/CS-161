@@ -91,7 +91,7 @@ const Cart = ({history}) => {
                     {cart.map((c,i) => (
                         <div key={i}>
                             <p>
-                                <p>{c.title} x {c.count} ticket(s) = ${c.price * c.count}</p>
+                                <p>{c.title} {"("}{c.reservation.selectedDate.split(',')[0]}{")"} x {c.count} ticket(s) = ${c.price * c.count}</p>
                             </p>
                         </div>
                     ))}

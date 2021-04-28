@@ -5,7 +5,6 @@ const Coupon = require('../models/coupon')
 const Order = require('../models/order')
 
 exports.userCart = async(req, res) => {
-
     const { cart } = req.body;
 
     let products = [];
@@ -26,10 +25,10 @@ exports.userCart = async(req, res) => {
 
         object.product = cart[i]._id;
         object.count = cart[i].count;
-        object.season = cart[i].season;
+        //object.season = cart[i].season;
+        object.reservation = cart[i].reservation;
         //get price for creating total
         let productFromDb = await Product.findById(cart[i]._id).select("price").exec();
-
         object.price = productFromDb.price;
 
         products.push(object);
