@@ -3,8 +3,20 @@ import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import { Row, Container } from "reactstrap";
 
 const Footer = () => {
+  const style = {
+    position: "absolute",
+    left: "0",
+    bottom: "0",
+    width: "100%",
+  }
+
+  const footerMargin = {
+    
+  }
+
   return (
-    <footer className="footer footer-black footer-white">
+    
+    <footer className="footer footer-black footer-white sticky-footer">
       <Container>
         <Row>
           <nav className="footer-nav">
@@ -56,6 +68,7 @@ const Footer = () => {
         </Row>
       </Container>
     </footer>
+    
   );
 }
 
