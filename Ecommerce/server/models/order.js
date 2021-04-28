@@ -10,10 +10,7 @@ const orderSchema = new mongoose.Schema({
                 ref: 'Product'
             },
             count: Number,
-            reservation: {
-                selectedDate: String,
-                timeRange: Array,
-            },
+            reservation: Object,
         },
 
     ],

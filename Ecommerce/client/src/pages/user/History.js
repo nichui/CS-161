@@ -14,6 +14,7 @@ const amOrPm = (time) => {
     return parseInt(time) > 12 ? "PM" : "AM";
 }
 const simpleHourFormat = (time) => {
+    console.log(time)
     const startTime = (parseInt(time[0].split(':')[0]) + 11) % 12 + 1;
     const endTime = (parseInt(time[1].split(':')[0]) + 11) % 12 + 1;
     return `${startTime}:${time[0].split(':')[1]} ${amOrPm(time[0])} - ${endTime}:${time[1].split(':')[1]} ${amOrPm(time[1])}`;
@@ -36,7 +37,7 @@ const History = () => {
         <table className="table table-bordered" style={{ color: "#d0dbd1" }}>
             <thead className="thead-light">
                 <tr>
-                    <th scope="col">Location Name</th>
+                    <th scope="col">Location</th>
                     <th scope="col">Price</th>
                     {/* <th scope="col">Brand</th> */}
                     {/* <th scope="col">Season</th> */}
