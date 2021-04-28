@@ -6,7 +6,6 @@ const Order = require('../models/order');
 const Reservation = require('../models/reservation');
 
 exports.userCart = async(req, res) => {
-
     const { cart } = req.body;
 
     let products = [];
@@ -32,7 +31,6 @@ exports.userCart = async(req, res) => {
 
         //get price for creating total
         let productFromDb = await Product.findById(cart[i]._id).select("price").exec();
-
         object.price = productFromDb.price;
 
         products.push(object);

@@ -9,7 +9,10 @@ const cartSchema = new mongoose.Schema({
                 ref: 'Product'
             },
             count: Number,
-            season: String,
+            reservation: {
+                selectedDate: String,
+                timeRange: Array,
+            },
             price: Number,
             reservation: Object,
         },

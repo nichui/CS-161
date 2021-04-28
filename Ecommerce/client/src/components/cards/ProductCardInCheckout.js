@@ -16,31 +16,31 @@ const simpleHourFormat = (time) => {
 }
 
 const ProductCardInCheckout = ({p}) => {
-    const seasons = ['Spring', 'Summer', 'Fall', 'Winter', 'Whole Year'];
     let dispatch = useDispatch();
-    const handleSeasonChange = e => {
-        console.log('Season changed', e.target.value);
+    // const seasons = ['Spring', 'Summer', 'Fall', 'Winter', 'Whole Year'];
+    // const handleSeasonChange = e => {
+    //     console.log('Season changed', e.target.value);
 
-        let cart = []
-        if(typeof window !== 'undefined'){
-            if(localStorage.getItem('cart')){
-                cart = JSON.parse(localStorage.getItem('cart'));
-            }
+    //     let cart = []
+    //     if(typeof window !== 'undefined'){
+    //         if(localStorage.getItem('cart')){
+    //             cart = JSON.parse(localStorage.getItem('cart'));
+    //         }
 
-            cart.map((product, i) => {
-                if(product._id === p._id && isSameReservation(product.reservation, p.reservation)){
-                    cart[i].season = e.target.value;
-                }
-            });
+    //         cart.map((product, i) => {
+    //             if(product._id === p._id && isSameReservation(product.reservation, p.reservation)){
+    //                 cart[i].season = e.target.value;
+    //             }
+    //         });
 
-            //console.log('card update season', cart)
-            localStorage.setItem("cart", JSON.stringify(cart));
-            dispatch({
-                type: "ADD_TO_CART",
-                payload: cart,
-            })
-        }
-    };
+    //         //console.log('card update season', cart)
+    //         localStorage.setItem("cart", JSON.stringify(cart));
+    //         dispatch({
+    //             type: "ADD_TO_CART",
+    //             payload: cart,
+    //         })
+    //     }
+    // };
 
     const handleQuantityChange = e => {
         //console.log('available quantity', p.quantity);
