@@ -1,2 +1,2 @@
 # CS-161
-Team project
+Cool Beans Team project
