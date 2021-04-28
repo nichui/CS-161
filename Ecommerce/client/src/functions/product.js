@@ -60,3 +60,9 @@ export const fetchProductsByFilter = async (arg) =>
     // send request to backend to get categories
     await axios.post(`${process.env.REACT_APP_API}/search/filters`, arg);
 
+    
+export const getProductOrders = async (productId) =>
+    await axios.get(
+        `${process.env.REACT_APP_API}/product/orders/${productId}`
+    );
+

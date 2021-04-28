@@ -2,7 +2,8 @@ const User = require('../models/user')
 const Product = require('../models/product')
 const Cart = require('../models/cart');
 const Coupon = require('../models/coupon')
-const Order = require('../models/order')
+const Order = require('../models/order');
+const Reservation = require('../models/reservation');
 
 exports.userCart = async(req, res) => {
 
@@ -27,6 +28,8 @@ exports.userCart = async(req, res) => {
         object.product = cart[i]._id;
         object.count = cart[i].count;
         object.season = cart[i].season;
+        object.reservation = cart[i].reservation;
+
         //get price for creating total
         let productFromDb = await Product.findById(cart[i]._id).select("price").exec();
 
@@ -118,10 +121,19 @@ exports.createOrder = async(req,res) => {
     const user = await User.findOne({email: req.user.email}).exec();
     let {products} = await Cart.findOne({orderedBy: user._id}).exec();
 
+    for (var product of products){
+        console.log('product', product);
+        await new Reservation({
+            selectedDate: product.reservation.selectedDate,
+            timeRange: product.reservation.timeRange,
+            count: product.count,
+            productId: product.product,
+        }).save();
+    }
     let newOrder = await new Order({
         products,
         paymentIntent,
-        orderedBy: user._id
+        orderedBy: user._id,
     }).save();
 
     // decrement quantity, increment sold

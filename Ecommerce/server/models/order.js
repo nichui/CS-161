@@ -11,7 +11,7 @@ const orderSchema = new mongoose.Schema({
             },
             count: Number,
             season: String,
-
+            reservation: Object,
         },
 
     ],
@@ -27,7 +27,7 @@ const orderSchema = new mongoose.Schema({
             "Completed",
         ],
     },
-    orderedBy: {type: ObjectId, ref:'User'}
+    orderedBy: {type: ObjectId, ref:'User'},
 },
     {timestamps: true});
 

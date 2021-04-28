@@ -11,6 +11,7 @@ const cartSchema = new mongoose.Schema({
             count: Number,
             season: String,
             price: Number,
+            reservation: Object,
         },
     ],
     cartTotal: Number,

@@ -16,6 +16,7 @@ const { create,
     productStar,
     listRelated,
     searchFilters,
+    orders
     } = require('../controllers/product');
 
 //routes
@@ -39,8 +40,9 @@ router.put('/product/star/:productId', authCheck, productStar);
 router.get('/product/related/:productId',listRelated);
 
 //search
-router.post('/search/filters', searchFilters)
-
+router.post('/search/filters', searchFilters);
+// get all orders of this product
+router.get('/product/orders/:productId', orders);
 
 
 

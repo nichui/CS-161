@@ -1,6 +1,8 @@
 const Product = require('../models/product')
 const slugify = require('slugify')
-const User = require('../models/user')
+const User = require('../models/user');
+const Reservation = require('../models/reservation');
+const mongoose = require('mongoose');
 
 exports.create = async(req, res) => {
     try{
@@ -49,6 +51,19 @@ exports.read = async(req, res) => {
     await res.json(product);
 }
 
+exports.orders = async(req, res) => {
+    if(mongoose.Types.ObjectId.isValid(req.params.productId)){
+        console.log(req.params.productId);
+        const orders = await Reservation.find({
+                        productId: req.params.productId,
+                        }).exec()
+        console.log('All reservations of this location', orders);
+        await res.json(orders);
+    } else {
+        await res.status(400).json({'Error':'Failed to retrieve reservations of this location.'});
+    }
+}
+
 exports.update = async (req, res) => {
     try{
         if(req.body.title){
@@ -69,6 +84,7 @@ exports.update = async (req, res) => {
         });
     }
 }
+
 //WITHOUT PAGINATION
 
 /*exports.list = async(req, res) => {

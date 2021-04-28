@@ -22,7 +22,9 @@ const{TabPane} = Tabs;
 const {Meta} = Card;
 
 // this is children component of Product page
-const SingleProduct = ({product, onStarClick, star}) => {
+const SingleProduct = ({product, reservations, onStarClick, star}) => {
+    console.log('all reservations', reservations);
+    console.log('product', product);
     const [reservation, setReservation] = useState(null);
     const [tooltip, setTooltip] = useState('Click to add');
     const {user, cart} = useSelector((state) => ({...state}));
@@ -46,7 +48,7 @@ const SingleProduct = ({product, onStarClick, star}) => {
                 const newCartItem = {
                     ...product,
                     count: 1,
-                    reservation: reservation
+                    reservation: reservation,
                 }
                 const isItemInCart = cart.filter(x => x._id === newCartItem._id && isSameReservation(x.reservation, newCartItem.reservation))
                 if (isItemInCart.length === 0){
@@ -87,8 +89,6 @@ const SingleProduct = ({product, onStarClick, star}) => {
         });
     };
     const isSameReservation = (res1, res2) => {
-        console.log(res1);
-        console.log(res2);
         return res1.selectedDate === res2.selectedDate && 
                 res1.timeRange[0] === res2.timeRange[0] && 
                 res1.timeRange[1] === res2.timeRange[1]
@@ -96,8 +96,6 @@ const SingleProduct = ({product, onStarClick, star}) => {
     const style = {
         color: "#008000",
     };
-
-
 
     return(
         <>
@@ -169,7 +167,7 @@ const SingleProduct = ({product, onStarClick, star}) => {
                         </RatingModal>
                     ]}
                 >
-                    <ProductListItems product={product} setReservation={setReservation}/>
+                    <ProductListItems product={product} reservations={reservations} setReservation={setReservation}/>
                 </Card>
             </div>
         </>
