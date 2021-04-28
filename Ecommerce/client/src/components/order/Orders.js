@@ -2,6 +2,15 @@ import React from 'react'
 import {CheckCircleOutlined, CloseCircleOutlined} from '@ant-design/icons'
 import ShowPaymentInfo from "../cards/ShowPaymentInfo";
 
+const amOrPm = (time) => {
+    return parseInt(time) > 12 ? "PM" : "AM";
+}
+const simpleHourFormat = (time) => {
+    const startTime = (parseInt(time[0].split(':')[0]) + 11) % 12 + 1;
+    const endTime = (parseInt(time[1].split(':')[0]) + 11) % 12 + 1;
+    return `${startTime}:${time[0].split(':')[1]} ${amOrPm(time[0])} - ${endTime}:${time[1].split(':')[1]} ${amOrPm(time[1])}`;
+}
+
 const Orders = ({orders, handleStatusChange}) => {
     const showOrderInTable = (order) =>
         (<table className="table table-bordered">
@@ -10,7 +19,7 @@ const Orders = ({orders, handleStatusChange}) => {
                 <th scope="col">Title</th>
                 <th scope="col">Price</th>
                 <th scope="col">Brand</th>
-                <th scope="col">Season</th>
+                <th scope="col">Date</th>
                 <th scope="col">Count</th>
                 <th scope="col">Shipping</th>
             </tr>
@@ -22,7 +31,7 @@ const Orders = ({orders, handleStatusChange}) => {
                     <td><b>{p.product.title}</b></td>
                     <td>{p.product.price}</td>
                     <td>{p.product.brand}</td>
-                    <td>{p.season}</td>
+                    <td>{p.reservation.selectedDate}<br></br>{/* {simpleHourFormat(p.reservation.timeRange)} */}</td>
                     <td>{p.count}</td>
                     <td>{p.product.shipping === "Yes" ? (
                         <CheckCircleOutlined style={{color: "green"}}/>

@@ -31,7 +31,9 @@ const AdminNav = () => (
             <li className="nav-item">
                 <Link to="/admin/coupon" style={styleText} className="nav-link">Coupon</Link>
             </li>
-
+            <li className="nav-item">
+                <Link to="/admin/calendar" className="nav-link">Calendar</Link>
+            </li>
             <li className="nav-item">
                 <Link to="/user/password" style={styleText} className="nav-link">Password</Link>
             </li>

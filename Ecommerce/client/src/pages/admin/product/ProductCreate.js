@@ -6,6 +6,7 @@ import {useSelector} from "react-redux";
 import {createProduct} from "../../../functions/product";
 import ProductCreateForm from "../../../components/forms/ProductCreateForm";
 import {getCategories, getCategorySubs} from "../../../functions/category";
+import {getCalendars} from "../../../functions/calendar";
 import FileUpload from "../../../components/forms/FileUpload";
 import {LoadingOutlined} from '@ant-design/icons'
 
@@ -23,6 +24,7 @@ const initialState = {
     brands: ['Hiking', 'Visiting', 'Traveling', 'Entertaining', 'Relaxing'],
     season: '',
     brand: '',
+    calendar: '',
 }
 
 
@@ -30,22 +32,22 @@ const ProductCreate = () => {
     const [values, setValues] = useState(initialState);
     const [subOptions, setSubOptions] = useState([]);
     const [showSub, setShowSub] = useState(false);
+    const [calendarOptions, setCalendarOptions] = useState([]);
     const [loading, setLoading] = useState(false);
-
-
     //redux
     const {user} = useSelector((state) => ({...state}));
 
     useEffect(() => {
         loadCategories().then().catch();
+        loadCalendars().then().catch();
     }, []);
 
     const loadCategories = () => getCategories().then(c =>
         setValues({...values, categories: c.data})
     );
-
-
-
+    const loadCalendars = () => getCalendars().then(c =>
+        setCalendarOptions(c.data)
+    );
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -86,6 +88,44 @@ const ProductCreate = () => {
         setShowSub(true);
     };
 
+    // const handleTimeChange = (time, name) => {
+    //     console.log('Time changes');
+    //     const scheduleIndex = getScheduleIndex(schedules, name);
+    //     const newSchedule = {
+    //         name: name,
+    //         time: time
+    //     }
+    //     if (scheduleIndex === -1){
+    //         setSchedules([...schedules, newSchedule]);
+    //         setValues({...values, availability: schedules});
+    //         return;
+    //     }
+    //     const newArr = [... schedules];
+    //     newArr[scheduleIndex] = newSchedule;
+    //     setSchedules(newArr);
+
+    //     setValues({...values, availability: schedules});
+    // }
+    // const getScheduleIndex =(arr, scheduleName) => {
+    //     return arr.findIndex(x => x.name === scheduleName)
+    // }
+
+    // const handleAdd = () => {
+    //     const newSchedule = {
+    //         name: 'schedule-' + schedules.length,
+    //         time: ''
+    //     }
+    //     const scheduleIndex = getScheduleIndex(schedules, newSchedule.name);
+    //     if (scheduleIndex === -1){
+    //         setSchedules([...schedules, newSchedule])
+    //         setValues({...values, availability: schedules});
+    //         return;
+    //     }
+    //     console.log("this schedule named " + newSchedule.name + " already exists")
+    // }
+    // useEffect(() => {
+    //     console.log(values)
+    // },[])
     return(
         <div className="container-fluid">
             <div className="row">
@@ -116,8 +156,8 @@ const ProductCreate = () => {
                         values={values}
                         handleCategoryChange={handleCategoryChange}
                         subOptions={subOptions}
-
                         showSub={showSub}
+                        calendarOptions={calendarOptions}
                     />
                 </div>
             </div>

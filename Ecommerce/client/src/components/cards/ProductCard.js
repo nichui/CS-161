@@ -78,12 +78,12 @@ const ProductCard = ({ product }) => {
             <Link to={`/product/${slug}`} style={textStyle}>
                 <EyeOutlined style={iconStyle}/> <br/> View Product
             </Link>,
-            <Tooltip title={tooltip}>
-                <a onClick={handleAddToCart} disabled={product.quantity < 1} style={textStyle}>
-                    <ShoppingCartOutlined style={iconStyle}/> <br/>
-                    {product.quantity < 1 ? 'Out of stock' : 'Add to Cart'}
-                </a>
-            </Tooltip>
+            // <Tooltip title={tooltip}>
+            //     <a onClick={handleAddToCart} disabled={product.quantity < 1} style={textStyle}>
+            //         <ShoppingCartOutlined style={iconStyle}/> <br/>
+            //         {product.quantity < 1 ? 'Out of stock' : 'Add to Cart'}
+            //     </a>
+            // </Tooltip>
         ]}
         >
             

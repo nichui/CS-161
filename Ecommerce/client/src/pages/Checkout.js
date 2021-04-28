@@ -4,6 +4,7 @@ import {getUserCart, emptyUserCart, saveUserAddress, applyCoupon} from '../funct
 import {toast} from "react-toastify";
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
+import {Button} from 'antd';
 
 
 
@@ -24,7 +25,7 @@ const Checkout = ({history}) => {
     useEffect(() => {
         getUserCart(user.token)
             .then((res) => {
-                console.log('user cart res', JSON.stringify(res.data, null, 4));
+                console.log('user/cart/ GET response', JSON.stringify(res.data, null, 4));
                 setProducts(res.data.products);
                 setTotal(res.data.cartTotal);
             });
@@ -104,7 +105,7 @@ const Checkout = ({history}) => {
         products.map( (p,i) => (
                 <div key={i}>
                     <p>
-                        {p.product.title} ({p.season}) x {p.count} ={" "}
+                        {p.product.title} {"("}{p.reservation.selectedDate.split(',')[0]}{")"} x {p.count} = {" "}
                         {p.product.price * p.count}
                     </p>
                 </div>
@@ -167,13 +168,13 @@ const Checkout = ({history}) => {
 
                 <div className="row">
                     <div className="col-md-6">
-                        <button
-                            className="btn btn-primary"
+                        <Button
+                            type="primary"
                             disabled={!addressSaved || !products.length}
                             onClick={() => history.push('/payment')}
                         >
                             Place Order
-                        </button>
+                        </Button>
                     </div>
 
                     <div className="col-md-6">
