@@ -15,7 +15,7 @@ const {SubMenu, ItemGroup} = Menu;
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [price, setPrice] = useState([0, 0]);
+    const [price, setPrice] = useState([]);
     const [ok, setOk] = useState(false);
     const [categories, setCategories] = useState([]);
     const [categoryIds, setCategoryIds] = useState([]);
@@ -56,8 +56,16 @@ const Shop = () => {
         });
     };
 
-
-
+    const handleClear = () => {
+        setSub('')
+        setPrice([]);
+        setCategoryIds([]);
+        setStar("");
+        setBrand('');
+        setSeason('');
+        setShipping('');
+        loadAllProducts();
+    };
 
     // 1. load Products on page load by default
     const loadAllProducts = () => {
@@ -70,10 +78,7 @@ const Shop = () => {
     //2. load products on user search input
     useEffect(() => {
         const delayed = setTimeout(() => {
-            fetchProducts({query: text});
-            if(!text){
-                loadAllProducts();
-            }
+            fetchProducts({query: text, price, category: categoryIds, star, sub, shipping, season, brand});
         }, 300);
         return () => clearTimeout(delayed)
 
@@ -85,7 +90,7 @@ const Shop = () => {
     // 3. load products based on price range
     useEffect(() => {
         //console.log('ok to request')
-        fetchProducts({ price });
+        fetchProducts({query: text, price, category: categoryIds, star, sub, shipping, season, brand});
     }, [ok]);
 
     const handleSlider = (value) => {
@@ -94,13 +99,13 @@ const Shop = () => {
             payload: {text: ""},
         });
         // reset
-        setCategoryIds([]);
+        // setCategoryIds([]);
         setPrice(value);
-        setStar("");
-        setSub('')
-        setBrand('');
-        setSeason('');
-        setShipping('');
+        // setStar("");
+        // setSub('')
+        // setBrand('');
+        // setSeason('');
+        // setShipping('');
         setTimeout(() => {
             setOk(!ok)
         }, 300);
@@ -130,13 +135,12 @@ const Shop = () => {
             type: "SEARCH_QUERY",
             payload: {text: ""},
         })
-        setPrice([0,0]);
-        setStar("");
-        setSub('')
-        setBrand('');
-        setSeason('');
-        setShipping('');
-        //console.log(e.target.value);
+        // setPrice([0,0]);
+        // setStar("");
+        // setSub('')
+        // setBrand('');
+        // setSeason('');
+        // setShipping('');
         let inTheState = [...categoryIds];
         let justChecked = e.target.value;
         let foundInTheState = inTheState.indexOf(justChecked); // index or -1
@@ -152,26 +156,26 @@ const Shop = () => {
 
         setCategoryIds(inTheState);
         //console.log(inTheState);
-        fetchProducts({category: inTheState});
-
-
+        // fetchProducts({category: inTheState});
+        fetchProducts({query: text, price, category: inTheState, star, sub, shipping, season, brand});
     };
 
     // 5. show Products by Star Rating
     const handleStarClick = (num) => {
         //console.log(num);
-        dispatch({
-            type: "SEARCH_QUERY",
-            payload: {text: ""},
-        })
-        setPrice([0,0]);
-        setCategoryIds([]);
+        // dispatch({
+        //     type: "SEARCH_QUERY",
+        //     payload: {text: ""},
+        // })
+        // setPrice([0,0]);
+        // setCategoryIds([]);
         setStar(num);
-        setSub('')
-        setBrand('');
-        setSeason('');
-        setShipping('');
-        fetchProducts({stars: num});
+        // setSub('')
+        // setBrand('');
+        // setSeason('');
+        // setShipping('');
+        // fetchProducts({stars: num});
+        fetchProducts({query: text, price, category: categoryIds, star: num, sub, shipping, season, brand});
     }
     const showStars = () => (
         <div className="pr-4 pl-4 pb-2">
@@ -212,20 +216,19 @@ const Shop = () => {
 
     const handleSub = (sub) => {
         //console.log("SUB", s);
-        setSub(sub)
         dispatch({
             type: "SEARCH_QUERY",
             payload: {text: ""},
         })
-        setPrice([0,0]);
-        setCategoryIds([]);
-        setStar('');
-        setBrand('');
-        setSeason('');
-        setShipping('');
-        fetchProducts({sub});
-
-
+        // setPrice([0,0]);
+        // setCategoryIds([]);
+        // setStar('');
+        setSub(sub)
+        // setBrand('');
+        // setSeason('');
+        // setShipping('');
+        // fetchProducts({sub});
+        fetchProducts({query: text, price, category: categoryIds, star, sub, shipping, season, brand});
     };
 
 
@@ -246,18 +249,19 @@ const Shop = () => {
                 ));
 
     const handleBrand = (e) => {
-        setSub('')
         dispatch({
             type: "SEARCH_QUERY",
             payload: {text: ""},
         })
-        setPrice([0,0]);
-        setCategoryIds([]);
-        setStar('');
-        setSeason('')
+        // setPrice([0,0]);
+        // setCategoryIds([]);
+        // setStar('');
+        // setSeason('')
+        // setSub('')
         setBrand(e.target.value)
-        setShipping('');
-        fetchProducts({ brand: e.target.value});
+        // setShipping('');
+        // fetchProducts({ brand: e.target.value});
+        fetchProducts({query: text, price, category: categoryIds, star, sub, shipping, season, brand: e.target.value});
     }
 
     // 8. Show Seasons based on season
@@ -275,18 +279,19 @@ const Shop = () => {
         ));
 
     const handleSeason = (e) => {
-        setSub('')
         dispatch({
             type: "SEARCH_QUERY",
             payload: {text: ""},
         })
-        setPrice([0,0]);
-        setCategoryIds([]);
-        setStar('');
-        setBrand('');
+        // setPrice([0,0]);
+        // setCategoryIds([]);
+        // setStar('');
+        // setSub('')
+        // setBrand('');
         setSeason(e.target.value);
-        setShipping('');
-        fetchProducts({ season: e.target.value});
+        // setShipping('');
+        // fetchProducts({season: e.target.value});
+        fetchProducts({query: text, price, category: categoryIds, star, sub, shipping, season: e.target.value, brand});
     };
 
     // 9. show products based on shipping yes/no
@@ -313,18 +318,19 @@ const Shop = () => {
     )
 
     const handleShippingChange = (e) => {
-        setSub('')
         dispatch({
             type: "SEARCH_QUERY",
             payload: {text: ""},
         })
-        setPrice([0,0]);
-        setCategoryIds([]);
-        setStar('');
-        setBrand('');
-        setSeason('');
+        // setPrice([0,0]);
+        // setCategoryIds([]);
+        // setStar('');
+        // setSub('')
+        // setBrand('');
+        // setSeason('');
         setShipping(e.target.value);
-        fetchProducts({ shipping: e.target.value});
+        // fetchProducts({ shipping: e.target.value});
+        fetchProducts({query: text, price, category: categoryIds, star, sub, shipping: e.target.value, season, brand});
     }
 
     const categorystyle = {
@@ -337,7 +343,7 @@ const Shop = () => {
                 <div className="col-md-3 pt-2">
                     <h4>Search/Filter</h4>
                     <hr/>
-                    
+                    <button type="button" className="btn btn-raised" onClick={handleClear}> Clear </button>
                     <Menu defaultOpenKeys={['1', '2', '3' , '4', '5', '6', '7']} mode="inline">
                         {/* PRICE*/}
                         <SubMenu key="1" title={
