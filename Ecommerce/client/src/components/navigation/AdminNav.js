@@ -24,7 +24,7 @@ const AdminNav = () => (
 
             <li className="nav-item">
                 <NavLink activeStyle={{ fontWeight: "bold" }}
-                to="/admin/product" style={styleText} className="nav-link">Product</NavLink>
+                to="/admin/product" style={styleText} className="nav-link"> Create Product</NavLink>
             </li>
 
             <li className="nav-item">

@@ -10,9 +10,7 @@ import { Container, Row, Col } from "reactstrap";
 const {SubMenu, ItemGroup} = Menu;
 
 const About = () => {
-    const style = {
-        backgroundColor: "#d0dbd1",
-    };
+
     return (
         <>
         <link
@@ -27,7 +25,90 @@ const About = () => {
                 About Us
             </h1>
 
-            <div class="container-fluid py-1">
+            <h2 className="text-center mb-1 py-3">The Team</h2>
+            
+            <div id="images">
+          <Container>
+            <Row>
+            <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4 className>Sarah</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/sarah.png").default}
+                />
+                <p className="text-center">Team Lead/Front End Developer</p>
+              </Col>
+              <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Tuong</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/tuong.png").default}
+                />
+                <p className="text-center">Full Stack Developer</p>
+              </Col>
+              <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Nicole</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/nicole.png").default}
+                />
+                <p className="text-center">Project Manager/Front End Developer</p>
+              </Col>
+              <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Mark</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/anmol.png").default}
+                />
+                <p className="text-center">Front End/Software Tester</p>
+              </Col>
+            </Row>
+            <Row>
+            <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Brian</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/brian.png").default}
+                />
+                <p className="text-center">UX Designer</p>
+              </Col>
+              <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Danh</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/danh.png").default}
+                />
+                <p className="text-center">Full Stack Developer/Durian Loan Shark</p>
+              </Col>
+              <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Minh</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/minh.png").default}
+                />
+                <p className="text-center">QA Engineer/Backend Developer/ Weeb and Proud</p>
+              </Col>
+              <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Anmol</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/anmol_LD.png").default}
+                />
+                <p className="text-center">Full Stack Developer/Rapper/ #SwoleBoyz</p>
+              </Col>
+
+            </Row>
+          </Container>
+        </div>     
+        <div class="container-fluid py-1"> 
             <h2 className="text-left">
                 Features
             </h2>
@@ -62,91 +143,7 @@ const About = () => {
                     </Row>
                     
                     </div>
-            </div>
-
-            <h2 className="text-center mb-1 py-3">The Team</h2>
-            
-            <div id="images">
-          <Container>
-            <Row>
-            <Col className="mr-auto ml-auto" md="2" sm="2">
-                <h4 className>Sarah</h4>
-                <img
-                  alt="..."
-                  className="img-circle img-no-padding img-responsive"
-                  src={require("../images/anmol.png").default}
-                />
-                <p className="text-center">Team Lead/Front End Developer</p>
-              </Col>
-              <Col className="mr-auto ml-auto" md="2" sm="2">
-                <h4>Tuong</h4>
-                <img
-                  alt="..."
-                  className="img-circle img-no-padding img-responsive"
-                  src={require("../images/anmol.png").default}
-                />
-                <p className="text-center">Full Stack Developer</p>
-              </Col>
-              <Col className="mr-auto ml-auto" md="2" sm="2">
-                <h4>Nicole</h4>
-                <img
-                  alt="..."
-                  className="img-circle img-no-padding img-responsive"
-                  src={require("../images/anmol.png").default}
-                />
-                <p className="text-center">Project Manager/Front End Developer</p>
-              </Col>
-              <Col className="mr-auto ml-auto" md="2" sm="2">
-                <h4>Mark</h4>
-                <img
-                  alt="..."
-                  className="img-circle img-no-padding img-responsive"
-                  src={require("../images/anmol.png").default}
-                />
-                <p className="text-center">Front End/Software Tester</p>
-              </Col>
-            </Row>
-            <Row>
-            <Col className="mr-auto ml-auto" md="2" sm="2">
-                <h4>Brian</h4>
-                <img
-                  alt="..."
-                  className="img-circle img-no-padding img-responsive"
-                  src={require("../images/anmol.png").default}
-                />
-                <p className="text-center">UX Designer</p>
-              </Col>
-              <Col className="mr-auto ml-auto" md="2" sm="2">
-                <h4>Danh</h4>
-                <img
-                  alt="..."
-                  className="img-circle img-no-padding img-responsive"
-                  src={require("../images/anmol.png").default}
-                />
-                <p className="text-center">Full Stack Developer/Durian Loan Shark</p>
-              </Col>
-              <Col className="mr-auto ml-auto" md="2" sm="2">
-                <h4>Minh</h4>
-                <img
-                  alt="..."
-                  className="img-circle img-no-padding img-responsive"
-                  src={require("../images/anmol.png").default}
-                />
-                <p className="text-center">QA Engineer/Backend Developer/ Weeb and Proud</p>
-              </Col>
-              <Col className="mr-auto ml-auto" md="2" sm="2">
-                <h4>Anmol</h4>
-                <img
-                  alt="..."
-                  className="img-circle img-no-padding img-responsive"
-                  src={require("../images/anmol.png").default}
-                />
-                <p className="text-center">Full Stack Developer/Rapper/ #SwoleBoyz</p>
-              </Col>
-
-            </Row>
-          </Container>
-        </div>       
+            </div>  
         </>
       
     )
