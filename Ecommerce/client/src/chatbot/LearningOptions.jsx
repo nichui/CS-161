@@ -16,8 +16,9 @@ const LearningOptions = (props) => {
             id: 2,
         },
         { text: "Shop", handler: () => { }, id: 3 },
+        
+        { text: "SignUp", handler: props.actionProvider.signUp, id: 4 },
         /*
-        { text: "Security", handler: () => { }, id: 4 },
         { text: "Interview prep", handler: () => { }, id: 5 },
         */
     ];

@@ -33,6 +33,15 @@ class ActionProvider {
         );
         this.updateChatbotState(message);
     }
+    signup = () => {
+        const message = this.createChatBotMessage(
+            "Fantastic, I've got the link to Register Page here:",
+            {
+                widget: "SignUp",
+            }
+        );
+        this.updateChatbotState(message);
+    }
 
     handleJavascriptList = () => {
         const message = this.createChatBotMessage(

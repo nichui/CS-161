@@ -22,6 +22,9 @@ class MessageParser {
         if (lowerCaseMessage.includes("about")) {
             this.actionProvider.aboutUs();
         }
+        if (lowerCaseMessage.includes("signup")) {
+            this.actionProvider.signup();
+        }
 
         /*
         const lowerCaseMessage = message.toLowerCase()

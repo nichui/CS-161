@@ -1,8 +1,10 @@
 // Config starter code
 import { createChatBotMessage } from 'react-chatbot-kit';
 
+import React from "react";
 import LearningOptions from "./LearningOptions";
 import LinkList from "./LinkList";
+
 
 
 
@@ -15,11 +17,18 @@ const config = {
     ],
     customStyles: {
         botMessageBox: {
-            backgroundColor: "#376B7E",
+            backgroundColor: "#5ccc9d",
             color: "#376B7E",
         },
         chatButton: {
-            backgroundColor: "#376B7E",
+            backgroundColor: "#5ccc9d",
+        },
+        chatMessage: {
+            font: "Times New Roman",
+            fontsize: "9px",
+        },
+        chatContainer: {
+            position: "relative",
         },
     },
     widgets: [
@@ -48,6 +57,19 @@ const config = {
                     {
                         text: "About Us",
                         url: "http://localhost:3000/About",
+                        id: 1,
+                    }
+                ]
+            },
+        },
+        {
+            widgetName: "SignUp",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                    {
+                        text: "SignUp",
+                        url: "http://localhost:3000/Register",
                         id: 1,
                     }
                 ]
