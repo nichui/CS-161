@@ -37,6 +37,10 @@ import Payment from "./pages/Payment";
 import FAQ from "./pages/FAQ";
 
 
+import { FloatingButton, Item } from "react-floating-button";
+import { QuestionCircleOutlined } from '@ant-design/icons';
+
+
 import {auth} from './firebase';
 import {useDispatch} from 'react-redux';
 import {createOrUpdateUser, currentUser} from "./functions/auth";
@@ -118,9 +122,13 @@ const App = () => {
                 <AdminRoute exact path="/admin/coupon" component={CreateCouponPage} />
                 <UserRoute exact path="/payment" component={Payment} />
                 <Route exact path="/FAQ" component={FAQ} />
-
-
             </Switch>
+
+
+            
+
+            
+
         </>
 
     );
