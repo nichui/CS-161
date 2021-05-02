@@ -73,10 +73,12 @@ const Home = () => {
 
     <Card>
     <CardBody style={{ color: "#1c4963", textAlign: "center" }}>
+    <blockquote className="blockquote">
     <p>With Got A Spot, users can find new places to travel to and see exactly how 
               busy things will be! With our integrated systems to allow users to reserve their place 
               and see all the safety policies involved with visitation, everyone can feel safe traveling 
               and enjoying their time at various locations.</p>
+    </blockquote>
     </CardBody>
     </Card>
 

@@ -4,8 +4,8 @@ import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { Menu, Slider, Checkbox } from 'antd'
 import { Image } from 'antd';
-import { Row, Col, Divider } from 'antd';
 import { Space, Card } from 'antd';
+import { Container, Row, Col } from "reactstrap";
 
 const {SubMenu, ItemGroup} = Menu;
 
@@ -14,15 +14,23 @@ const About = () => {
         backgroundColor: "#d0dbd1",
     };
     return (
-<div style={style} >
-            <h1 className="text-center mb-5 display-3 jumbotron">
-                About Us Page
+        <>
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+            rel="stylesheet"
+            />
+        <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+            rel="stylesheet"
+            />
+            <h1 className="text-center">
+                About Us
             </h1>
 
             <div class="container-fluid py-1">
-            <h1 className="text-left">
+            <h2 className="text-left">
                 Features
-            </h1>
+            </h2>
                     <div class="bg-light border border-dark py-3 col-lg-12">
                     <Row justify="space-between">
                         <Col span={8}>
@@ -56,72 +64,90 @@ const About = () => {
                     </div>
             </div>
 
+            <h2 className="text-center mb-1 py-3">The Team</h2>
             
+            <div id="images">
+          <Container>
+            <Row>
+            <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4 className>Sarah</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/anmol.png").default}
+                />
+                <p className="text-center">Team Lead/Front End Developer</p>
+              </Col>
+              <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Tuong</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/anmol.png").default}
+                />
+                <p className="text-center">Full Stack Developer</p>
+              </Col>
+              <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Nicole</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/anmol.png").default}
+                />
+                <p className="text-center">Project Manager/Front End Developer</p>
+              </Col>
+              <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Mark</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/anmol.png").default}
+                />
+                <p className="text-center">Front End/Software Tester</p>
+              </Col>
+            </Row>
+            <Row>
+            <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Brian</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/anmol.png").default}
+                />
+                <p className="text-center">UX Designer</p>
+              </Col>
+              <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Danh</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/anmol.png").default}
+                />
+                <p className="text-center">Full Stack Developer/Durian Loan Shark</p>
+              </Col>
+              <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Minh</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/anmol.png").default}
+                />
+                <p className="text-center">QA Engineer/Backend Developer/ Weeb and Proud</p>
+              </Col>
+              <Col className="mr-auto ml-auto" md="2" sm="2">
+                <h4>Anmol</h4>
+                <img
+                  alt="..."
+                  className="img-circle img-no-padding img-responsive"
+                  src={require("../images/anmol.png").default}
+                />
+                <p className="text-center">Full Stack Developer/Rapper/ #SwoleBoyz</p>
+              </Col>
 
-            <div class="bg-light py-1 border border-dark">
-                <h2 className="text-center mb-1 py-3"> The Team</h2>
-                <div class="container-fluid py-3">
-                    
-                        <Row justify="center space-between">
-                        <Col span={6}>
-                        <Card title="Danh" className = "border border-success" style={{ width: 300 }}>
-                            <p>Full Stack Developer</p>
-                            <p>Description</p>
-                        </Card>
-                        </Col>
-                        <Col span={6}>
-                            <Card title="Minh" className = "border border-success" style={{ width: 300 }}>
-                            <p>QA Engineer/Backend Developer</p>
-                            <p>Description</p>
-                        </Card>
-                        </Col>
-                        <Col span={6}>
-                            <Card title="Sarah" className = "border border-success" style={{ width: 300 }}>
-                            <p>Team Lead</p>
-                            <p>Description</p>
-                        </Card>
-                        </Col>
-                        <Col span={6}>
-                            <Card title="Nicole" className = "border border-success" style={{ width: 300 }}>
-                            <p>Front End Developer</p>
-                            <p>Description</p>
-                        </Card>
-                        </Col>
-                    </Row>
-                    <Divider dashed/>
-                    <Row justify="center space-between">
-                        <Col span={6}>
-                            <Card title="Tuong" className = "border border-success" style={{ width: 300 }}>
-                            <p>Full Stack Developer</p>
-                            <p>...</p>
-                        </Card>
-                        </Col>
-                        <Col span={6}>
-                            <Card title="Brian" className = "border border-success" style={{ width: 300 }}>
-                            <p>UX Designer</p>
-                            <p>...</p>
-                        </Card>
-                        </Col>
-                        <Col span={6}>
-                            <Card title="Mark" className = "border border-success" style={{ width: 300 }}>
-                            <p>Front End Developer</p>
-                            <p>...</p>
-                        </Card>
-                        </Col>
-                        <Col span={6}>
-                            <Card title="Anmol" className = "border border-success" style={{ width: 300 }}>
-                            <p>Full Stack Developer</p>
-                            <p>Grind don't stop</p>
-                        </Card>
-                        </Col>
-                        </Row>
-                   
-                </div>
-            </div>
-
-</div> 
-       
-        
+            </Row>
+          </Container>
+        </div>       
+        </>
       
     )
 
