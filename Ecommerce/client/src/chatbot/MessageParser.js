@@ -22,7 +22,7 @@ class MessageParser {
         if (lowerCaseMessage.includes("about")) {
             this.actionProvider.aboutUs();
         }
-        if (lowerCaseMessage.includes("signup")) {
+        if (lowerCaseMessage.includes("signup") || lowerCaseMessage.includes("register")) {
             this.actionProvider.signup();
         }
 

@@ -9,7 +9,7 @@ import LinkList from "./LinkList";
 
 
 const config = {
-    botName: "LearningBot",
+    botName: "HelpBot",
     initialMessages: [
         createChatBotMessage("Hi, I'm here to help. What do you want to learn?", {
             widget: "learningOptions",
@@ -43,7 +43,7 @@ const config = {
                 options: [
                     {
                         text: "FAQ Page",
-                        url: "http://localhost:3000/FAQ",
+                        url: "/FAQ",
                         id: 1,
                     }
                 ]
@@ -56,25 +56,26 @@ const config = {
                 options: [
                     {
                         text: "About Us",
-                        url: "http://localhost:3000/About",
+                        url: "/About",
                         id: 1,
                     }
                 ]
             },
         },
         {
-            widgetName: "SignUp",
+            widgetName: "signUp",
             widgetFunc: (props) => <LinkList {...props} />,
             props: {
                 options: [
                     {
-                        text: "SignUp",
-                        url: "http://localhost:3000/Register",
+                        text: "Sign Up",
+                        url: "/Register",
                         id: 1,
                     }
                 ]
             },
         },
+        /*
         {
             widgetName: "javascriptLinks",
             widgetFunc: (props) => <LinkList {...props} />,
@@ -102,6 +103,7 @@ const config = {
             
             
         },
+        */
     ],
 }
 

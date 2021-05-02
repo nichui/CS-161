@@ -37,7 +37,7 @@ class ActionProvider {
         const message = this.createChatBotMessage(
             "Fantastic, I've got the link to Register Page here:",
             {
-                widget: "SignUp",
+                widget: "signUp",
             }
         );
         this.updateChatbotState(message);
