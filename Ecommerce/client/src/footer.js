@@ -15,7 +15,7 @@ const Footer = () => {
   }
 
   return (
-    
+
     <footer className="footer footer-black footer-white sticky-footer">
       <Container>
         <Row>
