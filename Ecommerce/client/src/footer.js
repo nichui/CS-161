@@ -1,13 +1,6 @@
-//<<<<<<< Updated upstream
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import { Row, Container } from "reactstrap";
-
-import Chatbot from 'react-chatbot-kit';
-
-import config from "./chatbot/config";
-import MessageParser from "./chatbot/MessageParser";
-import ActionProvider from "./chatbot/ActionProvider";
 
 const Footer = () => {
   const style = {
@@ -56,18 +49,9 @@ const Footer = () => {
                   Register
                 </a>
               </li>
-              <li>
-                <a
-                  href="#"
-                >
-                  Live Chat
-                </a>
-              </li>
             </ul>
-                      
           </nav>
-         
-
+          
           <div className="credits ml-auto">
             <span className="copyright">
               Team Cool Beans @CS161
@@ -82,4 +66,3 @@ const Footer = () => {
 }
 
 export default Footer;
-//=======

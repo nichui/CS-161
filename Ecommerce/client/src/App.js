@@ -44,7 +44,8 @@ import messageParser from "./chatbot/MessageParser.js";
 
 import { FloatingButton, Item } from "react-floating-button";
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import { Button, Radio,Affix } from 'antd';
+import { Affix } from 'antd';
+import {Button} from 'reactstrap';
 
 
 
@@ -116,6 +117,14 @@ const App = () => {
     return (
         
         <>
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+            rel="stylesheet"
+            />
+        <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+            rel="stylesheet"
+            />
             <Header/>
             <SideDrawer />
             <ToastContainer />
@@ -150,7 +159,7 @@ const App = () => {
             </Switch>
             <Affix offsetBottom={bottom} >
 
-        <div className="App" >
+        <div className="App" style={{ marginBottom: "50px"}}>
                 
             {showBot && (
             <Chatbot
@@ -163,14 +172,13 @@ const App = () => {
                 )}
 
    
-                <Button type="primary" style={{ float: 'left' }}
+                <Button type="primary" style={{ color: "black", float: 'left', marginBottom: "10px", backgroundColor: "#23d9d2"  }}
                     state={{ size: "large" }}
-                    icon={<QuestionCircleOutlined />}
                     onClick={() => toggleBot((prev) => !prev)}>
-                    
-                HELP  </Button>
-  
-    `  </div>
+                Live Chat  </Button>
+                <br></br>
+                <br></br>
+    </div>
     </Affix>
    
     

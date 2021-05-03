@@ -100,7 +100,7 @@ const Cart = ({history}) => {
                         </div>
                     ))}
                     <hr/>
-                    Total: <b>${getTotal()}</b>
+                    Total: <b>${getTotal().toFixed(2)}</b>
                     <hr/>
                     {
                         user ? (

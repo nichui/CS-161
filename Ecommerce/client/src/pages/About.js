@@ -62,7 +62,7 @@ const About = () => {
                 <img
                   alt="..."
                   className="img-circle img-no-padding img-responsive"
-                  src={require("../images/anmol.png").default}
+                  src={require("../images/mark.png").default}
                 />
                 <p className="text-center">Front End/Software Tester</p>
               </Col>
