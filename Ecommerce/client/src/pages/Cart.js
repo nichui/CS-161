@@ -30,7 +30,7 @@ const Cart = ({history}) => {
     };
 
     const style = {
-        backgroundColor: "#d0dbd1",
+        backgroundColor: "#d7eaf5",
         color: '#000000',
     };
 
@@ -64,7 +64,14 @@ const Cart = ({history}) => {
 
     return(
         <div className="container-fluid pt-2">
-
+            <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+            rel="stylesheet"
+            />
+        <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+            rel="stylesheet"
+            />
 
             <div className="row">
                 <div className="col-md-8">
@@ -93,7 +100,7 @@ const Cart = ({history}) => {
                         </div>
                     ))}
                     <hr/>
-                    Total: <b>${getTotal()}</b>
+                    Total: <b>${getTotal().toFixed(2)}</b>
                     <hr/>
                     {
                         user ? (

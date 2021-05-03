@@ -171,6 +171,15 @@ const Login = ({history}) => {
 
 
     return (
+        <>
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+            rel="stylesheet"
+            />
+        <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+            rel="stylesheet"
+            />
         <div style={{ backgroundImage: "url(https://i.imgur.com/X5RLDgP.png)" }}>
         <div className="container p-5">
             <div className="row">
@@ -198,6 +207,7 @@ const Login = ({history}) => {
             </div>
         </div>
         </div>
+        </>
     );
 };
 

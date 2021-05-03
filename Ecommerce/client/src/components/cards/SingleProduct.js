@@ -113,10 +113,10 @@ const SingleProduct = ({product, onStarClick, star}) => {
 
 
 
-            <div className="clo-md-5" style={{ position: "relative", left: "100px" }}>
-                <h1 className="p-3" style={{ backgroundColor: "#d0dbd1" }}>
+            <div className="clo-md-5">
+                <h2 className="p-3">
                     {title}
-                </h1>
+                </h2>
 
                 {product && product.ratings && product.ratings.length > 0
                     ? showAverage(product)

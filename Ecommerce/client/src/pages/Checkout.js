@@ -168,6 +168,7 @@ const Checkout = ({history}) => {
                 <div className="row">
                     <div className="col-md-6">
                         <button
+                            style={{ color: "black" }}
                             className="btn btn-primary"
                             disabled={!addressSaved || !products.length}
                             onClick={() => history.push('/payment')}
@@ -178,6 +179,7 @@ const Checkout = ({history}) => {
 
                     <div className="col-md-6">
                         <button
+                            style={{ color: "black" }}
                             disabled={!products.length}
                             onClick={emptyCart}
                             className="btn btn-primary">Empty Cart</button>
