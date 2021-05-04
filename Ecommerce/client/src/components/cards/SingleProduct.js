@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Card, Tabs, Tooltip} from 'antd'
 import {Link} from 'react-router-dom'
-import {HeartOutlined, ShoppingCartOutlined} from "@ant-design/icons";
+import {CarryOutTwoTone, HeartOutlined, ShoppingCartOutlined} from "@ant-design/icons";
 import Default from'../../images/Default.jpg';
 import ProductListItems from './ProductListItems';
 import StarRatings from "react-star-ratings";
@@ -22,7 +22,10 @@ const{TabPane} = Tabs;
 const {Meta} = Card;
 
 // this is children component of Product page
-const SingleProduct = ({product, onStarClick, star}) => {
+const SingleProduct = ({product, reservations, onStarClick, star}) => {
+    console.log('all reservations', reservations);
+    console.log('product', product);
+    const [reservation, setReservation] = useState(null);
     const [tooltip, setTooltip] = useState('Click to add');
     const {user, cart} = useSelector((state) => ({...state}));
     const dispatch = useDispatch()
@@ -31,38 +34,49 @@ const SingleProduct = ({product, onStarClick, star}) => {
     const {title, images, description, _id} = product;
 
     const handleAddToCart = () => {
-
+        if (!reservation){
+            toast.error("Please select a time for your reservation.")
+        }
+        else{
         // create cart array
-        let cart = []
-        if(typeof window !== 'undefined'){
-            // if cart is in localstorage GET it
-            if(localStorage.getItem('cart')){
-                cart = JSON.parse(localStorage.getItem('cart'));
+            let cart = []
+            if(typeof window !== 'undefined'){
+                // if cart is in localstorage GET it
+                if(localStorage.getItem('cart')){
+                    cart = JSON.parse(localStorage.getItem('cart'));
+                }
+                const newCartItem = {
+                    ...product,
+                    count: 1,
+                    reservation: reservation,
+                }
+                const isItemInCart = cart.filter(x => x._id === newCartItem._id && isSameReservation(x.reservation, newCartItem.reservation))
+                if (isItemInCart.length === 0){
+                    cart.push(newCartItem);
+                }else {
+                    toast.error("This item is already in your cart.");
+                }
+              
+                // remove duplicates
+                // let unique = _.uniqWith(cart, _.isEqual)
+                // save to local storage
+                // console.log('unique', unique)
+                localStorage.setItem('cart', JSON.stringify(cart));
+                // show tooltip
+                setTooltip("Added");
+
+                // add to redux state
+                dispatch({
+                    type: "ADD_TO_CART",
+                    payload: cart,
+                })
+
+                // show cart items in side drawer
+                dispatch({
+                    type: "SET_VISIBLE",
+                    payload: true,
+                })
             }
-            // push new product to cart
-            cart.push({
-                ...product,
-                count: 1,
-            });
-            // remove duplicates
-            let unique = _.uniqWith(cart, _.isEqual)
-            // save to local storage
-            // console.log('unique', unique)
-            localStorage.setItem('cart', JSON.stringify(unique));
-            // show tooltip
-            setTooltip("Added");
-
-            // add to redux state
-            dispatch({
-                type: "ADD_TO_CART",
-                payload: unique,
-            })
-
-            // show cart items in side drawer
-            dispatch({
-                type: "SET_VISIBLE",
-                payload: true,
-            })
         }
     }
 
@@ -74,12 +88,14 @@ const SingleProduct = ({product, onStarClick, star}) => {
             history.push('/user/wishlist');
         });
     };
-
+    const isSameReservation = (res1, res2) => {
+        return res1.selectedDate === res2.selectedDate && 
+                res1.timeRange[0] === res2.timeRange[0] && 
+                res1.timeRange[1] === res2.timeRange[1]
+    }
     const style = {
         color: "#008000",
     };
-
-
 
     return(
         <>
@@ -151,7 +167,7 @@ const SingleProduct = ({product, onStarClick, star}) => {
                         </RatingModal>
                     ]}
                 >
-                    <ProductListItems product={product}/>
+                    <ProductListItems product={product} reservations={reservations} setReservation={setReservation}/>
                 </Card>
             </div>
         </>

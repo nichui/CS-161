@@ -15,6 +15,7 @@ const ProductUpdateForm = ({
                                arrayOfSubs,
                                setArrayOfSubs,
                                selectedCategory,
+                               calendarOptions
                            }) => {
     // destructure
     const {
@@ -31,6 +32,7 @@ const ProductUpdateForm = ({
         brands,
         season,
         brand,
+        calendar,
     } = values;
     return (
 
@@ -175,7 +177,21 @@ const ProductUpdateForm = ({
             {/*{subOptions ? subOptions.length : 'no subs yet'}*/}
 
             {/*{categories.length}*/}
-
+            <div className="form-group">
+                <label>Calendar</label>
+                <select
+                    name="calendar"
+                    className="form-control"
+                    onChange={handleChange}
+                    value={calendar._id}
+                >
+                    <option>Please select</option>
+                    {calendarOptions.map(calOption =>
+                        <option key={calOption._id} value={calOption._id}>
+                            { calOption.name }
+                        </option>)}
+                </select>
+            </div>
 
             <br/>
 

@@ -38,13 +38,17 @@ const productSchema = new mongoose.Schema({
         ref: 'Sub',
         },
     ],
+    calendar: {
+        type: ObjectId,
+        ref: 'Calendar'
+    },
     quantity: Number,
     sold: {
         type: Number,
         default: 0
     },
     images: {
-        type: Array
+        type: Array,
     },
     shipping: {
         type: String,
@@ -58,14 +62,12 @@ const productSchema = new mongoose.Schema({
         type: String,
         enum: ['Hiking', 'Visiting', 'Traveling', 'Entertaining', 'Relaxing'],
     },
-
     ratings: [
         {
             star: Number,
             postedBy: {type: ObjectId, ref:"User"},
         }
     ]
-
 }, {timestamps: true}
 );
 

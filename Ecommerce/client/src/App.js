@@ -1,7 +1,6 @@
 import logo from './logo.svg';
-/*import './App.css';*/
-import React, { useEffect, useState, state } from "react";
-
+import './App.css';
+import React, {useEffect, useState} from "react";
 import {Switch, Route} from 'react-router-dom';
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -33,6 +32,7 @@ import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import SideDrawer from "./components/drawer/SideDrawer";
 import Checkout from "./pages/Checkout";
+import CalendarCreate from './pages/admin/calendar/CalendarCreate';
 import CreateCouponPage from "./pages/admin/coupon/CreateCouponPage";
 import Payment from "./pages/Payment";
 import FAQ from "./pages/FAQ";
@@ -147,6 +147,8 @@ const App = () => {
                 <AdminRoute exact path="/admin/product" component={ProductCreate} />
                 <AdminRoute exact path="/admin/products" component={AllProducts} />
                 <AdminRoute exact path="/admin/product/:slug" component={ProductUpdate} />
+                <AdminRoute exact path="/admin/calendar" component={CalendarCreate} />
+                {/* <AdminRoute exact path="/admin/calendars" component={AllCalendars} */}
                 <Route exact path="/product/:slug" component={Product} />
                 <Route exact path="/category/:slug" component={CategoryHome} />
                 <Route exact path="/sub/:slug" component={SubHome} />

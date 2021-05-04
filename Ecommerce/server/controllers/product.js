@@ -1,6 +1,8 @@
 const Product = require('../models/product')
 const slugify = require('slugify')
-const User = require('../models/user')
+const User = require('../models/user');
+const Reservation = require('../models/reservation');
+const mongoose = require('mongoose');
 
 exports.create = async(req, res) => {
     try{
@@ -23,6 +25,7 @@ exports.listAll = async (req, res) => {
         .limit(parseInt(req.params.count))
         .populate('category')
         .populate('subs')
+        .populate('calendar')
         .sort([['createAt', 'desc']])
         .exec();
     await res.json(products);
@@ -43,8 +46,22 @@ exports.read = async(req, res) => {
     const product = await Product.findOne({slug: req.params.slug})
         .populate('category')
         .populate('subs')
+        .populate('calendar')
         .exec();
     await res.json(product);
+}
+
+exports.orders = async(req, res) => {
+    if(mongoose.Types.ObjectId.isValid(req.params.productId)){
+        console.log(req.params.productId);
+        const orders = await Reservation.find({
+                        productId: req.params.productId,
+                        }).exec()
+        console.log('All reservations of this location', orders);
+        await res.json(orders);
+    } else {
+        await res.status(400).json({'Error':'Failed to retrieve reservations of this location.'});
+    }
 }
 
 exports.update = async (req, res) => {
@@ -67,6 +84,7 @@ exports.update = async (req, res) => {
         });
     }
 }
+
 //WITHOUT PAGINATION
 
 /*exports.list = async(req, res) => {
@@ -98,6 +116,7 @@ exports.list = async(req, res) => {
             .skip((currentPage - 1) * perPage)
             .populate('category')
             .populate('subs')
+            .populate('calendar')
             .sort([[sort, order]])
             .limit(perPage)
             .exec();
@@ -156,6 +175,7 @@ exports.listRelated = async (req, res) => {
     }).limit(3)
         .populate('category')
         .populate('sub')
+        .populate('calendar')
         .populate('postedBy')
         .exec()
 
@@ -279,46 +299,126 @@ const handleBrand = async (req, res, brand) => {
     await res.json(products);
 }
 
+const handleMany = async (req, res, many) => {
+    console.log('Handler data:', many)
+    const products = await Product.find(many)
+        .populate('category', '_id name')
+        .populate('subs', '_id name')
+        .populate('postedBy', '_id name')
+        .exec();
+
+    await res.json(products);
+}
+
+
+// exports.searchFilters = async (req, res) => {
+//     const {query, price, category, stars, sub, shipping, season, brand} = req.body;
+//     if(query){
+//         console.log('query', query)
+//         await handleQuery(req, res, query);
+//     }
+
+//     //price [20, 200]
+//     if(price !== undefined){
+//         console.log('price --->', price)
+//         await handlePrice(req, res, price);
+//     }
+
+//     if(category){
+//         console.log("category ---->", category);
+//         await handleCategory(req, res, category);
+//     }
+
+//     if(stars){
+//         console.log("category ---->", stars);
+//         await handleStar(req, res, stars);
+//     }
+
+//     if(sub){
+//         console.log("category ---->", sub);
+//         await handleSub(req, res, sub);
+//     }
+
+//     if(shipping){
+//         console.log("category ---->", shipping);
+//         await handleShipping(req, res, shipping);
+//     }
+
+//     if(season){
+//         console.log("category ---->", season);
+//         await handleSeason(req, res, season);
+//     }
+
+//     if(brand){
+//         console.log("category ---->", brand);
+//         await handleBrand(req, res, brand);
+//     }
+// };
+
 exports.searchFilters = async (req, res) => {
-    const {query, price, category, stars, sub, shipping, season, brand} = req.body;
+    const {query, price, category, star, sub, shipping, season, brand} = req.body;
+    var temp = {}
     if(query){
         console.log('query', query)
-        await handleQuery(req, res, query);
+        temp ['$text'] = { $search : query }
     }
 
     //price [20, 200]
-    if(price !== undefined){
+    if(price !== undefined && price.length){
         console.log('price --->', price)
-        await handlePrice(req, res, price);
+        temp['price'] = {
+            $gte: price[0], // greater than
+            $lte: price[1], // less than
+        }
     }
 
-    if(category){
+    if(category && category.length){
         console.log("category ---->", category);
-        await handleCategory(req, res, category);
-    }
-
-    if(stars){
-        console.log("category ---->", stars);
-        await handleStar(req, res, stars);
+        temp['category'] = category
     }
 
     if(sub){
-        console.log("category ---->", sub);
-        await handleSub(req, res, sub);
+        console.log("sub ---->", sub);
+        temp['subs'] = sub
     }
 
     if(shipping){
-        console.log("category ---->", shipping);
-        await handleShipping(req, res, shipping);
+        console.log("shipping ---->", shipping);
+        temp['shipping'] = shipping
     }
 
     if(season){
-        console.log("category ---->", season);
-        await handleSeason(req, res, season);
+        console.log("season ---->", season);
+        temp['season'] = season
     }
 
     if(brand){
-        console.log("category ---->", brand);
-        await handleBrand(req, res, brand);
+        console.log("brand ---->", brand);
+        temp['brand'] = brand
     }
+
+    if(star){
+        console.log("stars ---->", star);
+        Product.aggregate([
+            {
+                $project: {
+                    document: "$$ROOT",
+                    floorAverage: {
+                        $floor: { $avg: "$ratings.star" }
+                    },
+                },
+            },
+            { $match: {floorAverage: star}}
+        ])
+            .limit(12)
+            .exec((err, aggregates) => {
+                if(err){
+                    console.log('AGGREGATE ERROR', err)
+                }
+                temp['_id'] = aggregates;
+                handleMany(req, res, temp);
+            });
+    }
+    else
+        await handleMany(req, res, temp)
 };

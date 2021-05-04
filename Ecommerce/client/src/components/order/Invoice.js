@@ -41,7 +41,7 @@ const Invoice = ({ order }) => (
                         Brand
                     </TableCell>
                     <TableCell>
-                        Season
+                        Date and Time
                     </TableCell>
                 </TableHeader>
             </Table>
@@ -52,7 +52,7 @@ const Invoice = ({ order }) => (
                     <DataTableCell getContent={(x) => `$${x.product.price}`}/>
                     <DataTableCell getContent={(x) => x.count}/>
                     <DataTableCell getContent={(x) => x.product.brand}/>
-                    <DataTableCell getContent={(x) => x.product.season}/>
+                    <DataTableCell getContent={(x) => `${x.reservation.selectedDate}\n${x.reservation.timeRange[0]} - ${x.reservation.timeRange[1]}`}/>
                 </TableBody>
             </Table>
             <Text style={styles.text} >
