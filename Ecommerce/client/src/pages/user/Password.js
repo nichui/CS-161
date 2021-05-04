@@ -3,6 +3,7 @@ import UserNav from '../../components/navigation/UserNav';
 import {auth} from '../../firebase';
 import {toast} from 'react-toastify';
 import {load} from "dotenv";
+import {Button} from "reactstrap";
 
 
 const Password = () => {
@@ -38,9 +39,9 @@ const Password = () => {
                        disabled={loading}
                        value = {password}
                 />
-                <button className="btn btn-primary" disabled={!password || password.length < 6 || loading}>
+                <Button style={{ color: "black" }} className="btn btn-primary" disabled={!password || password.length < 6 || loading}>
                     Submit
-                </button>
+                </Button>
             </div>
         </form>
     )

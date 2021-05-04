@@ -179,6 +179,7 @@ const Checkout = ({history}) => {
 
                     <div className="col-md-6">
                         <button
+                            style={{ color: "black" }}
                             disabled={!products.length}
                             onClick={emptyCart}
                             className="btn btn-primary">Empty Cart</button>

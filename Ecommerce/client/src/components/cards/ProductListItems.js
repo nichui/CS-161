@@ -92,11 +92,22 @@ const ProductListItems = ({product, reservations, setReservation}) => {
     //     return result;
     // }
 
+
     return (
+        <>
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+            rel="stylesheet"
+            />
+        <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+            rel="stylesheet"
+            />
         <ul className="list-group">
+            
             <li className="list-group-item">
                 Price {" "}
-                <span className="label label-default label-pill pull-xs-right">
+                <span style={style} className="label label-default label-pill pull-xs-right">
                 $ {price}
             </span>
             </li>
@@ -114,7 +125,7 @@ const ProductListItems = ({product, reservations, setReservation}) => {
                 <li className="list-group-item">
                     Sub Categories
                     {subs.map((s) => (
-                            <Link
+                            <Link style={style}
                                 key={s._id}
                                 to={`/sub/${s.slug}`}
                                 className="label label-default label-pill pull-xs-right"
@@ -129,28 +140,28 @@ const ProductListItems = ({product, reservations, setReservation}) => {
 
             <li className="list-group-item">
                 Shipping{" "}
-                <span className="label label-default label-pill pull-xs-right">
+                <span style={style} className="label label-default label-pill pull-xs-right">
                 {shipping}
             </span>
             </li>
 
             <li className="list-group-item">
                 Season{" "}
-                <span className="label label-default label-pill pull-xs-right">
+                <span style={style} className="label label-default label-pill pull-xs-right">
                 {season}
             </span>
             </li>
 
             <li className="list-group-item">
                 Brand{" "}
-                <span className="label label-default label-pill pull-xs-right">
+                <span style={style} className="label label-default label-pill pull-xs-right">
                 {brand}
             </span>
             </li>
 
             {/* <li className="list-group-item">
                 Available{" "}
-                <span className="label label-default label-pill pull-xs-right">
+                <span style={style} className="label label-default label-pill pull-xs-right">
                 {quantity}
             </span>
             </li> */}
@@ -205,12 +216,13 @@ const ProductListItems = ({product, reservations, setReservation}) => {
                 
             <li className="list-group-item">
                 Sold{" "}
-                <span className="label label-default label-pill pull-xs-right">
+                <span style={style} className="label label-default label-pill pull-xs-right">
                 {sold}
             </span>
             </li>
 
         </ul>
+        </>
     )
 }
 function ShowTimeSlot({selectedDate, setSelectedTime, calendar, reservations}){

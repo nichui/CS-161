@@ -331,11 +331,25 @@ const Shop = () => {
         fontWeight: 'bold',
     };
 
+    const searchStyle = {
+        marginTop: "-10px",
+        backgroundColor: "#d7eaf5",
+    };
+
     return (
+        <>
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+            rel="stylesheet"
+            />
+        <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+            rel="stylesheet"
+            />
         <div className="container-fluid">
             <div className="row">
                 <div className="col-md-3 pt-2">
-                    <h4>Search/Filter</h4>
+                    <h3>Search/Filter</h3>
                     <hr/>
                     
                     <Menu defaultOpenKeys={['1', '2', '3' , '4', '5', '6', '7']} mode="inline">
@@ -346,7 +360,7 @@ const Shop = () => {
                         </span>
                         }
                         >
-                            <div style={{ backgroundColor: "#d0dbd1" }}>
+                            <div style={{ backgroundColor: "#c1d6e3" }}>
                                 <Slider
                                     className="ml-4 mr-4"
                                     tipFormatter={(v) => `$${v}`}
@@ -368,7 +382,7 @@ const Shop = () => {
                                 </span>
                             }
                         >
-                            <div style={{ marginTop: "-10px", backgroundColor: "#d0dbd1"}}>
+                            <div style={searchStyle}>
                                 {showCategories()}
                             </div>
                         </SubMenu>
@@ -382,7 +396,7 @@ const Shop = () => {
                                 </span>
                             }
                         >
-                            <div style={{ marginTop: "-10px", backgroundColor: "#d0dbd1" }}>
+                            <div style={searchStyle}>
                                 {showStars()}
                             </div>
                         </SubMenu>
@@ -397,7 +411,7 @@ const Shop = () => {
                                 </span>
                             }
                         >
-                            <div style={{ marginTop: "-10px", backgroundColor: "#d0dbd1"}}
+                            <div style={searchStyle}
                                  className="pl-4 pr-4"
                             >
                                 {showSubs()}
@@ -414,7 +428,7 @@ const Shop = () => {
                                 </span>
                             }
                         >
-                            <div style={{ marginTop: "-10px", backgroundColor: "#d0dbd1"}}
+                            <div style={searchStyle}
                                  className="pr-5"
                             >
                                 {showBrands()}
@@ -431,7 +445,7 @@ const Shop = () => {
                                 </span>
                             }
                         >
-                            <div style={{ marginTop: "-10px", backgroundColor: "#d0dbd1"}}
+                            <div style={searchStyle}
                                  className="pr-5"
                             >
                                 {showSeasons()}
@@ -447,7 +461,7 @@ const Shop = () => {
                                 </span>
                             }
                         >
-                            <div style={{ marginTop: "-10px", backgroundColor: "#d0dbd1"}}
+                            <div style={searchStyle}
                                  className="pr-5"
                             >
                                 {showShipping()}
@@ -480,6 +494,7 @@ const Shop = () => {
                 </div>
             </div>
             </div>
+            </>
         
     )
 };

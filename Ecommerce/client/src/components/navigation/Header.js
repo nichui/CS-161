@@ -8,6 +8,7 @@ import {
     UserAddOutlined,
     LogoutOutlined,
     ShopOutlined,
+    InfoCircleOutlined,
     ShoppingOutlined,
     ShoppingCartOutlined
 } from '@ant-design/icons'; 
@@ -86,6 +87,10 @@ const Header = () => {
                     Got a Spot
                 </Link>
 
+            </Item>
+            
+            <Item key="about" className="float-left" style={styleIcon} icon={<InfoCircleOutlined />}>
+                <Link to="/about" style={styleText}>ABOUT US</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
             </Item>
 
             <Item key="shop" className="float-left" style={styleIcon} icon={<ShoppingOutlined/>}>

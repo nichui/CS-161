@@ -20,8 +20,8 @@ const SubList = () => {
 
     const showSubs = () => subs.map((s) => (<div
         key = {s._id}
-        className="col btn btn-outline-primary btn-lg btn-block btn-raised m-3" style={{ backgroundColor: '#ffffff' }}>
-        <Link to={`/sub/${s.slug}`} style={{ color: '#000 ' }}>{s.name}</Link>
+        className="col btn btn-outline-primary btn-block btn-raised m-3" style={{ backgroundColor: '#6ecfff' }}>
+        <Link to={`/sub/${s.slug}`} style={{ fontWeight: "bold", color: '#ffffff' }}>{s.name}</Link>
 
     </div>));
 

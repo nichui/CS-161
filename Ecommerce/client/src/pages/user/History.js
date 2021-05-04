@@ -24,6 +24,10 @@ const History = () => {
     const [orders, setOrders] = useState([]);
     const {user} = useSelector((state) => ({...state}));
 
+    const text = {
+        color: "black"
+    }
+
     useEffect(() => {
         loadUserOrders().then()
     }, [])
@@ -62,7 +66,7 @@ const History = () => {
                         <CheckCircleOutlined style={{color: "green"}}/>
                         ) : (
                             <CloseCircleOutlined style={{color: "red"}}/>
-                    ) }</td>
+                    ) }</b></td>
                 </tr>
             ))}
             </tbody>
