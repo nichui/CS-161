@@ -15,8 +15,8 @@ const Cart = ({history}) => {
     // [1,2] 100 + 200 = 300
     const getTotal = () => {
         return cart.reduce((currentValue, nextValue) => {
-        return currentValue + nextValue.count * nextValue.price;
-    },0);
+            return currentValue + nextValue.count * nextValue.price;
+        },0);
     };
 
     const saveOrderToDb = () => {
