@@ -43,8 +43,8 @@ const History = () => {
                 <tr>
                     <th scope="col">Location</th>
                     <th scope="col">Price</th>
-                    {/* <th scope="col">Brand</th> */}
-                    {/* <th scope="col">Season</th> */}
+                    <th scope="col">Brand</th>
+                    <th scope="col">Season</th>
                     <th scope="col">No. of Tickets</th>
                     <th scope="col">Date and Time</th>
                     <th scope="col">Shipping</th>
@@ -57,8 +57,9 @@ const History = () => {
                     <td><b style={text}>{p.product.title}</b></td>
                     <td><b style={text}>{p.product.price}</b></td>
                     <td><b style={text}>{p.product.brand}</b></td>
-                    <td><b style={text}>{p.reservation.selectedDate}<br></br>{simpleHourFormat(p.reservation.timeRange)}</b></td>
+                    <td><b style={text}>{p.product.season}</b></td>
                     <td><b style={text}>{p.count}</b></td>
+                    <td><b style={text}>{p.reservation.selectedDate}<br></br>{simpleHourFormat(p.reservation.timeRange)}</b></td>
                     <td><b style={text}>{p.product.shipping === "Yes" ? (
                         <CheckCircleOutlined style={{color: "green"}}/>
                         ) : (

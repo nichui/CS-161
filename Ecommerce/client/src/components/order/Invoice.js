@@ -41,10 +41,7 @@ const Invoice = ({ order }) => (
                         Brand
                     </TableCell>
                     <TableCell>
-                        Date
-                    </TableCell>
-                    <TableCell>
-                        Time
+                        Date and Time
                     </TableCell>
                 </TableHeader>
             </Table>
