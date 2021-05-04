@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ProductCreate from "../../pages/admin/product/ProductCreate";
-import { Select } from 'antd';
+import { Select} from 'antd';
+
 const { Option } = Select;
 
 
@@ -11,7 +12,8 @@ const ProductCreateForm = ({
                                values,
                                handleCategoryChange,
                                subOptions,
-                               showSub
+                               showSub,
+                               calendarOptions
 }) =>{
     // destructure
     const {title,
@@ -26,7 +28,10 @@ const ProductCreateForm = ({
         seasons,
         brands,
         season,
-        brand} = values;
+        brand,
+        calendar,
+    } = values;
+
     return (
 
     <form onSubmit={handleSubmit}>
@@ -141,7 +146,6 @@ const ProductCreateForm = ({
                 </option>))}
             </select>
         </div>
-
         {/*{subOptions ? subOptions.length : 'no subs yet'}*/}
 
         {/*{categories.length}*/}
@@ -167,6 +171,20 @@ const ProductCreateForm = ({
         </div>
         )}
         <br/>
+        <div className="form-group">
+            <label>Calendar</label>
+            <select
+                name="calendar"
+                className="form-control"
+                onChange={handleChange}
+            >
+                <option>Please select</option>
+                {calendarOptions.map(calOption =>
+                    <option key={calOption._id} value={calOption._id}>
+                        { calOption.name }
+                    </option>)}
+            </select>
+        </div>
 
         <button className="btn btn-outline-info">
             Save

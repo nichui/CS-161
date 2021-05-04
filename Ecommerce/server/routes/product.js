@@ -16,10 +16,12 @@ const { create,
     productStar,
     listRelated,
     searchFilters,
+    orders
     } = require('../controllers/product');
 
 //routes
 router.post('/product', authCheck, adminCheck, create);
+
 router.get('/products/total', productsCount)
 
 router.get('/products/:count', listAll); // products/100
@@ -38,8 +40,9 @@ router.put('/product/star/:productId', authCheck, productStar);
 router.get('/product/related/:productId',listRelated);
 
 //search
-router.post('/search/filters', searchFilters)
-
+router.post('/search/filters', searchFilters);
+// get all orders of this product
+router.get('/product/orders/:productId', orders);
 
 
 

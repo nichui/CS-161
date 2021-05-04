@@ -10,6 +10,15 @@ import {
     } from '@react-pdf/renderer';
 import Invoice from '../../components/order/Invoice';
 
+const amOrPm = (time) => {
+    return parseInt(time) > 12 ? "PM" : "AM";
+}
+const simpleHourFormat = (time) => {
+    console.log(time)
+    const startTime = (parseInt(time[0].split(':')[0]) + 11) % 12 + 1;
+    const endTime = (parseInt(time[1].split(':')[0]) + 11) % 12 + 1;
+    return `${startTime}:${time[0].split(':')[1]} ${amOrPm(time[0])} - ${endTime}:${time[1].split(':')[1]} ${amOrPm(time[1])}`;
+}
 
 const History = () => {
     const [orders, setOrders] = useState([]);
@@ -32,11 +41,12 @@ const History = () => {
         <table className="table table-bordered" style={{ color: "#d0dbd1" }}>
             <thead className="thead-light">
                 <tr>
-                    <th scope="col">Title</th>
+                    <th scope="col">Location</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Brand</th>
-                    <th scope="col">Season</th>
-                    <th scope="col">Count</th>
+                    {/* <th scope="col">Brand</th> */}
+                    {/* <th scope="col">Season</th> */}
+                    <th scope="col">No. of Tickets</th>
+                    <th scope="col">Date and Time</th>
                     <th scope="col">Shipping</th>
                 </tr>
             </thead>
@@ -47,7 +57,7 @@ const History = () => {
                     <td><b style={text}>{p.product.title}</b></td>
                     <td><b style={text}>{p.product.price}</b></td>
                     <td><b style={text}>{p.product.brand}</b></td>
-                    <td><b style={text}>{p.season}</b></td>
+                    <td><b style={text}>{p.reservation.selectedDate}<br></br>{simpleHourFormat(p.reservation.timeRange)}</b></td>
                     <td><b style={text}>{p.count}</b></td>
                     <td><b style={text}>{p.product.shipping === "Yes" ? (
                         <CheckCircleOutlined style={{color: "green"}}/>

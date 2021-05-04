@@ -7,6 +7,7 @@ import {getCategories, getCategorySubs} from "../../../functions/category";
 import FileUpload from "../../../components/forms/FileUpload";
 import {LoadingOutlined} from '@ant-design/icons';
 import {getProduct, updateProduct} from "../../../functions/product";
+import {getCalendars} from "../../../functions/calendar";
 
 import ProductUpdateForm from "../../../components/forms/ProductUpdateForm";
 
@@ -24,6 +25,7 @@ const initialState = {
     brands: ['Hiking', 'Visiting', 'Traveling', 'Entertaining', 'Relaxing'],
     season: '',
     brand: '',
+    calendar: '',
 }
 const ProductUpdate = ({match, history}) => {
     // state
@@ -32,6 +34,7 @@ const ProductUpdate = ({match, history}) => {
     const [categories, setCategories] = useState([]);
     const [arrayOfSubs, setArrayOfSubs] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("");
+    const [calendarOptions, setCalendarOptions] = useState([]);
     const [loading, setLoading] = useState(false);
     //redux
     const {user} = useSelector((state) => ({...state}));
@@ -41,6 +44,7 @@ const ProductUpdate = ({match, history}) => {
     useEffect(() => {
         loadProduct();
         loadCategories().then().catch();
+        loadCalendars().then().catch();
     }, [])
 
     const loadProduct = () => {
@@ -68,6 +72,9 @@ const ProductUpdate = ({match, history}) => {
         {console.log('GET CATEGORIES IN UPDATE PRODUCT', c.data);
         //setValues({...values, categories: c.data})
             setCategories(c.data)}
+    );
+    const loadCalendars = () => getCalendars().then(c =>
+        setCalendarOptions(c.data)
     );
 
     const handleSubmit = (e) => {
@@ -144,8 +151,6 @@ const ProductUpdate = ({match, history}) => {
                         />
                     </div>
 
-
-
                     <ProductUpdateForm
                         handleSubmit={handleSubmit}
                         handleChange={handleChange}
@@ -157,6 +162,7 @@ const ProductUpdate = ({match, history}) => {
                         arrayOfSubs={arrayOfSubs}
                         setArrayOfSubs={setArrayOfSubs}
                         selectedCategory={selectedCategory}
+                        calendarOptions={calendarOptions}
                     />
                     <hr/>
 
