@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Menu, Badge} from 'antd';
+import Icons from '../icons/Icons'
 import {
     HomeOutlined,
     SettingOutlined,
@@ -74,8 +75,18 @@ const Header = () => {
                     <Link to="/login" style={styleText}>LOGIN</Link>
                 </Item>
             )}
-            <Item key="home" className="float-left" style={styleIcon} icon={<HomeOutlined/>}>
-                <Link to="/" style={styleText}>HOME</Link> {/*Link to = "" equals to href ="" (go to another page)*/}
+            
+            {/* <Item key="home" className="float-left" icon={<HomeOutlined/>}>
+                <Link to="/">Home</Link> {/*Link to = "" equals to href ="" (go to another page)*
+            </Item> 
+            */}
+
+            <Item key="home" className="float-left">
+                <Link className="app-title" to="/">
+                    <img className="app-logo" src={Icons.Beans} />
+                    Got a Spot
+                </Link>
+
             </Item>
             
             <Item key="about" className="float-left" style={styleIcon} icon={<InfoCircleOutlined />}>

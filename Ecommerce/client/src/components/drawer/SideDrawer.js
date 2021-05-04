@@ -26,10 +26,10 @@ const SideDrawer = () => {
         }}
         visible={drawer}
     >
-        {cart.map((p) => (
-            <div key={p._id} className="row">
+        {cart.map((p, index) => (
+            <div key={index} className="row">
                 <div className="col">
-                    {p.images[0] ? (
+                    {p.images && p.images[0] ? (
                         <>
                             <img src={p.images[0].url} style={imageStyle}/>
                             <p

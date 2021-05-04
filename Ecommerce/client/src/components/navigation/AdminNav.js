@@ -46,7 +46,9 @@ const AdminNav = () => (
                 <NavLink activeStyle={{ fontWeight: "bold" }}
                 to="/admin/coupon" style={styleText} className="nav-link">Coupon</NavLink>
             </li>
-
+            <li className="nav-item">
+                <Link to="/admin/calendar" className="nav-link">Calendar</Link>
+            </li>
             <li className="nav-item">
                 <NavLink activeStyle={{ fontWeight: "bold" }}
                 to="/user/password" style={styleText} className="nav-link">Password</NavLink>

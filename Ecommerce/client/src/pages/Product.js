@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {getProduct, productStar} from "../functions/product";
+import {getProduct, getProductOrders, productStar} from "../functions/product";
 import SingleProduct from'../components/cards/SingleProduct';
 import {useSelector} from "react-redux";
 import {showAverage} from "../functions/rating";
@@ -11,6 +11,7 @@ const Product = ({match}) => {
     const [product, setProduct] = useState({});
     const [related, setRelated] = useState([]);
     const [star, setStar] = useState(0);
+    const [reservations, setReservations] = useState([]);
     // redux
     const {user} = useSelector((state) => ({ ...state }));
 
@@ -18,8 +19,8 @@ const Product = ({match}) => {
 
     useEffect(() => {
         loadSingleProduct();
+        // loadOrders();
     }, [slug]);
-
 
 
     useEffect(() => {
@@ -30,11 +31,13 @@ const Product = ({match}) => {
             );
             existingRatingObject && setStar(existingRatingObject.star); // current user's star
         }
-    });
+    },[]);
 
     const loadSingleProduct = () => {
         getProduct(slug).then((res) => {
             setProduct(res.data);
+            getProductOrders(res.data._id).then((res) => {console.log(res.data); setReservations(res.data);});
+            // loadOrders(res.data._id);
             //load related
             getRelated(res.data._id).then(res => setRelated(res.data));
         });
@@ -54,6 +57,7 @@ const Product = ({match}) => {
         <div className="row pt-4" >
             <SingleProduct
                 product = {product}
+                reservations = {reservations}
                 onStarClick = {onStarClick}
                 star = {star}
             />

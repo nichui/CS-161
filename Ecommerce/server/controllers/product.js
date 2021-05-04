@@ -1,6 +1,8 @@
 const Product = require('../models/product')
 const slugify = require('slugify')
-const User = require('../models/user')
+const User = require('../models/user');
+const Reservation = require('../models/reservation');
+const mongoose = require('mongoose');
 
 exports.create = async(req, res) => {
     try{
@@ -23,6 +25,7 @@ exports.listAll = async (req, res) => {
         .limit(parseInt(req.params.count))
         .populate('category')
         .populate('subs')
+        .populate('calendar')
         .sort([['createAt', 'desc']])
         .exec();
     await res.json(products);
@@ -43,8 +46,22 @@ exports.read = async(req, res) => {
     const product = await Product.findOne({slug: req.params.slug})
         .populate('category')
         .populate('subs')
+        .populate('calendar')
         .exec();
     await res.json(product);
+}
+
+exports.orders = async(req, res) => {
+    if(mongoose.Types.ObjectId.isValid(req.params.productId)){
+        console.log(req.params.productId);
+        const orders = await Reservation.find({
+                        productId: req.params.productId,
+                        }).exec()
+        console.log('All reservations of this location', orders);
+        await res.json(orders);
+    } else {
+        await res.status(400).json({'Error':'Failed to retrieve reservations of this location.'});
+    }
 }
 
 exports.update = async (req, res) => {
@@ -67,6 +84,7 @@ exports.update = async (req, res) => {
         });
     }
 }
+
 //WITHOUT PAGINATION
 
 /*exports.list = async(req, res) => {
@@ -98,6 +116,7 @@ exports.list = async(req, res) => {
             .skip((currentPage - 1) * perPage)
             .populate('category')
             .populate('subs')
+            .populate('calendar')
             .sort([[sort, order]])
             .limit(perPage)
             .exec();
@@ -156,6 +175,7 @@ exports.listRelated = async (req, res) => {
     }).limit(3)
         .populate('category')
         .populate('sub')
+        .populate('calendar')
         .populate('postedBy')
         .exec()
 
@@ -278,6 +298,7 @@ const handleBrand = async (req, res, brand) => {
 
     await res.json(products);
 }
+
 
 exports.searchFilters = async (req, res) => {
     const {query, price, category, stars, sub, shipping, season, brand} = req.body;
