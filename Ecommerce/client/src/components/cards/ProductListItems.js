@@ -92,6 +92,10 @@ const ProductListItems = ({product, reservations, setReservation}) => {
     //     return result;
     // }
 
+    const style = {
+        fontWeight: "bold",
+        backgroundColor: "#66c48f",
+    };
 
     return (
         <>
@@ -114,7 +118,7 @@ const ProductListItems = ({product, reservations, setReservation}) => {
 
             {category && <li className="list-group-item">
                 Category{" "}
-                <Link to={`/category/${category.slug}`} className="label label-default label-pill pull-xs-right">
+                <Link to={`/category/${category.slug}`} style={style} className="label label-default label-pill pull-xs-right">
                     {category.name}
                 </Link>
             </li>}

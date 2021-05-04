@@ -82,9 +82,9 @@ const Header = () => {
             */}
 
             <Item key="home" className="float-left">
-                <Link className="app-title" to="/">
+                <Link className="app-title" to="/" style={styleText}>
                     <img className="app-logo" src={Icons.Beans} />
-                    Got a Spot
+                    GOT A SPOT
                 </Link>
 
             </Item>

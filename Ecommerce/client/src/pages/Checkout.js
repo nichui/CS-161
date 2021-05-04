@@ -169,6 +169,8 @@ const Checkout = ({history}) => {
                 <div className="row">
                     <div className="col-md-6">
                         <Button
+                            style={{ color: "black" }}
+                            className="btn btn-primary"
                             type="primary"
                             disabled={!addressSaved || !products.length}
                             onClick={() => history.push('/payment')}
