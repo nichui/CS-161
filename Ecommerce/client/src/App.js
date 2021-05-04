@@ -1,6 +1,7 @@
-// import logo from './logo.svg';
-import './App.css';
-import React, {useEffect} from "react";
+
+import logo from './logo.svg';
+/*import './App.css';*/
+import React, { useEffect, useState, state } from "react";
 import {Switch, Route} from 'react-router-dom';
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -37,6 +38,17 @@ import CreateCouponPage from "./pages/admin/coupon/CreateCouponPage";
 import Payment from "./pages/Payment";
 import FAQ from "./pages/FAQ";
 
+import Chatbot from "react-chatbot-kit";
+import config from "./chatbot/config";
+import actionProvider from "./chatbot/ActionProvider.js";
+import messageParser from "./chatbot/MessageParser.js";
+
+import { FloatingButton, Item } from "react-floating-button";
+import { QuestionCircleOutlined } from '@ant-design/icons';
+import { Affix } from 'antd';
+import {Button} from 'reactstrap';
+
+
 
 import {auth} from './firebase';
 import {useDispatch} from 'react-redux';
@@ -59,8 +71,11 @@ mongoose.connection.on("error", err => {
 
 
 const App = () => {
-    const dispatch = useDispatch();
 
+   
+    const dispatch = useDispatch();
+    
+    
     // to check firebase auth state
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -86,8 +101,31 @@ const App = () => {
         // cleanup
         return () => unsubscribe();
     }, [dispatch]);
+
+    const [showBot, toggleBot] = useState(false);
+  
+    const saveMessages = (messages) => {
+        localStorage.setItem("chat_messages", JSON.stringify(messages));
+    };
+
+    const loadMessages = () => {
+        const messages = JSON.parse(localStorage.getItem("chat_messages"));
+        return messages;
+    };
+    const [bottom, setBottom] = useState(10);
+    
+
     return (
+        
         <>
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+            rel="stylesheet"
+            />
+        <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+            rel="stylesheet"
+            />
             <Header/>
             <SideDrawer />
             <ToastContainer />
@@ -121,9 +159,35 @@ const App = () => {
                 <AdminRoute exact path="/admin/coupon" component={CreateCouponPage} />
                 <UserRoute exact path="/payment" component={Payment} />
                 <Route exact path="/FAQ" component={FAQ} />
-
-
             </Switch>
+            <Affix offsetBottom={bottom} >
+
+        <div className="App" style={{ marginBottom: "50px"}}>
+                
+            {showBot && (
+            <Chatbot
+                config={config}
+                actionProvider={actionProvider}
+                messageHistory={loadMessages()}
+                messageParser={messageParser}
+                saveMessages={saveMessages}
+            />
+                )}
+
+   
+                <Button type="primary" style={{ color: "black", float: 'left', marginBottom: "10px", backgroundColor: "#23d9d2"  }}
+                    state={{ size: "large" }}
+                    onClick={() => toggleBot((prev) => !prev)}>
+                Live Chat  </Button>
+                <br></br>
+                <br></br>
+    </div>
+    </Affix>
+   
+    
+
+            
+
         </>
 
     );

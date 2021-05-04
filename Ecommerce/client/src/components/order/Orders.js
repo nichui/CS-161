@@ -51,7 +51,7 @@ const Orders = ({orders, handleStatusChange}) => {
 
                     <div className="row">
                         <div className="col-md-4">
-                            Delivery Status
+                            <h5>Delivery Status</h5>
                         </div>
                         <div className="col-md-8">
                             <select
