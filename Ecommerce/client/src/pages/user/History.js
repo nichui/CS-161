@@ -63,7 +63,7 @@ const History = () => {
                         <CheckCircleOutlined style={{color: "green"}}/>
                         ) : (
                             <CloseCircleOutlined style={{color: "red"}}/>
-                    ) }</td>
+                    ) }</b></td>
                 </tr>
             ))}
             </tbody>
