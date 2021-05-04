@@ -54,15 +54,12 @@ const History = () => {
             <tbody>
             {order.products.map((p,i) => (
                 <tr key={i}>
-                    <td><b>{p.product.title}</b></td>
-                    <td>{p.product.price}</td>
-                    {/* <td>{p.product.brand}</td> */}
-                    {/* <td>{p.season}</td> */}
-                    <td>{p.count}</td>
-                    {p.reservation ?
-                        <td>{p.reservation.selectedDate}<br></br>{simpleHourFormat(p.reservation.timeRange)}</td> : <td></td>
-                    }
-                    <td>{p.product.shipping === "Yes" ? (
+                    <td><b style={text}>{p.product.title}</b></td>
+                    <td><b style={text}>{p.product.price}</b></td>
+                    <td><b style={text}>{p.product.brand}</b></td>
+                    <td><b style={text}>{p.reservation.selectedDate}<br></br>{simpleHourFormat(p.reservation.timeRange)}</b></td>
+                    <td><b style={text}>{p.count}</b></td>
+                    <td><b style={text}>{p.product.shipping === "Yes" ? (
                         <CheckCircleOutlined style={{color: "green"}}/>
                         ) : (
                             <CloseCircleOutlined style={{color: "red"}}/>
