@@ -47,7 +47,8 @@ const AdminNav = () => (
                 to="/admin/coupon" style={styleText} className="nav-link">Coupon</NavLink>
             </li>
             <li className="nav-item">
-                <Link to="/admin/calendar" className="nav-link">Calendar</Link>
+                <NavLink activeStyle={{ fontWeight: "bold" }}
+                to="/admin/calendar" style={styleText} className="nav-link">Calendar</NavLink>
             </li>
             <li className="nav-item">
                 <NavLink activeStyle={{ fontWeight: "bold" }}

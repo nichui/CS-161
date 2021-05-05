@@ -1,11 +1,15 @@
 import React from 'react';
 
+const style = {
+    color: "black"
+}
+
 const ShowPaymentInfo = ({order, showStatus = true}) => (
     <div>
         <p>
-            <span>Order Id: {order.paymentIntent.id}</span>{" "}
+            <span style={style}>Order Id: {order.paymentIntent.id}</span>{" "}
             <br/>
-            <span>
+            <span style={style}>
                 Amount: {' '}
                 {(order.paymentIntent.amount /= 100).toLocaleString('en-US', {
                     style: 'currency',
@@ -13,23 +17,23 @@ const ShowPaymentInfo = ({order, showStatus = true}) => (
             })}
             </span>{' '}
             <br/>
-            <span>
+            <span style={style}>
                 Currency: {order.paymentIntent.currency.toUpperCase()}
             </span>{' '}
             <br/>
-            <span>
+            <span style={style}>
                 Method: {order.paymentIntent.payment_method_types[0]}
             </span>{' '}
             <br/>
-            <span>
+            <span style={style}>
                 Payment: {order.paymentIntent.status.toUpperCase()}
             </span>{' '}
             <br/>
-            <span>
+            <span style={style}>
                 Ordered on : {new Date(order.paymentIntent.created * 1000).toLocaleDateString()}
             </span>{' '}
             <br />
-            {showStatus && (<span className="badge bg-primary text-white">
+            {showStatus && (<span className="badge bg-primary text-white" style={style}>
 
                 STATUS: {order.orderStatus}
             </span>
