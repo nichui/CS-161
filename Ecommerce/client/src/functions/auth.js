@@ -1,8 +1,8 @@
 import axios from "axios";
 
 //end-point
-export const createOrUpdateUser = async (authtoken, info) => {
-    return await axios.post(`${process.env.REACT_APP_API}/create-or-update-user`, { info }, {
+export const createUser = async (authtoken, info) => {
+    return await axios.post(`${process.env.REACT_APP_API}/create-user`, { info }, {
         headers: {
             authtoken,
         },
