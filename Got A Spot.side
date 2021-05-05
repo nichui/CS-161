@@ -2,7 +2,7 @@
   "id": "1f8baa41-81c5-4a98-891c-642a7b222bbc",
   "version": "2.0",
   "name": "Got A Spot",
-  "url": "http://localhost:3000",
+  "url": "https://gotaspotcoolbeans.herokuapp.com/",
   "tests": [{
     "id": "b2b8c7fa-f107-4aa1-bab1-b1371c300933",
     "name": "Login Fail",
@@ -10,7 +10,7 @@
       "id": "66a6d885-23fc-45b4-b522-e357a11249bf",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "https://gotaspotcoolbeans.herokuapp.com/",
       "targets": [],
       "value": ""
     }, {
@@ -94,7 +94,7 @@
       "id": "22092dbf-20fe-4606-8d74-ee7285752ba2",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "https://gotaspotcoolbeans.herokuapp.com/",
       "targets": [],
       "value": ""
     }, {
@@ -329,7 +329,7 @@
       "id": "4e23c519-2a7b-414b-97a1-6616d62f72b0",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "https://gotaspotcoolbeans.herokuapp.com/",
       "targets": [],
       "value": ""
     }, {
@@ -506,7 +506,7 @@
       "id": "8700fe65-ce6b-40d1-884e-87a5be4ffd32",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "https://gotaspotcoolbeans.herokuapp.com/",
       "targets": [],
       "value": ""
     }, {
@@ -783,7 +783,7 @@
       "id": "ba48a7ff-f04f-4335-a630-f49a8e0f76b0",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "https://gotaspotcoolbeans.herokuapp.com/",
       "targets": [],
       "value": ""
     }, {
@@ -855,7 +855,7 @@
         ["xpath=//div/span[2]", "xpath:position"],
         ["xpath=//span[contains(.,'coolbeanscs161')]", "xpath:innerText"]
       ],
-      "value": "coolbeanscs161"
+      "value": "Test Admin"
     }]
   }, {
     "id": "9886902a-78bc-49c5-beed-28e9a72124e1",
@@ -864,7 +864,7 @@
       "id": "f632a420-c94c-4a84-b272-2ba0053f172d",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "https://gotaspotcoolbeans.herokuapp.com/",
       "targets": [],
       "value": ""
     }, {
@@ -897,22 +897,33 @@
       "targets": [],
       "value": "1800"
     }, {
+      "id": "f8d08279-bea3-4596-9ff7-7d48ec0d76dc",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.col-md-4:nth-child(3)",
+      "targets": [
+        ["css=.col-md-4:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
       "id": "cc5fb738-07bd-4383-bba2-b7cd2501abf2",
       "comment": "",
       "command": "click",
-      "target": "xpath=(//input[@name='category'])[2]",
+      "target": "css=div:nth-child(4) .ant-checkbox-input",
       "targets": [
-        ["css=div:nth-child(2) .ant-checkbox-input", "css:finder"],
-        ["xpath=(//input[@name='category'])[2]", "xpath:attributes"],
-        ["xpath=//ul[@id='2$Menu']/div/div[2]/label/span/input", "xpath:idRelative"],
-        ["xpath=//div[2]/label/span/input", "xpath:position"]
+        ["css=div:nth-child(4) .ant-checkbox-input", "css:finder"],
+        ["xpath=(//input[@name='category'])[4]", "xpath:attributes"],
+        ["xpath=//ul[@id='2$Menu']/div/div[4]/label/span/input", "xpath:idRelative"],
+        ["xpath=//div[4]/label/span/input", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "78d8de2a-7d7b-4576-8c19-fc4576762a88",
       "comment": "",
       "command": "waitForElementNotPresent",
-      "target": "css=.col-md-4:nth-child(4)",
+      "target": "css=.col-md-4:nth-child(3)",
       "targets": [
         ["css=.col-md-4:nth-child(4) .p-1", "css:finder"],
         ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div[4]/div/div/img", "xpath:idRelative"],
@@ -923,60 +934,53 @@
       "id": "db777470-16fd-4dfa-85eb-dd098a16b113",
       "comment": "",
       "command": "verifyText",
-      "target": "css=.ant-card-meta-title",
+      "target": "css=.col-md-4:nth-child(1) .ant-card-meta-title",
       "targets": [
-        ["css=.ant-card-meta-title", "css:finder"],
+        ["css=.col-md-4:nth-child(1) .ant-card-meta-title", "css:finder"],
         ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
       ],
-      "value": "Căn Hộ Tầng 2 - $500000000"
+      "value": "Japanese Tea Garden - $30"
     }, {
       "id": "cf4051df-dfbd-4f51-84bd-c331a9a47234",
       "comment": "",
       "command": "click",
-      "target": "xpath=(//input[@name='category'])[2]",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "b9cc41e6-f436-4f86-8c4b-16e075517693",
-      "comment": "",
-      "command": "click",
-      "target": "css=.pt-1:nth-child(1)",
+      "target": "css=div:nth-child(6) .ant-checkbox-input",
       "targets": [
-        ["css=.pt-1:nth-child(1)", "css:finder"],
-        ["xpath=//ul[@id='4$Menu']/div/div", "xpath:idRelative"],
-        ["xpath=//li[4]/ul/div/div", "xpath:position"]
+        ["css=div:nth-child(6) .ant-checkbox-input", "css:finder"],
+        ["xpath=(//input[@name='category'])[6]", "xpath:attributes"],
+        ["xpath=//ul[@id='2$Menu']/div/div[6]/label/span/input", "xpath:idRelative"],
+        ["xpath=//div[6]/label/span/input", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "7fce08db-3985-49fc-8fb6-2f2f4d07607c",
       "comment": "",
       "command": "waitForElementPresent",
-      "target": "css=.col-md-4:nth-child(1)",
+      "target": "css=.col-md-4:nth-child(2)",
       "targets": [],
       "value": "1800"
     }, {
       "id": "c46abd56-678d-4102-8bdf-10f9aa8bdd8c",
       "comment": "",
       "command": "verifyText",
-      "target": "css=.ant-card-meta-title",
+      "target": "css=.col-md-4:nth-child(2) .ant-card-meta-title",
       "targets": [
-        ["css=.ant-card-meta-title", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
+        ["css=.col-md-4:nth-child(2) .ant-card-meta-title", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div", "xpath:position"]
       ],
-      "value": "Căn Hộ Tầng 2 - $500000000"
+      "value": "Bintang Badminton Courts - $5"
     }, {
       "id": "8080c7ca-8d17-4f41-ba22-71b8b799f44e",
       "comment": "",
       "command": "click",
-      "target": "name=Entertaining",
+      "target": "name=Visiting",
       "targets": [
-        ["name=Entertaining", "name"],
-        ["css=#\\35\\$Menu .ant-radio-wrapper:nth-child(4) .ant-radio-input", "css:finder"],
-        ["xpath=//input[@name='Entertaining']", "xpath:attributes"],
-        ["xpath=//ul[@id='5$Menu']/div/label[4]/span/input", "xpath:idRelative"],
-        ["xpath=//label[4]/span/input", "xpath:position"]
+        ["css=#\\35\\$Menu .ant-radio-wrapper:nth-child(2)", "css:finder"],
+        ["xpath=//ul[@id='5$Menu']/div/label[2]", "xpath:idRelative"],
+        ["xpath=//label[2]", "xpath:position"],
+        ["xpath=//label[contains(.,'Visiting')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -996,32 +1000,25 @@
         ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
       ],
-      "value": "OneDrive - $298"
+      "value": "Japanese Tea Garden - $30"
     }, {
       "id": "a15597bc-01ae-4535-b939-c671be2fb822",
       "comment": "",
       "command": "verifyText",
       "target": "css=.col-md-4:nth-child(2) .ant-card-meta-title",
       "targets": [],
-      "value": "Căn Hộ Tầng 2 - $500000000"
-    }, {
-      "id": "1991f500-cecd-4315-b292-f432fa8dbed9",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.col-md-4:nth-child(3) .ant-card-meta-title",
-      "targets": [],
-      "value": "Got A Shot - $2"
+      "value": "Golden Gate Bridge - $2"
     }, {
       "id": "151a35ba-4c32-417f-a8fe-933493a8e278",
       "comment": "",
       "command": "click",
-      "target": "name=Summer",
+      "target": "name=Spring",
       "targets": [
-        ["name=Summer", "name"],
-        ["css=#\\36\\$Menu .ant-radio-wrapper:nth-child(2) .ant-radio-input", "css:finder"],
-        ["xpath=//input[@name='Summer']", "xpath:attributes"],
-        ["xpath=//ul[@id='6$Menu']/div/label[2]/span/input", "xpath:idRelative"],
-        ["xpath=//li[6]/ul/div/label[2]/span/input", "xpath:position"]
+        ["name=Whole Year", "name"],
+        ["css=#\\36\\$Menu .ant-radio-wrapper:nth-child(5) .ant-radio-input", "css:finder"],
+        ["xpath=//input[@name='Whole Year']", "xpath:attributes"],
+        ["xpath=//ul[@id='6$Menu']/div/label[5]/span/input", "xpath:idRelative"],
+        ["xpath=//li[6]/ul/div/label[5]/span/input", "xpath:position"]
       ],
       "value": ""
     }, {
@@ -1039,15 +1036,57 @@
       "id": "acff6531-f66d-4ca0-b135-10e48fb459ca",
       "comment": "",
       "command": "verifyText",
-      "target": "css=.ant-card-meta-title",
+      "target": "css=.col-md-4:nth-child(1) .ant-card-meta-title",
       "targets": [
-        ["css=.ant-card-meta-title", "css:finder"],
+        ["css=.col-md-4:nth-child(1) .ant-card-meta-title", "css:finder"],
         ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
       ],
-      "value": "Got A Shot - $2"
+      "value": "Japanese Tea Garden - $30"
+    }, {
+      "id": "7c541e95-2bec-42ee-9a77-88c4e2c0370d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.col-md-4:nth-child(2) .ant-card-meta-title",
+      "targets": [
+        ["css=.col-md-4:nth-child(2) .ant-card-meta-title", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "Rose Garden - $5"
     }, {
       "id": "98b1e991-8bcc-4e58-bc65-d679d2ebdfbb",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//input[@value='Yes']",
+      "targets": [
+        ["css=.pr-5 > .pt-2 .ant-checkbox-input", "css:finder"],
+        ["xpath=//input[@value='Yes']", "xpath:attributes"],
+        ["xpath=//ul[@id='7$Menu']/div/label/span/input", "xpath:idRelative"],
+        ["xpath=//li[7]/ul/div/label/span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5db29d1e-311c-4fdc-9f51-f616c1d021f5",
+      "comment": "",
+      "command": "waitForElementNotPresent",
+      "target": "css=.col-md-4:nth-child(1)",
+      "targets": [],
+      "value": "1800"
+    }, {
+      "id": "f2c36e3a-0751-460e-8477-309d06f37bbf",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=p",
+      "targets": [
+        ["css=p", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div[2]/p", "xpath:idRelative"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'No products found')]", "xpath:innerText"]
+      ],
+      "value": "No products found"
+    }, {
+      "id": "65408c7e-9bcb-4e4a-8f9c-27e7bcc4f46b",
       "comment": "",
       "command": "click",
       "target": "xpath=//input[@value='No']",
@@ -1062,7 +1101,7 @@
       "id": "c10f7608-560a-49a7-9c86-c4760f454bd8",
       "comment": "",
       "command": "waitForElementPresent",
-      "target": "css=.col-md-4:nth-child(3)",
+      "target": "css=.col-md-4:nth-child(2)",
       "targets": [],
       "value": "1800"
     }, {
@@ -1075,9 +1114,9 @@
         ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
       ],
-      "value": "Căn Hộ Tầng 2 - $500000000"
+      "value": "Japanese Tea Garden - $30"
     }, {
-      "id": "ce739c90-71cc-42aa-a0b8-41c2d5c8f4b5",
+      "id": "a308949d-23d7-4a46-ad0a-82af816a1650",
       "comment": "",
       "command": "verifyText",
       "target": "css=.col-md-4:nth-child(2) .ant-card-meta-title",
@@ -1086,93 +1125,49 @@
         ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
       ],
-      "value": "Got A Shot - $2"
+      "value": "Rose Garden - $5"
     }, {
-      "id": "fe9cf1a8-9bb6-411d-8963-9c4dcca74f3f",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.col-md-4:nth-child(3) .ant-card-meta-title",
-      "targets": [
-        ["css=.col-md-4:nth-child(1) .ant-card-meta-title", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
-      ],
-      "value": "test2 - $10"
-    }, {
-      "id": "783c4365-c5ad-43f8-910d-5090d1a2bd28",
+      "id": "da3ef527-d454-4aa9-86b4-c14db7ef70cd",
       "comment": "",
       "command": "mouseDownAt",
-      "target": "css=.ant-slider-handle-2",
+      "target": "css=.ant-slider-step",
       "targets": [
-        ["css=.ant-slider-handle-2", "css:finder"],
-        ["xpath=//ul[@id='1$Menu']/div/div/div[5]", "xpath:idRelative"],
-        ["xpath=//div[5]", "xpath:position"]
+        ["css=.ant-slider-step", "css:finder"],
+        ["xpath=//ul[@id='1$Menu']/div/div/div[3]", "xpath:idRelative"],
+        ["xpath=//div/div[3]", "xpath:position"]
       ],
-      "value": "-390.75,7"
+      "value": "2.5,9"
     }, {
-      "id": "15798765-3455-4ea2-b12e-31e1e7cf2322",
+      "id": "17fdc58d-103b-4b47-98e1-434c9e0ef318",
       "comment": "",
-      "command": "mouseMoveAt",
-      "target": "css=.ant-slider-handle-2",
+      "command": "mouseUp",
+      "target": "css=.ant-slider-step",
       "targets": [
-        ["css=.ant-slider-handle-2", "css:finder"],
-        ["xpath=//ul[@id='1$Menu']/div/div/div[5]", "xpath:idRelative"],
-        ["xpath=//div[5]", "xpath:position"]
+        ["css=.ant-slider-step", "css:finder"],
+        ["xpath=//ul[@id='1$Menu']/div/div/div[3]", "xpath:idRelative"],
+        ["xpath=//div/div[3]", "xpath:position"]
       ],
-      "value": "19.25,8"
+      "value": ""
     }, {
-      "id": "e2963ac9-5e62-4f4e-8e10-e4eb531920a1",
-      "comment": "",
-      "command": "mouseUpAt",
-      "target": "css=.ant-slider-handle-2",
-      "targets": [
-        ["css=.ant-slider-handle-2", "css:finder"],
-        ["xpath=//ul[@id='1$Menu']/div/div/div[5]", "xpath:idRelative"],
-        ["xpath=//div[5]", "xpath:position"]
-      ],
-      "value": "19.25,8"
-    }, {
-      "id": "9e216f1f-2201-461d-8f27-3fd85fe69294",
+      "id": "e9abf03c-b368-438b-9d32-8b388af80c3c",
       "comment": "",
       "command": "mouseDownAt",
-      "target": "css=.ant-slider-handle-1",
-      "targets": [
-        ["css=.ant-slider-handle-1", "css:finder"],
-        ["xpath=//ul[@id='1$Menu']/div/div/div[4]", "xpath:idRelative"],
-        ["xpath=//div/div[4]", "xpath:position"]
-      ],
-      "value": "-15,-1"
-    }, {
-      "id": "5bdda54f-239b-4d34-a662-ab8ec62d35a6",
-      "comment": "",
-      "command": "mouseMoveAt",
-      "target": "css=.ant-slider-handle-1",
-      "targets": [
-        ["css=.ant-slider-handle-1", "css:finder"],
-        ["xpath=//ul[@id='1$Menu']/div/div/div[4]", "xpath:idRelative"],
-        ["xpath=//div/div[4]", "xpath:position"]
-      ],
-      "value": "8,6"
-    }, {
-      "id": "737ec88a-6030-4208-bcfb-3648538ad48f",
-      "comment": "",
-      "command": "mouseUpAt",
-      "target": "css=.ant-slider-handle-1",
-      "targets": [
-        ["css=.ant-slider-handle-1", "css:finder"],
-        ["xpath=//ul[@id='1$Menu']/div/div/div[4]", "xpath:idRelative"],
-        ["xpath=//div/div[4]", "xpath:position"]
-      ],
-      "value": "8,6"
-    }, {
-      "id": "718d2426-a88a-480a-bfd5-52baf22ae57c",
-      "comment": "",
-      "command": "waitForElementNotPresent",
-      "target": "css=.col-md-4:nth-child(3)",
+      "target": "css=.ant-slider-step",
       "targets": [],
-      "value": "1800"
+      "value": "5,9"
     }, {
-      "id": "0528cad2-cc8d-4302-863b-bd555318601b",
+      "id": "85c17e13-1828-4520-93d7-65a88f7e81e1",
+      "comment": "",
+      "command": "mouseUp",
+      "target": "css=.ant-slider-step",
+      "targets": [
+        ["css=.ant-slider-step", "css:finder"],
+        ["xpath=//ul[@id='1$Menu']/div/div/div[3]", "xpath:idRelative"],
+        ["xpath=//div/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1903fc64-92e0-4186-884b-17acac6d35bb",
       "comment": "",
       "command": "verifyText",
       "target": "css=.col-md-4:nth-child(1) .ant-card-meta-title",
@@ -1181,16 +1176,58 @@
         ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
       ],
-      "value": "OneDrive - $298"
+      "value": "Japanese Tea Garden - $30"
     }, {
-      "id": "a20d695e-c7d5-43ae-b904-5267b8b7bce2",
+      "id": "d06fca10-ef5a-4552-95be-364813343846",
       "comment": "",
-      "command": "verifyElementNotPresent",
-      "target": "css=.col-md-4:nth-child(2)",
+      "command": "type",
+      "target": "css=.form-control",
       "targets": [
-        ["css=.col-md-4:nth-child(2) .ant-card-meta-title", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div", "xpath:position"]
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@value='rose']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/ul/span/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tea"
+    }, {
+      "id": "ce739c90-71cc-42aa-a0b8-41c2d5c8f4b5",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.col-md-4:nth-child(1) .ant-card-meta-title",
+      "targets": [
+        ["css=.col-md-4:nth-child(1) .ant-card-meta-title", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "Japanese Tea Garden - $30"
+    }, {
+      "id": "1bd6a78d-c4f4-45ec-b805-7e9c507e6d3c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-raised",
+      "targets": [
+        ["css=.btn-raised", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1dd1d1e2-db54-4781-8acd-91cf695cfc2e",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.col-md-4:nth-child(2)",
+      "targets": [],
+      "value": "1800"
+    }, {
+      "id": "44181ab7-66be-4fda-a75e-04519984df5e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.col-md-4:nth-child(6)",
+      "targets": [
+        ["css=.col-md-4:nth-child(6) .ant-card-meta-title", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div[6]/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div[2]/div/div/div", "xpath:position"]
       ],
       "value": ""
     }]
@@ -1201,7 +1238,7 @@
       "id": "91d998b9-064c-4b1d-a6cc-ff45eeb352e5",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "https://gotaspotcoolbeans.herokuapp.com/",
       "targets": [],
       "value": ""
     }, {
@@ -1441,6 +1478,348 @@
       ],
       "value": "Fake product is deleted"
     }]
+  }, {
+    "id": "2c1034b6-49c7-4f7d-bc6e-06c887f5a519",
+    "name": "Checkout",
+    "commands": [{
+      "id": "cc9bdb85-fe6c-4c54-b8f0-551e414ae45e",
+      "comment": "",
+      "command": "open",
+      "target": "https://gotaspotcoolbeans.herokuapp.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9704600e-5011-40f7-9126-58a12c0ee28f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1176",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3a0e7536-86ab-4e4b-a37f-4dfb27de0f0e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=SHOP",
+      "targets": [
+        ["linkText=SHOP", "linkText"],
+        ["css=.ant-menu-item-active a", "css:finder"],
+        ["xpath=//a[contains(text(),'SHOP')]", "xpath:link"],
+        ["xpath=//div[@id='root']/ul/li[6]/span[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/shop')]", "xpath:href"],
+        ["xpath=//li[6]/span[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'SHOP')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f0e2a83-59b7-4741-b185-42e0a5bdf1e9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=View Product",
+      "targets": [
+        ["linkText=View Product", "linkText"],
+        ["css=.col-md-4:nth-child(1) a", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/ul/li/span/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/product/japanese-tea-garden')]", "xpath:href"],
+        ["xpath=//div/div/ul/li/span/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ffd3774b-4b26-4ad2-bac6-ec222ea4d840",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//span[contains(.,'Reserve Your Spot')]",
+      "targets": [
+        ["css=.ant-btn > span", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div[2]/div[2]/div/ul/li[7]/button/span", "xpath:idRelative"],
+        ["xpath=//li[7]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Reserve Your Spot')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1468205a-0e98-41b6-9254-60b38685fc01",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(3) > .ant-picker-cell:nth-child(4) .ant-picker-calendar-date-value",
+      "targets": [
+        ["css=tr:nth-child(3) > .ant-picker-cell:nth-child(4) .ant-picker-calendar-date-value", "css:finder"],
+        ["xpath=//tr[3]/td[4]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "173495eb-c87a-4c8b-b8a5-c90341a51398",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//span[contains(.,'12:00 AM - 7:02 AM')]",
+      "targets": [
+        ["css=.ant-radio-group-solid > .ant-radio-button-wrapper:nth-child(2) > span:nth-child(2)", "css:finder"],
+        ["xpath=//div[3]/div/label[2]/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'12:00 AM - 7:02 AM (100 left)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f81db581-b1ae-4260-9376-c220e893de54",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//span[contains(.,'Submit')]",
+      "targets": [
+        ["css=.ant-btn-primary > span:nth-child(1)", "css:finder"],
+        ["xpath=//button[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b8cb0bf-09ad-4495-bb54-fb16912c6da9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.anticon-shopping-cart > svg",
+      "targets": [
+        ["css=.anticon-shopping-cart > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "6c40b385-6e23-4a89-b349-536348b60564",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//a/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e731c219-66cd-4152-a556-dfbaf619bef5",
+      "comment": "",
+      "command": "type",
+      "target": "css=.text-center > .form-control",
+      "targets": [
+        ["css=.text-center > .form-control", "css:finder"],
+        ["xpath=//input[@value='1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/div/table/tbody/tr/td[6]/input", "xpath:idRelative"],
+        ["xpath=//td[6]/input", "xpath:position"]
+      ],
+      "value": "2"
+    }, {
+      "id": "b0c79e54-4ea6-41a5-8425-c8aa5e535cff",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ant-btn > span",
+      "targets": [
+        ["css=.ant-btn > span", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div[2]/button/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Proceed to Checkout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "289c5f2a-10cf-480f-aec2-b8e0441aa205",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.ql-editor",
+      "targets": [
+        ["css=.ql-editor", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/div", "xpath:position"]
+      ],
+      "value": "1800"
+    }, {
+      "id": "d6a8f379-dbc7-40af-877a-907ec7e4dee1",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(5) > p",
+      "targets": [
+        ["css=div:nth-child(5) > p", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/p", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/p", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "30c238a0-95a6-40e6-984b-844bda81c67f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(5) > .col-md-6:nth-child(2)",
+      "targets": [
+        ["css=.row:nth-child(5) > .col-md-6:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[5]/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a314df47-cfa1-4413-b3d5-6152a5b7f299",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=div:nth-child(5) > p",
+      "targets": [
+        ["css=div:nth-child(5) > p", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/p", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/p", "xpath:position"]
+      ],
+      "value": "Japanese Tea Garden (May 12) x 2 = 60"
+    }, {
+      "id": "10e7deab-af70-41a2-a182-6e853f91e03c",
+      "comment": "",
+      "command": "editContent",
+      "target": "css=.ql-editor",
+      "targets": [
+        ["css=.ql-editor", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/div", "xpath:position"]
+      ],
+      "value": "Test Address, San Jose, CA"
+    }, {
+      "id": "25750afe-133f-4734-a4aa-4bc30b913d18",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(5)",
+      "targets": [
+        ["css=.btn:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ffee2579-0356-4336-b42b-3bbfcd7e7101",
+      "comment": "",
+      "command": "type",
+      "target": "css=.form-control:nth-child(10)",
+      "targets": [
+        ["css=.form-control:nth-child(10)", "css:finder"],
+        ["xpath=//input[@value='COUPON20']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div[2]/div/input", "xpath:position"]
+      ],
+      "value": "COUPON20"
+    }, {
+      "id": "23b80261-39e9-4e88-8624-ee28b3741309",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(11)",
+      "targets": [
+        ["css=.btn:nth-child(11)", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//div/button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aaebb1c7-2c26-41c4-884f-b3aa86336c79",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(5) > .col-md-6:nth-child(2)",
+      "targets": [
+        ["css=.row:nth-child(5) > .col-md-6:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8f0ad14a-184c-4696-a9e7-e0f226f6ce6e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.bg-success",
+      "targets": [],
+      "value": "Discount Applied: Total Payable : $48.00"
+    }, {
+      "id": "9293755a-bdcb-4b92-9a1a-979e6bf19de4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ant-btn > span",
+      "targets": [
+        ["css=.ant-btn > span", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div[2]/div/button/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a54a8983-8835-45fd-a20e-cd6a927b4794",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=h4",
+      "targets": [
+        ["css=h4", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/h4", "xpath:idRelative"],
+        ["xpath=//h4", "xpath:position"],
+        ["xpath=//h4[contains(.,'Complete your purchase')]", "xpath:innerText"]
+      ],
+      "value": "1800"
+    }, {
+      "id": "6f3f16b0-52a9-416f-a3d1-196d7e59f9ea",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h4",
+      "targets": [
+        ["css=h4", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/h4", "xpath:idRelative"],
+        ["xpath=//h4", "xpath:position"],
+        ["xpath=//h4[contains(.,'Complete your purchase')]", "xpath:innerText"]
+      ],
+      "value": "Complete your purchase"
+    }, {
+      "id": "ce7d24f5-8dc9-44db-9c4c-ac3022008544",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": "Enter credit card info"
+    }, {
+      "id": "b412b6f5-8430-4cf4-98a2-50218a195300",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=.result-message",
+      "targets": [
+        ["css=.result-message", "css:finder"],
+        ["xpath=//form[@id='payment-form']/p", "xpath:idRelative"],
+        ["xpath=//p", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "b0a6e58e-b1bc-4978-851e-e7ec0c3cdd1e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=See it in your purchase history.",
+      "targets": [
+        ["linkText=See it in your purchase history.", "linkText"],
+        ["css=.result-message > a", "css:finder"],
+        ["xpath=//a[contains(text(),'See it in your purchase history.')]", "xpath:link"],
+        ["xpath=//form[@id='payment-form']/p/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/user/history')]", "xpath:href"],
+        ["xpath=//p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'See it in your purchase history.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "02c45435-aafb-4b5c-b2c1-7d0275619b11",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.m-5:nth-child(2)",
+      "targets": [
+        ["css=.m-5:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": "1800"
+    }, {
+      "id": "2cf748a8-9bcf-4dea-ab73-cd6438f9951d",
+      "comment": "",
+      "command": "assertText",
+      "target": "xpath=//td/b",
+      "targets": [
+        ["css=.m-5:nth-child(2) td:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/table/tbody/tr/td", "xpath:idRelative"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Japanese Tea Garden')]", "xpath:innerText"]
+      ],
+      "value": "Japanese Tea Garden"
+    }, {
+      "id": "3556e6ae-c890-4231-b4cb-128a3b4e28f4",
+      "comment": "",
+      "command": "assertText",
+      "target": "xpath=//span[7]",
+      "targets": [
+        ["css=.m-5:nth-child(2) .badge", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/p/span[7]", "xpath:idRelative"],
+        ["xpath=//span[7]", "xpath:position"]
+      ],
+      "value": "STATUS: NOT PROCESSED"
+    }]
   }],
   "suites": [{
     "id": "2234f597-394b-48ce-a945-94c82ae48dba",
@@ -1450,6 +1829,6 @@
     "timeout": 300,
     "tests": ["b2b8c7fa-f107-4aa1-bab1-b1371c300933"]
   }],
-  "urls": ["http://localhost:3000/"],
+  "urls": ["http://localhost:3000/", "https://gotaspotcoolbeans.herokuapp.com/"],
   "plugins": []
 }

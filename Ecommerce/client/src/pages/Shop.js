@@ -43,7 +43,7 @@ const Shop = () => {
     const { text } = search;
 
     useEffect(() => {
-        loadAllProducts();
+        handleClear();
         //fetch Categories
         getCategories().then((res) => setCategories(res.data));
         //fetch subcategories
@@ -57,6 +57,10 @@ const Shop = () => {
     };
 
     const handleClear = () => {
+        dispatch({
+            type: "SEARCH_QUERY",
+            payload: {text: ""},
+        });
         setSub('')
         setPrice([]);
         setCategoryIds([]);
@@ -94,10 +98,10 @@ const Shop = () => {
     }, [ok]);
 
     const handleSlider = (value) => {
-        dispatch({
-            type: "SEARCH_QUERY",
-            payload: {text: ""},
-        });
+        // dispatch({
+        //     type: "SEARCH_QUERY",
+        //     payload: {text: ""},
+        // });
         // reset
         // setCategoryIds([]);
         setPrice(value);
@@ -131,10 +135,10 @@ const Shop = () => {
     // handle check for categories
     const handleCheck = e => {
         //reset
-        dispatch({
-            type: "SEARCH_QUERY",
-            payload: {text: ""},
-        })
+        // dispatch({
+        //     type: "SEARCH_QUERY",
+        //     payload: {text: ""},
+        // })
         // setPrice([0,0]);
         // setStar("");
         // setSub('')
@@ -216,10 +220,10 @@ const Shop = () => {
 
     const handleSub = (sub) => {
         //console.log("SUB", s);
-        dispatch({
-            type: "SEARCH_QUERY",
-            payload: {text: ""},
-        })
+        // dispatch({
+        //     type: "SEARCH_QUERY",
+        //     payload: {text: ""},
+        // })
         // setPrice([0,0]);
         // setCategoryIds([]);
         // setStar('');
@@ -249,10 +253,10 @@ const Shop = () => {
                 ));
 
     const handleBrand = (e) => {
-        dispatch({
-            type: "SEARCH_QUERY",
-            payload: {text: ""},
-        })
+        // dispatch({
+        //     type: "SEARCH_QUERY",
+        //     payload: {text: ""},
+        // })
         // setPrice([0,0]);
         // setCategoryIds([]);
         // setStar('');
@@ -279,10 +283,10 @@ const Shop = () => {
         ));
 
     const handleSeason = (e) => {
-        dispatch({
-            type: "SEARCH_QUERY",
-            payload: {text: ""},
-        })
+        // dispatch({
+        //     type: "SEARCH_QUERY",
+        //     payload: {text: ""},
+        // })
         // setPrice([0,0]);
         // setCategoryIds([]);
         // setStar('');
@@ -318,10 +322,10 @@ const Shop = () => {
     )
 
     const handleShippingChange = (e) => {
-        dispatch({
-            type: "SEARCH_QUERY",
-            payload: {text: ""},
-        })
+        // dispatch({
+        //     type: "SEARCH_QUERY",
+        //     payload: {text: ""},
+        // })
         // setPrice([0,0]);
         // setCategoryIds([]);
         // setStar('');
