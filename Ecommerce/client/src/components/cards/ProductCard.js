@@ -76,7 +76,7 @@ const ProductCard = ({ product }) => {
 
         actions={[
             <Link to={`/product/${slug}`} style={textStyle}>
-                <EyeOutlined style={iconStyle}/> <br/> View Product
+                <EyeOutlined style={iconStyle}/> <br/> View Location
             </Link>,
             // <Tooltip title={tooltip}>
             //     <a onClick={handleAddToCart} disabled={product.quantity < 1} style={textStyle}>
