@@ -4,8 +4,8 @@ import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { Menu, Slider, Checkbox } from 'antd'
 import { Image } from 'antd';
-import { Space, Card } from 'antd';
 import { Container, Row, Col } from "reactstrap";
+import { Card, ListGroup, ListGroupItem } from 'reactstrap';
 
 const {SubMenu, ItemGroup} = Menu;
 
@@ -37,7 +37,7 @@ const About = () => {
                   className="img-circle img-no-padding img-responsive"
                   src={require("../images/sarah.png").default}
                 />
-                <p className="text-center">Team Lead/Front End Developer</p>
+                <p className="text-center">Team Lead<br></br>Front End Developer</p>
               </Col>
               <Col className="mr-auto ml-auto" md="2" sm="2">
                 <h4>Tuong</h4>
@@ -55,7 +55,7 @@ const About = () => {
                   className="img-circle img-no-padding img-responsive"
                   src={require("../images/nicole.png").default}
                 />
-                <p className="text-center">Project Manager/Front End Developer</p>
+                <p className="text-center">Project Manager<br></br>Front End Developer</p>
               </Col>
               <Col className="mr-auto ml-auto" md="2" sm="2">
                 <h4>Mark</h4>
@@ -64,7 +64,7 @@ const About = () => {
                   className="img-circle img-no-padding img-responsive"
                   src={require("../images/mark.png").default}
                 />
-                <p className="text-center">Front End/Software Tester</p>
+                <p className="text-center">Front End<br></br>Software Tester</p>
               </Col>
             </Row>
             <Row>
@@ -84,7 +84,7 @@ const About = () => {
                   className="img-circle img-no-padding img-responsive"
                   src={require("../images/danh.png").default}
                 />
-                <p className="text-center">Full Stack Developer/Durian Loan Shark</p>
+                <p className="text-center">Full Stack Developer</p>
               </Col>
               <Col className="mr-auto ml-auto" md="2" sm="2">
                 <h4>Minh</h4>
@@ -93,7 +93,7 @@ const About = () => {
                   className="img-circle img-no-padding img-responsive"
                   src={require("../images/minh.png").default}
                 />
-                <p className="text-center">QA Engineer/Backend Developer/ Weeb and Proud</p>
+                <p className="text-center">QA Engineer<br></br>Backend Developer</p>
               </Col>
               <Col className="mr-auto ml-auto" md="2" sm="2">
                 <h4>Anmol</h4>
@@ -102,14 +102,18 @@ const About = () => {
                   className="img-circle img-no-padding img-responsive"
                   src={require("../images/anmol_LD.png").default}
                 />
-                <p className="text-center">Full Stack Developer/Rapper/ #SwoleBoyz</p>
+                <p className="text-center">Full Stack Developer</p>
               </Col>
 
             </Row>
           </Container>
-        </div>     
+        </div>
+        
+        <h2 className="text-center mb-1 py-3">Contact Us</h2>
+        <h4 className="text-center mb-1 py-3">If you would like to list your business, please contact us at: coolbeanscs161@gmail.com</h4>
+
         <div class="container-fluid py-1"> 
-            <h2 className="text-left">
+            <h2 className="text-center mb-1 py-3">
                 Features
             </h2>
                     <div class="bg-light border border-dark py-3 col-lg-12">

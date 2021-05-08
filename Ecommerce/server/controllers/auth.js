@@ -1,14 +1,15 @@
 const User = require('../models/user')
 
-exports.createOrUpdateUser = async (req, res) => {
+exports.createUser = async (req, res) => {
     const {picture, email} = req.user;
     const { info } = req.body;
 
-    const user = await User.findOneAndUpdate({email},
-        {name: info.name, picture, businessAddress: info.workAddr, mailingAddress: info.mailAddr, role: info.role}, {new: true});
+    // const user = await User.findOneAndUpdate({email},
+    //     {name: info.name, picture, businessAddress: info.workAddr, mailingAddress: info.mailAddr, role: info.role}, {new: true});
+    const user = await User.findOne({email});
 
     if(user){
-        console.log('USER UPDATED', user)
+        console.log('User already exist', user)
         res.json(user)
     }
     else{

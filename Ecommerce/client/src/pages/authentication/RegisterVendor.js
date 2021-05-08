@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { auth } from "../../firebase";
 import { toast } from 'react-toastify';
 import { useDispatch } from "react-redux";
-import { createOrUpdateUser } from "../../functions/auth";
+import { createUser } from "../../functions/auth";
 
 const RegisterVendor = ({ history }) => {
     const [email, setEmail] = useState('');
@@ -62,7 +62,7 @@ const RegisterVendor = ({ history }) => {
                 // redux store
                 console.log('user', user, 'idTokenResult', idTokenResult);
 
-                createOrUpdateUser(idTokenResult.token, {name, workAddr, mailAddr, role:"admin"}).then(
+                createUser(idTokenResult.token, {name, workAddr, mailAddr, role:"admin"}).then(
                     (res) => {
                         dispatch({
                             type: "LOGGED_IN_USER",
