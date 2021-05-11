@@ -180,7 +180,9 @@ const Login = ({history}) => {
             href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
             rel="stylesheet"
             />
-        <div style={{ backgroundImage: "url(https://i.imgur.com/X5RLDgP.png)" }}>
+        <div style={{ height: "100%", backgroundPosition: "center", 
+        backgroundSize: "cover", backgroundRepeat: "no-repeat", 
+        backgroundImage: "url(https://i.imgur.com/X5RLDgP.png)" }}>
         <div className="container p-5">
             <div className="row">
                 <div className="col-md-6 offset-md-3">
