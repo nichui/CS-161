@@ -180,10 +180,10 @@ const App = () => {
                 )}
 
    
-                <Button type="primary" style={{ color: "black", float: 'left', marginBottom: "10px", backgroundColor: "#23d9d2"  }}
+                {/*<Button type="primary" style={{ color: "black", float: 'left', marginBottom: "10px", backgroundColor: "#23d9d2"  }}
                     state={{ size: "large" }}
                     onClick={() => toggleBot((prev) => !prev)}>
-                Live Chat  </Button>
+                Live Chat  </Button>*/}
                 <br></br>
                 <br></br>
     </div>
