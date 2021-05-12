@@ -19,16 +19,6 @@ export default function Footer() {
         <Container>
             <Row>
                 <nav className="footer-nav">
-                    <Row>
-                        <ul className="iconUL">
-                            <li>
-                                <a href='https://www.facebook.com/Gotaspot-CoolBeans-109379701311475/'>
-                                <FontAwesomeIcon className="iconFB" icon={faFacebook}/></a></li>
-                            <li>
-                                <a href='https://www.linkedin.com/in/anmoldeepsingh/'>
-                                <FontAwesomeIcon className="iconLin" icon={faLinkedinIn}/></a></li>
-                        </ul>
-                    </Row>
                     <ul className="wordUL">
                         <li>
                             <a
@@ -63,6 +53,16 @@ export default function Footer() {
                             </a>
                         </li>
                     </ul>
+                    <Row>
+                        <ul className="iconUL">
+                            <li>
+                                <a href='https://www.facebook.com/Gotaspot-CoolBeans-109379701311475/'>
+                                <FontAwesomeIcon className="iconFB" icon={faFacebook}/></a></li>
+                            <li>
+                                <a href='https://www.linkedin.com/in/anmoldeepsingh/'>
+                                <FontAwesomeIcon className="iconLin" icon={faLinkedinIn}/></a></li>
+                        </ul>
+                    </Row>
                 </nav>
 
                 <div className="credits ml-auto">
