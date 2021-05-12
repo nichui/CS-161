@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import { Row, Container } from "reactstrap";
 import "./Footer.css"
 import {faHome, faMapMarked, faMarker, faMapMarker} from "@fortawesome/free-solid-svg-icons";
@@ -22,8 +21,12 @@ export default function Footer() {
                 <nav className="footer-nav">
                     <Row>
                         <ul className="iconUL">
-                            <li><FontAwesomeIcon className="iconFB" icon={faFacebook}/></li>
-                            <li><FontAwesomeIcon className="iconLin" icon={faLinkedinIn}/></li>
+                            <li>
+                                <a href='https://www.facebook.com/Gotaspot-CoolBeans-109379701311475/'>
+                                <FontAwesomeIcon className="iconFB" icon={faFacebook}/></a></li>
+                            <li>
+                                <a href='https://www.linkedin.com/in/anmoldeepsingh/'>
+                                <FontAwesomeIcon className="iconLin" icon={faLinkedinIn}/></a></li>
                         </ul>
                     </Row>
                     <ul className="wordUL">
@@ -89,13 +92,11 @@ export default function Footer() {
 
             </Row>
 
-            <Row>
-                <div >
-                    <span className="right">
-                        Copyright@  2021 All rights reserved | This template is made with by <a className="CoolBeansWord"  href="">Cool Beans</a>
-                    </span>
-                </div>
-            </Row>
+            <div style={{textAlign:"center"}}>
+            <span className="copyright" style={{color:"grey"}}>
+            Copyright@  2021 All rights reserved | Team Cool Beans
+            </span>
+            </div>
 
         </Container>
 

@@ -24,23 +24,28 @@ li{
 }
 
 .iconFB{
-    font-size: 75px;
+    font-size: 50px;
     margin-top: 20px;
     margin-left: 100px;
-    color: green;
+    color: white;
+
 }
 
 .iconLin{
-    font-size: 75px;
+    font-size: 50px;
     margin-left: 100px;
-    color: green;
+    color: white;
 }
 
 ul .wordUL{
     margin-bottom: 20px;
 }
 
-
+.link {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
 
 .word :hover{
     color: white;
