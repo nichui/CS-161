@@ -56,11 +56,11 @@ export default function Footer() {
                     <Row>
                         <ul className="iconUL">
                             <li>
-                                <a href='https://www.facebook.com/Gotaspot-CoolBeans-109379701311475/'>
-                                <FontAwesomeIcon className="iconFB" icon={faFacebook}/></a></li>
+                                <a href='https://www.facebook.com/Gotaspot-CoolBeans-109379701311475/' style={{color:"white", fontWeight:"bold"}}>
+                                <FontAwesomeIcon className="iconFB" icon={faFacebook}/> Facebook</a></li>
                             <li>
-                                <a href='https://www.linkedin.com/in/anmoldeepsingh/'>
-                                <FontAwesomeIcon className="iconLin" icon={faLinkedinIn}/></a></li>
+                                <a href='https://www.linkedin.com/in/anmoldeepsingh/' style={{color:"white", fontWeight:"bold"}}>
+                                <FontAwesomeIcon className="iconLin" icon={faLinkedinIn}/> Linkedin</a></li>
                         </ul>
                     </Row>
                 </nav>
