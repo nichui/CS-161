@@ -36,6 +36,7 @@ import CalendarCreate from './pages/admin/calendar/CalendarCreate';
 import CreateCouponPage from "./pages/admin/coupon/CreateCouponPage";
 import Payment from "./pages/Payment";
 import FAQ from "./pages/FAQ";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 import Chatbot from "react-chatbot-kit";
 import config from "./chatbot/config";
@@ -128,6 +129,11 @@ const App = () => {
             <Header/>
             <SideDrawer />
             <ToastContainer />
+            <MessengerCustomerChat
+                pageId="109379701311475"
+                appId="896100000947969"
+
+            />
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/about" component={About} />
@@ -174,10 +180,10 @@ const App = () => {
                 )}
 
    
-                <Button type="primary" style={{ color: "black", float: 'left', marginBottom: "10px", backgroundColor: "#23d9d2"  }}
+                {/*<Button type="primary" style={{ color: "black", float: 'left', marginBottom: "10px", backgroundColor: "#23d9d2"  }}
                     state={{ size: "large" }}
                     onClick={() => toggleBot((prev) => !prev)}>
-                Live Chat  </Button>
+                Live Chat  </Button>*/}
                 <br></br>
                 <br></br>
     </div>

@@ -1,0 +1,64 @@
+.markerIcon{
+    color: crimson;
+    font-size: xx-large;
+}
+
+ul{
+
+    overflow:hidden;
+}
+li{
+    display:inline-block;
+    margin-left: 20px;
+
+}
+
+.footer{
+    background: #6ecfff
+}
+
+.mapBox{
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+}
+
+.iconFB{
+    font-size: 40px;
+    margin-left: 100px;
+    color: white;
+
+}
+
+.socialLink{
+    margin-left: 100px;
+}
+
+.iconLin{
+    font-size: 40px;
+    margin-left: 100px;
+    color: white;
+}
+
+ul .wordUL{
+    margin-bottom: 20px;
+}
+
+.link {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.word :hover{
+    color: white;
+}
+
+.right{
+    margin-left: 270px;
+    font-size: 25px;
+}
+
+.CoolBeanWords{
+    color: green;
+}
