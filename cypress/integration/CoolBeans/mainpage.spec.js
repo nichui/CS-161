@@ -1,6 +1,6 @@
 describe('Testing main page', function(){
 	before(function(){
-		cy.visit('http://localhost:3000/')
+		cy.visit('https://gotaspotcoolbeans.herokuapp.com/')
 	})
 	
 	it("Verify the title name 'Got A Spot'", function(){
@@ -13,7 +13,7 @@ describe('Testing main page', function(){
 	})
 	
 	it("Navigation bar: Home Page, Shop, cart and about us page.", function(){
-		cy.contains('Home', {matchCase: false})
+		//cy.contains('Home', {matchCase: false})
 		cy.contains('Shop', {matchCase: false})
 		cy.contains('Cart', {matchCase: false})
 		cy.contains('About us', {matchCase: false})

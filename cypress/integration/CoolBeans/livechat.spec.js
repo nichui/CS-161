@@ -1,6 +1,6 @@
 describe('Open Live Chat (login not required)', function(){
     before(function(){
-		cy.visit('http://localhost:3000/')
+		cy.visit('https://gotaspotcoolbeans.herokuapp.com/')
 	})
 
     it('Open live chat', function()
