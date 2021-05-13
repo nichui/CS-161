@@ -10,7 +10,7 @@
       "id": "66a6d885-23fc-45b4-b522-e357a11249bf",
       "comment": "",
       "command": "open",
-      "target": "https://gotaspotcoolbeans.herokuapp.com/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -94,7 +94,7 @@
       "id": "22092dbf-20fe-4606-8d74-ee7285752ba2",
       "comment": "",
       "command": "open",
-      "target": "https://gotaspotcoolbeans.herokuapp.com/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -123,12 +123,12 @@
       "id": "a26e731a-863e-433d-9ea8-b7a545700ce6",
       "comment": "",
       "command": "type",
-      "target": "css=form:nth-child(2) > .form-control",
+      "target": "css=.form-control:nth-child(2)",
       "targets": [
-        ["css=form:nth-child(2) > .form-control", "css:finder"],
-        ["xpath=//input[@value='coolbeanscs161@gmail.com']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div[2]/div/div/form/input", "xpath:idRelative"],
-        ["xpath=//div/form/input", "xpath:position"]
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[3]/div/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
       ],
       "value": "coolbeanscs161@gmail.com"
     }, {
@@ -157,19 +157,15 @@
     }, {
       "id": "06444e22-d6b2-4110-8de9-dfac97f3d95a",
       "comment": "",
-      "command": "verifyElementPresent",
+      "command": "verifyText",
       "target": "css=.Toastify__toast-body",
-      "targets": [
-        ["css=.Toastify__toast-body", "css:finder"],
-        ["xpath=//div[@id='0i27gvut8']/div", "xpath:idRelative"],
-        ["xpath=//div[4]/div/div/div/div", "xpath:position"]
-      ],
-      "value": ""
+      "targets": [],
+      "value": "Email is sent to coolbeanscs161@gmail.com. Click the link to complete your registration."
     }, {
       "id": "fdda8d1f-ef59-4e0e-aeb2-39edefd848f8",
       "comment": "",
       "command": "open",
-      "target": "https://mail.google.com",
+      "target": "https://mail.google.com/mail/u/1/#inbox",
       "targets": [],
       "value": ""
     }, {
@@ -179,17 +175,6 @@
       "target": "xpath=//td[5]/div/div/span",
       "targets": [],
       "value": "3000"
-    }, {
-      "id": "ccdccd86-719c-41a9-b770-54f173043c8f",
-      "comment": "",
-      "command": "verifyText",
-      "target": "xpath=//td[5]/div/div/span",
-      "targets": [
-        ["css=#\\3A 2m > .bqe", "css:finder"],
-        ["xpath=//span[@id=':2m']/span", "xpath:idRelative"],
-        ["xpath=//td[5]/div/div/div[2]/span/span", "xpath:position"]
-      ],
-      "value": "Sign in to project-729909354145"
     }, {
       "id": "05e459c4-94c2-49e4-af38-72a74381b025",
       "comment": "",
@@ -288,216 +273,6 @@
         ["xpath=//button", "xpath:position"]
       ],
       "value": ""
-    }, {
-      "id": "f25b5ffe-c94f-4ae8-a6d4-e183dc0a16d8",
-      "comment": "",
-      "command": "mouseOver",
-      "target": "css=.float-right > .ant-menu-submenu-title",
-      "targets": [
-        ["css=.float-right > .ant-menu-submenu-title", "css:finder"],
-        ["xpath=//div[@id='root']/ul/li[8]/div", "xpath:idRelative"],
-        ["xpath=//li[8]/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "7efe42db-929d-4809-964b-7392cb7d01e2",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Dashboard",
-      "targets": [
-        ["linkText=Dashboard", "linkText"],
-        ["css=.ant-menu-item > a", "css:finder"],
-        ["xpath=//a[contains(text(),'Dashboard')]", "xpath:link"],
-        ["xpath=//ul[@id='SubMenu$Menu']/li/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/user/history')]", "xpath:href"],
-        ["xpath=//div[2]/div/div/ul/li/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Dashboard')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "f032c1ad-d5d5-4e0b-8ccc-483757f0b2e1",
-      "comment": "",
-      "command": "assertText",
-      "target": "css=h4",
-      "targets": [],
-      "value": "User Dashboard"
-    }]
-  }, {
-    "id": "77cee002-8c89-4a83-a223-9be2373ca72c",
-    "name": "Duplicate User Register",
-    "commands": [{
-      "id": "4e23c519-2a7b-414b-97a1-6616d62f72b0",
-      "comment": "",
-      "command": "open",
-      "target": "https://gotaspotcoolbeans.herokuapp.com/",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "8d36e53d-e2e4-4b63-8c33-e5f16390dcf2",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1936x1176",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "59a99712-2f62-401a-a99d-99c98db92100",
-      "comment": "",
-      "command": "open",
-      "target": "https://mail.google.com",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "b4b10fce-5aee-4475-a131-8fbc8481725d",
-      "comment": "",
-      "command": "waitForElementPresent",
-      "target": "xpath=//td[5]/div/div/span",
-      "targets": [
-        ["id=:2n", "id"],
-        ["css=#\\3A 2n", "css:finder"],
-        ["xpath=//span[@id=':2n']", "xpath:attributes"],
-        ["xpath=//td[@id=':2k']/div/div/span", "xpath:idRelative"],
-        ["xpath=//td[5]/div/div/span", "xpath:position"]
-      ],
-      "value": "coolbeanscs161@gmail.com"
-    }, {
-      "id": "8e28b5d2-d73a-472c-bb8d-c4663bef3f71",
-      "comment": "",
-      "command": "verifyText",
-      "target": "xpath=//td[5]/div/div/div[2]/span/span",
-      "targets": [
-        ["css=#\\3A 2m > .bqe", "css:finder"],
-        ["xpath=//span[@id=':2m']/span", "xpath:idRelative"],
-        ["xpath=//td[5]/div/div/div[2]/span/span", "xpath:position"]
-      ],
-      "value": "Sign in to project-729909354145"
-    }, {
-      "id": "ceeb82c3-f769-4e19-b061-bdefc9c323cf",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=//div[3]/div/table/tbody/tr",
-      "targets": [
-        ["id=:2m", "id"],
-        ["css=#\\3A 2m", "css:finder"],
-        ["xpath=//tr[@id=':2m']", "xpath:attributes"],
-        ["xpath=//table[@id=':2k']/tbody/tr", "xpath:idRelative"],
-        ["xpath=//div[3]/div/table/tbody/tr", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "c3b2bbe7-c537-433a-9578-012994bdc894",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Sign in to project-729909354145",
-      "targets": [
-        ["linkText=Sign in to project-729909354145", "linkText"],
-        ["css=p:nth-child(3) > a", "css:finder"],
-        ["xpath=//a[contains(text(),'Sign in to project-729909354145')]", "xpath:link"],
-        ["xpath=//div[@id=':eh']/p[3]/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, 'https://tall-tail-travel.firebaseapp.com/__/auth/action?apiKey=AIzaSyDIwBv923LImaGHfxHdCiWOx17V_KEmvE4&mode=signIn&oobCode=vETyLSr3wzHe8FW_3sV9XR5YoJVjJdYqdNoYdYn80A0AAAF40nrDQQ&continueUrl=http://localhost:3000/register/user&lang=en')]", "xpath:href"],
-        ["xpath=//p[3]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Sign in to project-729909354145')]", "xpath:innerText"]
-      ],
-      "value": "",
-      "opensWindow": true,
-      "windowHandleName": "win537",
-      "windowTimeout": 2000
-    }, {
-      "id": "87247a80-f72e-48af-9bb8-3bb66847c45f",
-      "comment": "",
-      "command": "selectWindow",
-      "target": "handle=${win537}",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "71a68ffe-6161-4438-94a1-396078028430",
-      "comment": "",
-      "command": "type",
-      "target": "css=form:nth-child(2) > .form-control:nth-child(1)",
-      "targets": [
-        ["css=form:nth-child(2) > .form-control:nth-child(1)", "css:finder"],
-        ["xpath=//input[@value='Test User']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div[2]/div/div/form/input", "xpath:idRelative"],
-        ["xpath=//div/form/input", "xpath:position"]
-      ],
-      "value": "Test User"
-    }, {
-      "id": "16b81c81-7497-4722-9a9a-de91c2708791",
-      "comment": "",
-      "command": "click",
-      "target": "css=.form-control:nth-child(3)",
-      "targets": [
-        ["css=.form-control:nth-child(3)", "css:finder"],
-        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div[2]/div/div/form/input[3]", "xpath:idRelative"],
-        ["xpath=//input[3]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "bc0c2109-2592-48a9-ab38-46d93bd3799a",
-      "comment": "",
-      "command": "click",
-      "target": "css=.form-control:nth-child(3)",
-      "targets": [
-        ["css=.form-control:nth-child(3)", "css:finder"],
-        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div[2]/div/div/form/input[3]", "xpath:idRelative"],
-        ["xpath=//input[3]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "817cd758-ee0d-416f-ab9e-4f3b9b8c57d4",
-      "comment": "",
-      "command": "type",
-      "target": "css=.form-control:nth-child(3)",
-      "targets": [
-        ["css=.form-control:nth-child(3)", "css:finder"],
-        ["xpath=//input[@value='coolbeans161!']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div[2]/div/div/form/input[3]", "xpath:idRelative"],
-        ["xpath=//input[3]", "xpath:position"]
-      ],
-      "value": "1234567"
-    }, {
-      "id": "cbb73b1f-d790-4db9-a142-ed2c368579c2",
-      "comment": "",
-      "command": "click",
-      "target": "css=form:nth-child(2)",
-      "targets": [
-        ["css=form:nth-child(2)", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div/form", "xpath:idRelative"],
-        ["xpath=//div/form", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "ed339bf9-0eae-4702-96fb-93fde890e2e9",
-      "comment": "",
-      "command": "click",
-      "target": "css=.btn-raised",
-      "targets": [
-        ["css=.btn-raised", "css:finder"],
-        ["xpath=//button[@type='submit']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div[2]/div/div/form/button", "xpath:idRelative"],
-        ["xpath=//button", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "600ee654-2da3-414d-8188-048342d6dec1",
-      "comment": "",
-      "command": "verifyNotText",
-      "target": "css=.form-control:nth-child(2)",
-      "targets": [
-        ["css=.form-control:nth-child(2)", "css:finder"],
-        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div[2]/div/div/form/input[2]", "xpath:idRelative"],
-        ["xpath=//input[2]", "xpath:position"]
-      ],
-      "value": "coolbeanscs161@gmail.com"
-    }, {
-      "id": "7c2ea803-babd-4bc3-aca0-2fa35f46bbad",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.Toastify__toast-body",
-      "targets": [],
-      "value": "Email and password is required"
     }]
   }, {
     "id": "0e4c81d4-445e-40bd-b630-25478a6d821c",
@@ -506,7 +281,7 @@
       "id": "8700fe65-ce6b-40d1-884e-87a5be4ffd32",
       "comment": "",
       "command": "open",
-      "target": "https://gotaspotcoolbeans.herokuapp.com/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -535,12 +310,12 @@
       "id": "41b2f375-5f83-45be-bc89-5050aa05c461",
       "comment": "",
       "command": "type",
-      "target": "css=form:nth-child(2) > .form-control",
+      "target": "css=.form-control:nth-child(2)",
       "targets": [
-        ["css=form:nth-child(2) > .form-control", "css:finder"],
-        ["xpath=//input[@value='coolbeanscs161@gmail.com']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div[2]/div/div/form/input", "xpath:idRelative"],
-        ["xpath=//div/form/input", "xpath:position"]
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[3]/div/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
       ],
       "value": "coolbeanscs161@gmail.com"
     }, {
@@ -577,7 +352,7 @@
       "id": "84abe332-503f-4f31-9ac4-dacf66ad5d8c",
       "comment": "",
       "command": "open",
-      "target": "https://mail.google.com",
+      "target": "https://mail.google.com/mail/u/1/#inbox",
       "targets": [],
       "value": ""
     }, {
@@ -593,17 +368,6 @@
         ["xpath=//td[5]/div/div/span", "xpath:position"]
       ],
       "value": "3000"
-    }, {
-      "id": "2f4e35ec-9e75-4ecc-bb7f-a547bd9a0370",
-      "comment": "",
-      "command": "verifyText",
-      "target": "xpath=//td[5]/div/div/div[2]/span/span",
-      "targets": [
-        ["css=#\\3A 2m > .bqe", "css:finder"],
-        ["xpath=//span[@id=':2m']/span", "xpath:idRelative"],
-        ["xpath=//td[5]/div/div/div[2]/span/span", "xpath:position"]
-      ],
-      "value": "Sign in to project-729909354145"
     }, {
       "id": "a4e8c7fb-2230-456a-b6c7-887d07d58df1",
       "comment": "",
@@ -654,7 +418,7 @@
         ["xpath=//div[@id='root']/div[2]/div/div/form/input", "xpath:idRelative"],
         ["xpath=//div/form/input", "xpath:position"]
       ],
-      "value": "Test User"
+      "value": "Test Admin"
     }, {
       "id": "48ab0eea-2913-4164-bb15-c7f5b25023c2",
       "comment": "",
@@ -742,39 +506,6 @@
       "target": "css=.form-control:nth-child(4)",
       "targets": [],
       "value": "1234 Tully Rd."
-    }, {
-      "id": "52eb8621-ff2b-4053-9bac-0bc73d2a1a77",
-      "comment": "",
-      "command": "mouseOver",
-      "target": "css=.float-right > .ant-menu-submenu-title",
-      "targets": [
-        ["css=.float-right > .ant-menu-submenu-title", "css:finder"],
-        ["xpath=//div[@id='root']/ul/li[8]/div", "xpath:idRelative"],
-        ["xpath=//li[8]/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "bb295f0f-baf5-4ea9-93e7-748b20561f02",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Dashboard",
-      "targets": [
-        ["linkText=Dashboard", "linkText"],
-        ["css=.ant-menu-item > a", "css:finder"],
-        ["xpath=//a[contains(text(),'Dashboard')]", "xpath:link"],
-        ["xpath=//ul[@id='SubMenu$Menu']/li/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/user/history')]", "xpath:href"],
-        ["xpath=//div[2]/div/div/ul/li/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Dashboard')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "3dc05111-1fa0-40e9-9000-a744c73cc481",
-      "comment": "",
-      "command": "assertText",
-      "target": "css=h4",
-      "targets": [],
-      "value": "Admin Dashboard"
     }]
   }, {
     "id": "9c055c7f-0201-4e8d-88ed-768eca1902b5",
@@ -783,7 +514,7 @@
       "id": "ba48a7ff-f04f-4335-a630-f49a8e0f76b0",
       "comment": "",
       "command": "open",
-      "target": "https://gotaspotcoolbeans.herokuapp.com/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -864,7 +595,7 @@
       "id": "f632a420-c94c-4a84-b272-2ba0053f172d",
       "comment": "",
       "command": "open",
-      "target": "https://gotaspotcoolbeans.herokuapp.com/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -897,173 +628,41 @@
       "targets": [],
       "value": "1800"
     }, {
-      "id": "f8d08279-bea3-4596-9ff7-7d48ec0d76dc",
-      "comment": "",
-      "command": "verifyElementPresent",
-      "target": "css=.col-md-4:nth-child(3)",
-      "targets": [
-        ["css=.col-md-4:nth-child(3)", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div[3]", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div[3]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "cc5fb738-07bd-4383-bba2-b7cd2501abf2",
       "comment": "",
       "command": "click",
-      "target": "css=div:nth-child(4) .ant-checkbox-input",
+      "target": "xpath=(//input[@name='category'])[2]",
       "targets": [
-        ["css=div:nth-child(4) .ant-checkbox-input", "css:finder"],
-        ["xpath=(//input[@name='category'])[4]", "xpath:attributes"],
-        ["xpath=//ul[@id='2$Menu']/div/div[4]/label/span/input", "xpath:idRelative"],
-        ["xpath=//div[4]/label/span/input", "xpath:position"]
+        ["css=.ant-checkbox-checked > .ant-checkbox-input", "css:finder"],
+        ["xpath=(//input[@name='category'])[2]", "xpath:attributes"],
+        ["xpath=//ul[@id='2$Menu']/div/div[2]/label/span/input", "xpath:idRelative"],
+        ["xpath=//div[2]/label/span/input", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "78d8de2a-7d7b-4576-8c19-fc4576762a88",
-      "comment": "",
-      "command": "waitForElementNotPresent",
-      "target": "css=.col-md-4:nth-child(3)",
-      "targets": [
-        ["css=.col-md-4:nth-child(4) .p-1", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div[4]/div/div/img", "xpath:idRelative"],
-        ["xpath=//div[4]/div/div/img", "xpath:position"]
-      ],
-      "value": "1800"
-    }, {
-      "id": "db777470-16fd-4dfa-85eb-dd098a16b113",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.col-md-4:nth-child(1) .ant-card-meta-title",
-      "targets": [
-        ["css=.col-md-4:nth-child(1) .ant-card-meta-title", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
-      ],
-      "value": "Japanese Tea Garden - $30"
-    }, {
-      "id": "cf4051df-dfbd-4f51-84bd-c331a9a47234",
+      "id": "0005a195-4c55-4c25-bd03-c6cd6cd3e007",
       "comment": "",
       "command": "click",
-      "target": "css=div:nth-child(6) .ant-checkbox-input",
+      "target": "name=Entertaining",
       "targets": [
-        ["css=div:nth-child(6) .ant-checkbox-input", "css:finder"],
-        ["xpath=(//input[@name='category'])[6]", "xpath:attributes"],
-        ["xpath=//ul[@id='2$Menu']/div/div[6]/label/span/input", "xpath:idRelative"],
-        ["xpath=//div[6]/label/span/input", "xpath:position"]
+        ["name=Entertaining", "name"],
+        ["css=.ant-radio-wrapper-checked:nth-child(4) .ant-radio-input", "css:finder"],
+        ["xpath=//input[@name='Entertaining']", "xpath:attributes"],
+        ["xpath=//ul[@id='5$Menu']/div/label[4]/span/input", "xpath:idRelative"],
+        ["xpath=//label[4]/span/input", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "7fce08db-3985-49fc-8fb6-2f2f4d07607c",
-      "comment": "",
-      "command": "waitForElementPresent",
-      "target": "css=.col-md-4:nth-child(2)",
-      "targets": [],
-      "value": "1800"
-    }, {
-      "id": "c46abd56-678d-4102-8bdf-10f9aa8bdd8c",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.col-md-4:nth-child(2) .ant-card-meta-title",
-      "targets": [
-        ["css=.col-md-4:nth-child(2) .ant-card-meta-title", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div", "xpath:position"]
-      ],
-      "value": "Bintang Badminton Courts - $5"
-    }, {
-      "id": "8080c7ca-8d17-4f41-ba22-71b8b799f44e",
-      "comment": "",
-      "command": "click",
-      "target": "name=Visiting",
-      "targets": [
-        ["css=#\\35\\$Menu .ant-radio-wrapper:nth-child(2)", "css:finder"],
-        ["xpath=//ul[@id='5$Menu']/div/label[2]", "xpath:idRelative"],
-        ["xpath=//label[2]", "xpath:position"],
-        ["xpath=//label[contains(.,'Visiting')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "44982a63-8bfe-4197-a6c9-c84302450b55",
-      "comment": "",
-      "command": "waitForElementPresent",
-      "target": "css=.col-md-4:nth-child(3)",
-      "targets": [],
-      "value": "1800"
-    }, {
-      "id": "53b2b428-f17a-41e0-9de9-b33302487beb",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.col-md-4:nth-child(1) .ant-card-meta-title",
-      "targets": [
-        ["css=.col-md-4:nth-child(1) .ant-card-meta-title", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
-      ],
-      "value": "Japanese Tea Garden - $30"
-    }, {
-      "id": "a15597bc-01ae-4535-b939-c671be2fb822",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.col-md-4:nth-child(2) .ant-card-meta-title",
-      "targets": [],
-      "value": "Golden Gate Bridge - $2"
-    }, {
-      "id": "151a35ba-4c32-417f-a8fe-933493a8e278",
+      "id": "69f198d8-9a13-4394-a73d-fd6b8bd15f28",
       "comment": "",
       "command": "click",
       "target": "name=Spring",
       "targets": [
-        ["name=Whole Year", "name"],
-        ["css=#\\36\\$Menu .ant-radio-wrapper:nth-child(5) .ant-radio-input", "css:finder"],
-        ["xpath=//input[@name='Whole Year']", "xpath:attributes"],
-        ["xpath=//ul[@id='6$Menu']/div/label[5]/span/input", "xpath:idRelative"],
-        ["xpath=//li[6]/ul/div/label[5]/span/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "fb6ba01a-05d5-41e7-b30a-44fa9864b632",
-      "comment": "",
-      "command": "waitForElementNotPresent",
-      "target": "css=.col-md-4:nth-child(3)",
-      "targets": [
-        ["css=.ant-card-cover > .p-1", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div/img", "xpath:idRelative"],
-        ["xpath=//div/div/div/img", "xpath:position"]
-      ],
-      "value": "1800"
-    }, {
-      "id": "acff6531-f66d-4ca0-b135-10e48fb459ca",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.col-md-4:nth-child(1) .ant-card-meta-title",
-      "targets": [
-        ["css=.col-md-4:nth-child(1) .ant-card-meta-title", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
-      ],
-      "value": "Japanese Tea Garden - $30"
-    }, {
-      "id": "7c541e95-2bec-42ee-9a77-88c4e2c0370d",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.col-md-4:nth-child(2) .ant-card-meta-title",
-      "targets": [
-        ["css=.col-md-4:nth-child(2) .ant-card-meta-title", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div[2]/div/div[2]/div/div[2]/div/div/div", "xpath:position"]
-      ],
-      "value": "Rose Garden - $5"
-    }, {
-      "id": "98b1e991-8bcc-4e58-bc65-d679d2ebdfbb",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=//input[@value='Yes']",
-      "targets": [
-        ["css=.pr-5 > .pt-2 .ant-checkbox-input", "css:finder"],
-        ["xpath=//input[@value='Yes']", "xpath:attributes"],
-        ["xpath=//ul[@id='7$Menu']/div/label/span/input", "xpath:idRelative"],
-        ["xpath=//li[7]/ul/div/label/span/input", "xpath:position"]
+        ["name=Spring", "name"],
+        ["css=.ant-radio-wrapper-checked:nth-child(1) .ant-radio-input", "css:finder"],
+        ["xpath=//input[@name='Spring']", "xpath:attributes"],
+        ["xpath=//ul[@id='6$Menu']/div/label/span/input", "xpath:idRelative"],
+        ["xpath=//li[6]/ul/div/label/span/input", "xpath:position"]
       ],
       "value": ""
     }, {
@@ -1086,22 +685,35 @@
       ],
       "value": "No products found"
     }, {
-      "id": "65408c7e-9bcb-4e4a-8f9c-27e7bcc4f46b",
+      "id": "151a35ba-4c32-417f-a8fe-933493a8e278",
       "comment": "",
       "command": "click",
-      "target": "xpath=//input[@value='No']",
+      "target": "name=Whole Year",
       "targets": [
-        ["css=.ant-checkbox-checked > .ant-checkbox-input", "css:finder"],
-        ["xpath=//input[@value='No']", "xpath:attributes"],
-        ["xpath=//ul[@id='7$Menu']/div/label[2]/span/input", "xpath:idRelative"],
-        ["xpath=//li[7]/ul/div/label[2]/span/input", "xpath:position"]
+        ["name=Whole Year", "name"],
+        ["css=#\\36\\$Menu .ant-radio-wrapper:nth-child(5) .ant-radio-input", "css:finder"],
+        ["xpath=//input[@name='Whole Year']", "xpath:attributes"],
+        ["xpath=//ul[@id='6$Menu']/div/label[5]/span/input", "xpath:idRelative"],
+        ["xpath=//li[6]/ul/div/label[5]/span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "98b1e991-8bcc-4e58-bc65-d679d2ebdfbb",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//input[@value='Yes']",
+      "targets": [
+        ["css=.pr-5 > .pt-2 .ant-checkbox-input", "css:finder"],
+        ["xpath=//input[@value='Yes']", "xpath:attributes"],
+        ["xpath=//ul[@id='7$Menu']/div/label/span/input", "xpath:idRelative"],
+        ["xpath=//li[7]/ul/div/label/span/input", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "c10f7608-560a-49a7-9c86-c4760f454bd8",
       "comment": "",
       "command": "waitForElementPresent",
-      "target": "css=.col-md-4:nth-child(2)",
+      "target": "css=.col-md-4:nth-child(1)",
       "targets": [],
       "value": "1800"
     }, {
@@ -1114,18 +726,41 @@
         ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
       ],
-      "value": "Japanese Tea Garden - $30"
+      "value": "Hawaii - $70"
     }, {
       "id": "a308949d-23d7-4a46-ad0a-82af816a1650",
       "comment": "",
-      "command": "verifyText",
+      "command": "verifyElementNotPresent",
       "target": "css=.col-md-4:nth-child(2) .ant-card-meta-title",
       "targets": [
         ["css=.col-md-4:nth-child(1) .ant-card-meta-title", "css:finder"],
         ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
       ],
-      "value": "Rose Garden - $5"
+      "value": ""
+    }, {
+      "id": "73d76f51-6703-41df-82e0-1c666e9c47ea",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-raised",
+      "targets": [
+        ["css=.btn-raised", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[3]/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4cf44e2a-be69-416a-932c-a7221d6a0fed",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.col-md-4:nth-child(1) .ant-card-meta-title",
+      "targets": [
+        ["css=.col-md-4:nth-child(1) .ant-card-meta-title", "css:finder"],
+        ["xpath=//div[@id='root']/div[3]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "Movie - $15"
     }, {
       "id": "da3ef527-d454-4aa9-86b4-c14db7ef70cd",
       "comment": "",
@@ -1154,7 +789,7 @@
       "command": "mouseDownAt",
       "target": "css=.ant-slider-step",
       "targets": [],
-      "value": "5,9"
+      "value": "10,9"
     }, {
       "id": "85c17e13-1828-4520-93d7-65a88f7e81e1",
       "comment": "",
@@ -1176,60 +811,7 @@
         ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
       ],
-      "value": "Japanese Tea Garden - $30"
-    }, {
-      "id": "d06fca10-ef5a-4552-95be-364813343846",
-      "comment": "",
-      "command": "type",
-      "target": "css=.form-control",
-      "targets": [
-        ["css=.form-control", "css:finder"],
-        ["xpath=//input[@value='rose']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/ul/span/form/input", "xpath:idRelative"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "tea"
-    }, {
-      "id": "ce739c90-71cc-42aa-a0b8-41c2d5c8f4b5",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.col-md-4:nth-child(1) .ant-card-meta-title",
-      "targets": [
-        ["css=.col-md-4:nth-child(1) .ant-card-meta-title", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div/div/div[2]/div/div/div", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div/div/div[2]/div/div/div", "xpath:position"]
-      ],
-      "value": "Japanese Tea Garden - $30"
-    }, {
-      "id": "1bd6a78d-c4f4-45ec-b805-7e9c507e6d3c",
-      "comment": "",
-      "command": "click",
-      "target": "css=.btn-raised",
-      "targets": [
-        ["css=.btn-raised", "css:finder"],
-        ["xpath=//button[@type='button']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div[2]/div/div/button", "xpath:idRelative"],
-        ["xpath=//button", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "1dd1d1e2-db54-4781-8acd-91cf695cfc2e",
-      "comment": "",
-      "command": "waitForElementPresent",
-      "target": "css=.col-md-4:nth-child(2)",
-      "targets": [],
-      "value": "1800"
-    }, {
-      "id": "44181ab7-66be-4fda-a75e-04519984df5e",
-      "comment": "",
-      "command": "verifyElementPresent",
-      "target": "css=.col-md-4:nth-child(6)",
-      "targets": [
-        ["css=.col-md-4:nth-child(6) .ant-card-meta-title", "css:finder"],
-        ["xpath=//div[@id='root']/div[2]/div/div[2]/div/div[6]/div/div[2]/div/div/div", "xpath:idRelative"],
-        ["xpath=//div[6]/div/div[2]/div/div/div", "xpath:position"]
-      ],
-      "value": ""
+      "value": "Bali - $49.99"
     }]
   }, {
     "id": "23ac959a-6e80-4e58-8a9e-487a1b5512e4",
@@ -1238,7 +820,7 @@
       "id": "91d998b9-064c-4b1d-a6cc-ff45eeb352e5",
       "comment": "",
       "command": "open",
-      "target": "https://gotaspotcoolbeans.herokuapp.com/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -1485,7 +1067,7 @@
       "id": "cc9bdb85-fe6c-4c54-b8f0-551e414ae45e",
       "comment": "",
       "command": "open",
-      "target": "https://gotaspotcoolbeans.herokuapp.com/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -1819,6 +1401,281 @@
         ["xpath=//span[7]", "xpath:position"]
       ],
       "value": "STATUS: NOT PROCESSED"
+    }]
+  }, {
+    "id": "9c7ef181-26d4-46eb-9428-1ea74eddf407",
+    "name": "Forgot Password",
+    "commands": [{
+      "id": "4b24c86e-f0bb-42cb-b145-58add7fa1866",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d258b094-fd3e-4971-9f7a-9cc45a7c4c3f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1160",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4dc437f4-e369-4a35-a5fd-955a62094269",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=.ant-menu-item-active a", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//div[@id='root']/ul/li[4]/span[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/login')]", "xpath:href"],
+        ["xpath=//li[4]/span[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "37d11b1a-f727-41ac-986e-d324054dee92",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Forgot Password ?",
+      "targets": [
+        ["linkText=Forgot Password ?", "linkText"],
+        ["css=.col-md-6 > .float-right", "css:finder"],
+        ["xpath=//a[contains(text(),'Forgot Password ?')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[3]/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/forgot/password')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Forgot Password ?')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "995b94fa-63b7-492b-9aa5-dbc04ce26b42",
+      "comment": "",
+      "command": "type",
+      "target": "css=form:nth-child(2) > .form-control",
+      "targets": [
+        ["css=form:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@value='coolbeanscs161@gmail.com']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[3]/form/input", "xpath:idRelative"],
+        ["xpath=//div[3]/form/input", "xpath:position"]
+      ],
+      "value": "coolbeanscs161@gmail.com"
+    }, {
+      "id": "5d543b71-4144-4eba-b83c-854fe0bc7fad",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-raised",
+      "targets": [
+        ["css=.btn-raised", "css:finder"],
+        ["xpath=//button[@type='danger']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[3]/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9927eed2-5caf-40a3-816d-d4976ed04966",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.Toastify__toast-body",
+      "targets": [],
+      "value": "Check your email for password reset link"
+    }, {
+      "id": "6d329df0-00af-4530-91e0-15dbe2ae1010",
+      "comment": "",
+      "command": "open",
+      "target": "https://mail.google.com/mail/u/1/#inbox",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "91c9fbff-4a8c-4841-9487-a14d9ff6968c",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//td[5]/div/div/span",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2cc50cbe-6c43-473f-828b-e9db5380dafd",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//td[5]/div/div/div[2]/span/span",
+      "targets": [],
+      "value": "Sign in to project-729909354145"
+    }, {
+      "id": "0f00c4cd-e039-42a4-a6d2-f12984c6e05a",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[3]/div/table/tbody/tr",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f686dccd-efea-4870-a9c4-74350c66d61e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=https://tall-tail-travel.firebaseapp.com/__/auth/action?apiKey=AIzaSyDIwBv923LImaGHfxHdCiWOx17V_KEmvE4&mode=resetPassword&oobCode=NDJOYDFKHC5fDKaH_VQWGFO9ubYBj6MnyMFNc5lAgGoAAAF5Sahv-g&continueUrl=https://gotaspotcoolbeans.herokuapp.com/login&lang=en",
+      "targets": [
+        ["linkText=https://tall-tail-travel.firebaseapp.com/__/auth/action?apiKey=AIzaSyDIwBv923LImaGHfxHdCiWOx17V_KEmvE4&mode=resetPassword&oobCode=NDJOYDFKHC5fDKaH_VQWGFO9ubYBj6MnyMFNc5lAgGoAAAF5Sahv-g&continueUrl=https://gotaspotcoolbeans.herokuapp.com/login&lang=en", "linkText"],
+        ["css=p:nth-child(3) > a", "css:finder"],
+        ["xpath=//div[@id=':n6']/p[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://tall-tail-travel.firebaseapp.com/__/auth/action?apiKey=AIzaSyDIwBv923LImaGHfxHdCiWOx17V_KEmvE4&mode=resetPassword&oobCode=NDJOYDFKHC5fDKaH_VQWGFO9ubYBj6MnyMFNc5lAgGoAAAF5Sahv-g&continueUrl=https://gotaspotcoolbeans.herokuapp.com/login&lang=en')]", "xpath:href"],
+        ["xpath=//p[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'https://tall-tail-travel.firebaseapp.com/__/auth/action?apiKey=AIzaSyDIwBv923LImaGHfxHdCiWOx17V_KEmvE4&mode=resetPassword&oobCode=NDJOYDFKHC5fDKaH_VQWGFO9ubYBj6MnyMFNc5lAgGoAAAF5Sahv-g&continueUrl=https://gotaspotcoolbeans.herokuapp.com/login&lang=en')]", "xpath:innerText"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win5576",
+      "windowTimeout": 2000
+    }, {
+      "id": "be848bdf-f7fa-4857-90d0-318b419ed41e",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win5576}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "59ec7dae-6d17-4848-b9df-14f270d5b7d8",
+      "comment": "",
+      "command": "type",
+      "target": "name=newPassword",
+      "targets": [
+        ["name=newPassword", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='newPassword']", "xpath:attributes"],
+        ["xpath=//div[@id='actionElement']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1234567"
+    }, {
+      "id": "36b175a8-ec3f-4e26-ad57-608481934b16",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='actionElement']/div/form/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f86a010c-56d4-4876-92dc-e95c9f78ca21",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='actionElement']/div/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d53cf8c5-fe55-4089-a0ff-48de36b7c5bf",
+      "comment": "",
+      "command": "type",
+      "target": "css=.form-group:nth-child(1) > .form-control",
+      "targets": [
+        ["css=.form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@value='coolbeanscs161@gmail.com']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[3]/div/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "coolbeanscs161@gmail.com"
+    }, {
+      "id": "1a835a43-7fc7-4381-bcc6-846c7bb53409",
+      "comment": "",
+      "command": "type",
+      "target": "css=.form-group:nth-child(2) > .form-control",
+      "targets": [
+        ["css=.form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@value='1234567']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[3]/div/div/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "1234567"
+    }, {
+      "id": "4d88a942-0b22-41ec-ae9b-472e49309cc0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ant-btn-primary",
+      "targets": [
+        ["css=.ant-btn-primary", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[3]/div/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login with Email/Password')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e7f20bcd-6714-40e1-8d40-87a38fac01cc",
+    "name": "Change Password",
+    "commands": [{
+      "id": "d22a4489-8f93-453a-a9fc-ab6d18147402",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "21f5bfcf-8511-4883-959d-d6142b4a1a4b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-item:nth-child(2) > .nav-link",
+      "targets": [
+        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Password')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[3]/div/div/nav/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/user/password')]", "xpath:href"],
+        ["xpath=//nav/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8bb4410d-cab4-4362-be6e-e8d5546e7800",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-control:nth-child(2)",
+      "targets": [
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[3]/div/div[2]/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a39e504f-421f-4406-ae92-aec0807183fb",
+      "comment": "",
+      "command": "type",
+      "target": "css=.form-control:nth-child(2)",
+      "targets": [
+        ["css=.form-control:nth-child(2)", "css:finder"],
+        ["xpath=//input[@value='1234567']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[3]/div/div[2]/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "1234567"
+    }, {
+      "id": "17d0e009-6b3b-449e-bee9-ccb191bf7fcf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//div[@id='root']/div[3]/div/div[2]/form/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8cb81e52-a027-4a99-ad57-79d8e06133ff",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.Toastify__toast-body",
+      "targets": [
+        ["css=.Toastify__toast-body", "css:finder"],
+        ["xpath=//div[@id='645zif0h9']/div", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div/div", "xpath:position"]
+      ],
+      "value": "Password updated"
     }]
   }],
   "suites": [{
