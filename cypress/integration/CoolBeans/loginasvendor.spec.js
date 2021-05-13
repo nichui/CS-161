@@ -1,15 +1,10 @@
 describe('Testing login page as a vendor', function()
 {
-    /*beforeEach(function(){
-		cy.visit('http://localhost:3000/')
-	})*/
-
     it('User enters the wrong credential', function()
     {
-        cy.visit('http://localhost:3000/')
-        //cy.wait(10000)
+        cy.visit('https://gotaspotcoolbeans.herokuapp.com/')
         cy.get('a[href="/login"]').click()
-        cy.url().should('include', 'login') //verify URL should include localhost:3000/login
+        cy.url().should('include', 'login') 
         //Fill the email 
         cy.get('input[type="email"]').clear().type('coolbeans@gmail.com')
 
@@ -22,10 +17,6 @@ describe('Testing login page as a vendor', function()
 
     it('Verify logging in successful', function()
     {
-        //cy.visit('http://localhost:3000/')
-        //cy.wait(10000)
-        //cy.get('a[href="/login"]').click()
-        //cy.url().should('include', 'login') //verify URL should include localhost:3000/login
         //Fill the email 
         cy.get('input[type="email"]').clear().type('coolbeanscs161@gmail.com')
 
@@ -37,14 +28,13 @@ describe('Testing login page as a vendor', function()
     })
 
     it("Once logging in, should check to login successfully", function(){
-        //cy.wait(5000)
-        cy.get('ul').contains('coolbeanscs161', {timeout:10000})
+        cy.get('ul').contains('Test Admin', {timeout:10000})
         cy.get('h4').should('contain', 'Admin Dashboard')
         cy.url().should('include', 'admin/dashboard')
     })
 
     it("Logout Successful", function(){
-        cy.get('.ant-menu-submenu-title').contains('coolbeanscs161').trigger('mouseover')
+        cy.get('.ant-menu-submenu-title').contains('Test Admin').trigger('mouseover')
         cy.contains('Logout').click()
     })
 })
