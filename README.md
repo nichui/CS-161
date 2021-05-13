@@ -60,4 +60,6 @@ MongoDB Compass can be downloaded at https://www.mongodb.com/products/compass.
 Set up Connection Security and connect to MongoDB Compass with the connection string. 
 To deploy a new cluster, check out this external link to the MongoDB Cloud documentation: https://docs.atlas.mongodb.com/tutorial/deploy-free-tier-cluster/#procedure.
 
-This includes all the set up for development environment, backend, and testing. 
+This includes all the set up for development environment, backend, and testing.
+
+Other tools we use are Robo3t and Postman for backend testing, which can also be downloaded and setup by connecting to the MongoDB cluster.
