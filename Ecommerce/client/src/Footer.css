@@ -3,14 +3,13 @@
     font-size: xx-large;
 }
 
-ul{
+.footer ul{
 
     overflow:hidden;
 }
-li{
+.footer li{
     display:inline-block;
     margin-left: 20px;
-
 }
 
 .footer{
@@ -40,9 +39,7 @@ li{
     color: white;
 }
 
-ul .wordUL{
-    margin-bottom: 20px;
-}
+
 
 .link {
     color: white;
